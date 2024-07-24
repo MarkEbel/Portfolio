@@ -1,0 +1,60 @@
+/* src/Navbar.css */
+
+/* Define CSS variables for the navbar */
+:root {
+  --navbar-bg-color: #242424;
+  --navbar-text-color: white;
+  --navbar-hover-bg-color: #ddd;
+  --navbar-hover-text-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --navbar-bg-color: #4a8a6a; /* Adjust as needed */
+    --navbar-text-color: white;
+    --navbar-hover-bg-color: #9cb1a9; /* Adjust as needed */
+    --navbar-hover-text-color: white; /* Adjust as needed */
+  }
+}
+
+.navbar {
+  background-color: var(--navbar-bg-color);
+  color: var(--navbar-text-color);
+  overflow: hidden;
+  width: 90%;
+  display: flex;
+  justify-content: space-between; /* Distribute space between name and nav links */
+  align-items: center; /* Align items vertically */
+  padding: 0 20px; /* Add padding to the left and right */
+}
+
+.navbar .navbar-name {
+  color: var(--navbar-text-color);
+  font-size: 1.5em; /* Adjust the font size as needed */
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li a {
+  display: block;
+  color: var(--navbar-text-color);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: var(--navbar-hover-bg-color);
+  color: var(--navbar-hover-text-color);
+}
+
+.navbar .active {
+  background-color: #0ed60e; /* Active link background */
+  color: white; /* Active link text color */
+}

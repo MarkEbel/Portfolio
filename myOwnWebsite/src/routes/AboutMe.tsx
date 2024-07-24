@@ -1,9 +1,9 @@
 //import '/src/css/Navbar.css';
 
-const HireMe = () => {
+const AboutMe = () => {
   return (
     <div>This is a test hire me</div>
   );
 };
 
-export default HireMe;
+export default AboutMe;

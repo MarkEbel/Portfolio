@@ -1,7 +1,7 @@
 import reactLogo from '/src/assets/react.svg'
 import myFace from '/Face.jpg'
 import '/src/css/App.css'
-import Navbar from '/src/routes/Navbar';
+import Navbar from './Navbar';
 import { Outlet } from 'react-router-dom';
 
 
@@ -19,7 +19,7 @@ export default function Root() {
           </a>
         </div>
         <h1>Welcome to my page!</h1>
-        <p>This is a work in progress!</p>
+        <p>( This is a work in progress! )</p>
         
       <div style={{ padding: '20px' }}>
         <Outlet />

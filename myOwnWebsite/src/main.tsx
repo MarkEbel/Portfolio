@@ -7,12 +7,10 @@ import {
 import './css/index.css'
 import Root from "./routes/root";
 import ErrorPage from "./routes/error-page";
-import HireMe from './routes/HireMe';
+import AboutMe from './routes/AboutMe';
+import Blog from './routes/Blog';
+import SalaryHistory from './routes/SalaryHistory';
 
-
-
-const Blog = () => <h2>Services</h2>;
-const SalaryHistory = () => <h2>Contact</h2>;
 const router = createBrowserRouter(
   [{
     path: "/resume",
@@ -20,8 +18,8 @@ const router = createBrowserRouter(
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "HireMe",
-        element: <HireMe />,
+        path: "AboutMe",
+        element: <AboutMe />,
       },
       {
         path: "Blog",

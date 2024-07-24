@@ -1,15 +1,43 @@
+/* src/css/index.css */
 :root {
+  --background-color: #242424;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --navbar-bg-color: #28b870;
+  --navbar-text-color: white;
+  --navbar-hover-bg-color: #ddd;
+  --navbar-hover-text-color: black;
+}
+
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #213547;
+  --navbar-bg-color: white;
+  --navbar-text-color: black;
+  --navbar-hover-bg-color: #535bf2;
+  --navbar-hover-text-color: white;
+}
+
+.dark-mode {
+  
+  --background-color: #242424;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --navbar-bg-color: #242424;
+  --navbar-text-color: white;
+  --navbar-hover-bg-color: #ddd;
+  --navbar-hover-text-color: black;
+}
+
+body {
+  margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  place-items: center;
 }
 
 a {
@@ -19,11 +47,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  place-items: center;
 }
 
 h1 {
@@ -48,17 +71,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

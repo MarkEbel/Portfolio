@@ -10,6 +10,7 @@ import ErrorPage from "./routes/error-page";
 import AboutMe from './routes/AboutMe';
 import Blog from './routes/Blog';
 import SalaryHistory from './routes/SalaryHistory';
+import { ThemeProvider } from './ThemeContext';
 
 const router = createBrowserRouter(
   [{
@@ -36,7 +37,9 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-  <RouterProvider router={router} />
+  <ThemeProvider>
+    <RouterProvider router={router} />
+  </ThemeProvider>
   </React.StrictMode>,
 )
 

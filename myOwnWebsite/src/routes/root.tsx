@@ -1,13 +1,21 @@
 import reactLogo from '/src/assets/react.svg'
 import myFace from '/Face.jpg'
 import '/src/css/App.css'
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useTheme } from '../ThemeContext';
 
 
-export default function Root() {
-    return (
-        <>
+const Root = () => {
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    document.body.className = theme === 'dark' ? 'dark-mode' : 'light-mode';
+  }, [theme]);
+
+  return (
+    <>
         <Navbar />
 
         <div>
@@ -25,5 +33,7 @@ export default function Root() {
         <Outlet />
       </div>
       </>
-    );
-  }
+  );
+};
+
+export default Root;

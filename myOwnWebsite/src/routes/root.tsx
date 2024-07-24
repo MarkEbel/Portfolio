@@ -3,7 +3,7 @@ import myFace from '/Face.jpg'
 import '/src/css/App.css'
 import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTheme } from '../ThemeContext';
 
 

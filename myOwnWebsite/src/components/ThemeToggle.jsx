@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../ThemeContext';
 import './ThemeToggle.css';

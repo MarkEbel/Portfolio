@@ -27,29 +27,32 @@
   align-items: center; /* Align items vertically */
   padding: 0 20px; /* Add padding to the left and right */
 }
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
 
-.navbar .navbar-name {
+.navbar-name {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
   color: var(--navbar-text-color);
-  font-size: 1.5em; /* Adjust the font size as needed */
   font-weight: bold;
 }
 
-.navbar ul {
+.navbar-links {
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
-.navbar li a {
-  display: block;
+.navbar-links li a {
   color: var(--navbar-text-color);
-  text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  padding: 14px 16px;
 }
 
-.navbar li a:hover {
+.navbar-links li a:hover {
   background-color: var(--navbar-hover-bg-color);
   color: var(--navbar-hover-text-color);
 }

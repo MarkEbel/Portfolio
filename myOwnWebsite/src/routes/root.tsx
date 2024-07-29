@@ -2,6 +2,7 @@ import reactLogo from '/src/assets/react.svg'
 import myFace from '/Face.jpg'
 import '/src/css/App.css'
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useTheme } from '../ThemeContext';
@@ -29,9 +30,13 @@ const Root = () => {
         <h1>Welcome to my page!</h1>
         <p>( This is a work in progress! )</p>
         
-      <div style={{ padding: '20px' }}>
-        <Outlet />
-      </div>
+
+        <div className="root-layout">
+          <main>
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
       </>
   );
 };

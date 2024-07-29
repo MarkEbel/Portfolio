@@ -31,3 +31,23 @@
   }
 }
 
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.root-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 60px; /* Height of the footer */
+}
+
+

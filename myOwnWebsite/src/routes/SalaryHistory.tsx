@@ -4,9 +4,9 @@ import '/src/css/SalaryHistory.css';
 const SalaryHistory: React.FC = () => {
   const salaryData = [
     { date: '2024-01-01', amount: '£45,250', description: 'Annual Salary Reviewed' },
-    { date: '2023-04-01', amount: '£1316.25', description: 'Christmas Bonus' },
+    { date: '2023-12-25', amount: '£1316.25', description: 'Christmas Bonus' },
     { date: '2023-02-22', amount: '£39,000', description: 'Salary Increase - Probation Finished'},
-    { date: '2022-08-22', amount: '£708', description: 'Christmas Bonus' },
+    { date: '2022-12-25', amount: '£708', description: 'Christmas Bonus' },
     { date: '2022-08-22', amount: '£37,500', description: 'Starting Salary'},
     // Add more data as needed
   ];

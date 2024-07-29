@@ -1,0 +1,33 @@
+.salary-history {
+    padding: 20px;
+  }
+  
+  .salary-history h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .salary-history table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+  
+  .salary-history th,
+  .salary-history td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  
+  .salary-history th {
+    background-color: var(--navbar-bg-color);
+    color: var(--navbar-text-color);
+  }
+  
+  .salary-history tr:hover {
+    background-color: var(--navbar-hover-bg-color);
+    color: var(--navbar-hover-text-color);
+  }
+  

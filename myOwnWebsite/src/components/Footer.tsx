@@ -5,7 +5,6 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>&copy; 2024 Mark Ebel. All rights reserved.</p>
         <div className="footer-links">
           <a href="/resume">Home</a>
           <a href="/resume/HireMe">Hire Me</a>
@@ -14,6 +13,7 @@ const Footer: React.FC = () => {
           <a href="https://www.linkedin.com/in/mark-ebel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/MarkEbel" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
+        <p>&copy; 2024 Mark Ebel. All rights reserved.</p>
       </div>
     </footer>
   );

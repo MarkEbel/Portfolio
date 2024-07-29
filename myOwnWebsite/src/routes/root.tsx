@@ -1,5 +1,3 @@
-import reactLogo from '/src/assets/react.svg'
-import myFace from '/Face.jpg'
 import '/src/css/App.css'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -17,27 +15,14 @@ const Root = () => {
 
   return (
     <>
+      <div className="root-layout">
         <Navbar />
-
-        <div>
-          <a href="https://www.linkedin.com/in/mark-ebel/" target="_blank">
-            <img src={myFace} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <h1>Welcome to my page!</h1>
-        <p>( This is a work in progress! )</p>
-        
-
-        <div className="root-layout">
-          <main>
-            <Outlet />
-          </main>
-          <Footer />
-        </div>
-      </>
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
 

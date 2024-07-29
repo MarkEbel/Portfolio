@@ -9,6 +9,7 @@ import Root from "./routes/root";
 import ErrorPage from "./routes/error-page";
 import AboutMe from './routes/AboutMe';
 import Blog from './routes/Blog';
+import Home from './routes/Home';
 import SalaryHistory from './routes/SalaryHistory';
 import { ThemeProvider } from './ThemeContext';
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter(
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '',
+        element: <Home />,
+      },
       {
         path: "AboutMe",
         element: <AboutMe />,

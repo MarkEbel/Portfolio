@@ -1,7 +1,7 @@
+/* src/components/Footer.css */
 .footer {
     background-color: var(--navbar-bg-color);
     color: var(--text-color);
-    text-align: center;
     padding: 20px 0;
     margin-top: auto;
   }
@@ -10,24 +10,29 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-  }
-  
-  .footer p {
-    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
   }
   
   .footer-links {
-    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
   }
   
   .footer-links a {
     color: var(--text-color);
     text-decoration: none;
-    margin: 0 10px;
     transition: color 0.3s ease;
   }
   
   .footer-links a:hover {
     color: var(--navbar-hover-bg-color);
+  }
+  
+  .footer p {
+    margin: 0;
+    align-self: end;
   }
   

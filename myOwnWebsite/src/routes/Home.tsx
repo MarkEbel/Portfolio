@@ -3,14 +3,15 @@ import '/src/css/home.css'
 
 const Home = () => {
     return (
-      <div>
-        <div>
+      <div className='home'>
+        <div className="welcomeMessage">
+        <h1>Hi,</h1>
+        <h1>I'm <span className='myName'>Mark</span></h1>
+        <h1>A Software Developer!</h1>
+        </div>
+        <div className='logoContainer'>
           <img src={myFace} className="logo" alt="Vite logo" />
         </div>
-        <h1>Welcome to my page!</h1>
-          <p>
-            Please click around to discover more 
-          </p>
       </div>
     );
   };

@@ -9,4 +9,26 @@
 }
 
 
+.welcomeMessage {
+  padding: 2em;
+  width: 50%;
+  text-align: left;
+}
 
+
+.myName {
+  color: #646cffda;
+}
+
+.logoContainer {
+  width: 20%;
+  text-align: right;
+}
+
+.home {
+  width: 80%;
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  
+}

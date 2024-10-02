@@ -11,96 +11,83 @@ import redwoodTechLogo from '../assets/RedwoodTechLogo.png';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import TagFacesIcon from '@mui/icons-material/TagFaces';
-import './Timeline.css'
+import './Timeline.css'; // Import the new CSS file
 
 export default function CustomizedTimeline() {
   return (
-    <Timeline position="alternate">
+    <Timeline position="alternate" className="timeline">
       <TimelineItem>
         <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          align="right"
+          className="timelineOppositeContentLeft"
           variant="body2"
-          color="text.secondary"
         >
+          What's next?
         </TimelineOppositeContent>
         <TimelineSeparator>
-          <TimelineDot>
+          <TimelineDot variant='outlined'>
             <AddIcon />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
+        <TimelineContent className="timelineContent">
           <Typography variant="h6" component="span">
-            Hire me <TagFacesIcon/> (Or promote me!)
+            Hire me <TagFacesIcon /> (Or promote me!)
           </Typography>
-          <Typography> What could be next?</Typography>
+          <Typography> </Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          variant="body2"
-          color="text.secondary"
-        >
+        <TimelineOppositeContent className="timelineOppositeContentRight" variant="body2">
           August 2022
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector />
-          <TimelineDot color="primary">
-            <img src={redwoodTechLogo} className="companyLogo logo" />
+          <TimelineDot>
+            <img src={redwoodTechLogo} className="companyLogo logo" alt="Redwood Technologies Ltd" />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
+        <TimelineContent className="timelineContent">
           <Typography variant="h6" component="span">
-            Redwood Technologies Ltd
+            Software Developer
           </Typography>
-          <Typography>Software Developer</Typography>
+          <Typography>Redwood Technologies Ltd</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          variant="body2"
-          color="text.secondary"
-        >
+        <TimelineOppositeContent className="timelineOppositeContentLeft" variant="body2">
           September 2021
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector />
-          <TimelineDot color="primary" variant="outlined">
-            <img src={exeterLogo} className="companyLogo logo" />
+          <TimelineDot variant="outlined">
+            <img src={exeterLogo} className="companyLogo logo" alt="University of Exeter" />
           </TimelineDot>
-          <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
+          <TimelineConnector className="connectorSecondary" />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
+        <TimelineContent className="timelineContent">
           <Typography variant="h6" component="span">
-            University of Exeter
+            MSc in Data Science with AI
           </Typography>
-          <Typography>MSc in Data Science with Artifical Intelligence</Typography>
+          <Typography>University of Exeter</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          variant="body2"
-          color="text.secondary"
-        >
+        <TimelineOppositeContent className="timelineOppositeContentRight" variant="body2">
           September 2018
         </TimelineOppositeContent>
         <TimelineSeparator>
-          <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
-          <TimelineDot color="primary">
-            <img src={astonLogo} className="companyLogo logo" />
+          <TimelineConnector />
+          <TimelineDot>
+            <img src={astonLogo} className="companyLogo logo" alt="Aston University" />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
+        <TimelineContent className="timelineContent">
           <Typography variant="h6" component="span">
-            Aston University
+            Bsc Computer Science
           </Typography>
-          <Typography>Bsc in Computer Science!</Typography>
+          <Typography>Aston University</Typography>
         </TimelineContent>
       </TimelineItem>
     </Timeline>

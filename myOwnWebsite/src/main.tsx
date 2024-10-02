@@ -10,7 +10,7 @@ import ErrorPage from "./routes/error-page";
 import AboutMe from './routes/AboutMe';
 import Blog from './routes/Blog';
 import Home from './routes/Home';
-import SalaryHistory from './routes/SalaryHistory';
+import SalaryHistory from './routes/Projects';
 import { ThemeProvider } from './ThemeContext';
 
 const router = createBrowserRouter(
@@ -32,7 +32,7 @@ const router = createBrowserRouter(
         element: <Blog />,
       },
       {
-        path: "Salary",
+        path: "Projects",
         element: <SalaryHistory />,
       },
     ],

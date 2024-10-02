@@ -1,5 +1,5 @@
 import React from 'react';
-import '/src/css/SalaryHistory.css';
+import '/src/css/Projects.css';
 
 const SalaryHistory: React.FC = () => {
   const salaryData = [

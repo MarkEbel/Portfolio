@@ -1,0 +1,19 @@
+
+
+.companyLogo {
+  height: 5rem;
+  width: auto;
+  /* will-change: filter; */
+  /* transition: filter 300ms; */
+}
+
+.AboutSection {
+  width: 80%;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly; 
+  margin: 5em auto;
+  padding: 1em;
+  border: 2px solid #595eb3; /* Border width, style, and color */
+  border-radius: 8px; /* Optional: Rounds the corners */
+}

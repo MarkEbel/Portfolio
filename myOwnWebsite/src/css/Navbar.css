@@ -2,8 +2,8 @@
 
 /* Define CSS variables for the navbar */
 :root {
-  --navbar-hover-text-color: #3f46c2;
-  --navbar-active-text-color: #08a208;
+  --navbar-hover-text-color: #08a208;
+  --navbar-active-text-color: #646cffda;
 }
 
 .navbar {
@@ -16,7 +16,7 @@
   align-items: center; /* Align items vertically */
   padding: 0 20px; /* Add padding to the left and right */
   z-index: 1000; /* Ensure it stays above the rest of the content */
-  margin-bottom: 8em;
+  margin-bottom: 7em;
 }
 .navbar-left {
   display: flex;

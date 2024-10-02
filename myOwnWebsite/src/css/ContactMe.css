@@ -1,0 +1,9 @@
+.contactSection {
+
+    flex-direction: column; /* Stack the input fields vertically */
+    gap: 16px; /* Add some space between the input fields */
+    margin: 5em auto;
+    width: 20%;
+    display: flex;
+    border-radius: 8px; /* Optional: Rounds the corners */
+}

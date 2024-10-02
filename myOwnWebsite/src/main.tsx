@@ -8,6 +8,7 @@ import './css/index.css'
 import Root from "./routes/root";
 import ErrorPage from "./routes/error-page";
 import AboutMe from './routes/AboutMe';
+import ContactMe from './routes/ContactMe';
 import Blog from './routes/Blog';
 import Home from './routes/Home';
 import SalaryHistory from './routes/Projects';
@@ -28,12 +29,16 @@ const router = createBrowserRouter(
         element: <AboutMe />,
       },
       {
-        path: "Blog",
+        path: "Skills",
         element: <Blog />,
       },
       {
         path: "Projects",
         element: <SalaryHistory />,
+      },
+      {
+        path: "Contact",
+        element: <ContactMe />,
       },
     ],
   }]

@@ -7,8 +7,7 @@ const AboutMe = () => {
   return (
     <div>
       <div className="intro">
-
-        {/* <p>Hello, I'm Mark! I am a software developer, who enjoys writing code.</p> */}
+      <p>Work in progress!</p>
       </div>
       <div className="AboutSection">
         <img src={redwoodTechLogo} className="companyLogo" alt="Redwood Technologies Ltd" />

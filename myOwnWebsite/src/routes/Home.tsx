@@ -8,6 +8,7 @@ const Home = () => {
         <h1>Hi,</h1>
         <h1>I'm <span className='myName'>Mark</span></h1>
         <h1>A Software Developer!</h1>
+        <button>Contact</button>
         </div>
         <div className='logoContainer'>
           <img src={myFace} className="logo" alt="Vite logo" />

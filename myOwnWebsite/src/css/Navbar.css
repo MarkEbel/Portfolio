@@ -2,19 +2,8 @@
 
 /* Define CSS variables for the navbar */
 :root {
-  --navbar-bg-color: #242424;
-  --navbar-text-color: white;
-  --navbar-hover-bg-color: #ddd;
-  --navbar-hover-text-color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --navbar-bg-color: #4a8a6a; /* Adjust as needed */
-    --navbar-text-color: white;
-    --navbar-hover-bg-color: #9cb1a9; /* Adjust as needed */
-    --navbar-hover-text-color: white; /* Adjust as needed */
-  }
+  --navbar-hover-text-color: #3f46c2;
+  --navbar-active-text-color: #08a208;
 }
 
 .navbar {
@@ -53,11 +42,12 @@
 }
 
 .navbar-links li a:hover {
-  background-color: var(--navbar-hover-bg-color);
   color: var(--navbar-hover-text-color);
+  filter: drop-shadow(0 0 2em var(--navbar-hover-text-color));
 }
 
 .navbar .active {
-  background-color: #0ed60e; /* Active link background */
-  color: white; /* Active link text color */
+  /* background-color: #0ed60e; */
+  color: var(--navbar-active-text-color); 
+  filter: drop-shadow(0 0 2em var(--navbar-active-text-color));
 }

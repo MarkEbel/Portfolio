@@ -10,10 +10,11 @@ const Navbar = () => {
         <ThemeToggle />
       </div>
       <ul className="navbar-links">
-        <li><NavLink to="./" end>Home!</NavLink></li>
-        <li><NavLink to="AboutMe">About me</NavLink></li>
+        <li><NavLink to="./" end>Home</NavLink></li>
+        <li><NavLink to="AboutMe">About</NavLink></li>
+        <li><NavLink to="Education">Skills</NavLink></li>
         <li><NavLink to="Projects">Projects</NavLink></li>
-        <li><NavLink to="Blog">Blog</NavLink></li>
+        <li><NavLink to="Contact">Contact</NavLink></li>
       </ul>
     </nav>
   );

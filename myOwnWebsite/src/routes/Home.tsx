@@ -5,9 +5,7 @@ const Home = () => {
     return (
       <div>
         <div>
-          <a href="https://www.linkedin.com/in/mark-ebel/" target="_blank">
-            <img src={myFace} className="logo" alt="Vite logo" />
-          </a>
+          <img src={myFace} className="logo" alt="Vite logo" />
         </div>
         <h1>Welcome to my page!</h1>
           <p>

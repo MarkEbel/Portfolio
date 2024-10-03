@@ -1,33 +1,26 @@
-.salary-history {
-    padding: 20px;
-  }
-  
-  .salary-history h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .salary-history table {
-    width: 50%;
+ .projects-history table {
     border-collapse: collapse;
+    display: flex;
+    justify-content: space-evenly; 
     margin: 0 auto;
   }
   
-  .salary-history th,
-  .salary-history td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  
-  .salary-history th {
+  .projects-history th {
     background-color: var(--navbar-bg-color);
     color: var(--navbar-text-color);
   }
+  .projects-history tr {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly; 
+    margin: 5em auto;
+    padding: 1em;
+    border: 2px solid #595eb3; /* Border width, style, and color */
+    border-radius: 8px; /* Optional: Rounds the corners */
+  }
   
-  .salary-history tr:hover {
-    background-color: var(--navbar-hover-bg-color);
-    color: var(--navbar-hover-text-color);
+  .projects-history tr:hover {
+    
+    /* filter: drop-shadow(0 0 2em var(--navbar-hover-bg-color)); */
   }
   

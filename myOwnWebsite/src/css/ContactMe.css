@@ -7,3 +7,7 @@
     display: flex;
     border-radius: 8px; /* Optional: Rounds the corners */
 }
+
+input[name="message"] {
+    height: 3em;
+  }

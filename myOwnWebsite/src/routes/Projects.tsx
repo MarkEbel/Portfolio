@@ -1,42 +1,32 @@
 import React from 'react';
 import '/src/css/Projects.css';
 
-const SalaryHistory: React.FC = () => {
-  const salaryData = [
-    { date: '2024-01-01', amount: '£45,250', description: 'Annual Salary Reviewed' },
-    { date: '2023-12-25', amount: '£1316.25', description: 'Christmas Bonus' },
-    { date: '2023-02-22', amount: '£39,000', description: 'Salary Increase - Probation Finished'},
-    { date: '2022-12-25', amount: '£708', description: 'Christmas Bonus' },
-    { date: '2022-08-22', amount: '£37,500', description: 'Starting Salary'},
-    // Add more data as needed
-  ];
+const ProjectsHistory: React.FC = () => {
+  const projectData = [
+    { title: 'My Personal Website', description: 'This website', gitUrl: 'https://github.com/MarkEbel/resume', image: 'src/assets/ExeterLogo.png' },
+  ];  
 
   return (
-    <div className="salary-history">
-      <h2>Salary History</h2>
+    <div className="projects-history">
+      <h2>Projects</h2>
+      <p>work in progress</p>
       <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Amount (£)</th>
-            <th>Description</th>
-          </tr>
-        </thead>
         <tbody>
-          {salaryData.map((item, index) => (
+          {projectData.map((item, index) => (
             <tr key={index}>
-              <td>{item.date}</td>
-              <td>{item.amount}</td>
-              <td>{item.description}</td>
+              <a href={item.gitUrl} target="_blank">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <img src={item.image} className="companyLogo" alt={item.image} />
+              </a>
             </tr>
           ))}
         </tbody>
       </table>
       <br></br>
-      <a href="https://www.jvt.me/posts/2021/09/09/public-salary-history/">A link to what inspired me to do this.</a>
     </div>
     
   );
 };
 
-export default SalaryHistory;
+export default ProjectsHistory;

@@ -11,7 +11,7 @@ import AboutMe from './routes/AboutMe';
 import ContactMe from './routes/ContactMe';
 import Blog from './routes/Blog';
 import Home from './routes/Home';
-import SalaryHistory from './routes/Projects';
+import ProjectsHistory from './routes/Projects';
 import { ThemeProvider } from './ThemeContext';
 
 const router = createBrowserRouter(
@@ -34,7 +34,7 @@ const router = createBrowserRouter(
       },
       {
         path: "Projects",
-        element: <SalaryHistory />,
+        element: <ProjectsHistory />,
       },
       {
         path: "Contact",

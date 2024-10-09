@@ -9,16 +9,33 @@
     background-color: var(--navbar-bg-color);
     color: var(--navbar-text-color);
   }
-  .projects-history tr {
+  .projects-history td {
     align-items: center;
-    display: flex;
-    justify-content: space-evenly; 
     margin: 5em auto;
-    padding: 1em;
+    padding: 0.08em;
     border: 2px solid #595eb3; /* Border width, style, and color */
     border-radius: 8px; /* Optional: Rounds the corners */
   }
+  .projects-history tr {
+    align-items: left;
+    display: flex;
+    justify-content: space-between; 
+    padding: 1em;
+    max-width: 30%; 
+    /* flex: 1 1 30%;  */
+    max-width: 30%; 
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+  }
   
+
+.projectImage {
+  height: 9em;
+  width: 20em;
+}
   .projects-history tr:hover {
     
     /* filter: drop-shadow(0 0 2em var(--navbar-hover-bg-color)); */

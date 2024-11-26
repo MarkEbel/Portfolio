@@ -10,7 +10,7 @@
   background-color: var(--navbar-bg-color);
   color: var(--navbar-text-color);
   overflow: hidden;
-  width: 90%;
+  width: auto;
   display: flex;
   justify-content: space-between; /* Distribute space between name and nav links */
   align-items: center; /* Align items vertically */

@@ -1,4 +1,3 @@
-import React from 'react';
 import '/src/css/Projects.css';
 
 // Helper function to chunk the project data into rows of 3

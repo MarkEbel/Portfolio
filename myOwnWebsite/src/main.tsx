@@ -6,13 +6,13 @@ import {
 } from "react-router-dom"
 import './index.css'
 import Root from "./root";
-import ErrorPage from "./features/Error/error-page";
-import AboutMe from './features/AboutMe/AboutMe';
-import ContactMe from './features/ContactMe/ContactMe';
-import Blog from './features/Blog/Blog';
-import Home from './features/Home/Home';
-import ProjectsHistory from './features/Projects/Projects';
-import { ThemeProvider } from './components/Theming/ThemeContext';
+import ErrorPage from "./features/error/error-page";
+import AboutMe from './features/aboutMe/AboutMe';
+import ContactMe from './features/contactMe/ContactMe';
+import Blog from './features/blog/Blog';
+import Home from './features/home/Home';
+import ProjectsHistory from './features/projects/Projects';
+import { ThemeProvider } from './components/theming/ThemeContext';
 
 const router = createBrowserRouter(
   [{

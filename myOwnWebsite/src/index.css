@@ -1,4 +1,3 @@
-/* src/css/index.css */
 :root {
   --background-color: #242424;
   --text-color: rgba(255, 255, 255, 0.87);
@@ -16,7 +15,6 @@
 }
 
 .dark-mode {
-  
   --background-color: #242424;
   --text-color: rgba(255, 255, 255, 0.87);
   --navbar-bg-color: #242424;

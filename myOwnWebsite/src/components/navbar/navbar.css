@@ -1,6 +1,3 @@
-/* src/Navbar.css */
-
-/* Define CSS variables for the navbar */
 :root {
   --navbar-hover-text-color: #08a208;
   --navbar-active-text-color: #646cffda;
@@ -12,10 +9,10 @@
   overflow: hidden;
   width: auto;
   display: flex;
-  justify-content: space-between; /* Distribute space between name and nav links */
-  align-items: center; /* Align items vertically */
-  padding: 0 20px; /* Add padding to the left and right */
-  z-index: 1000; /* Ensure it stays above the rest of the content */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
   margin-bottom: 7em;
 }
 .navbar-left {
@@ -50,6 +47,6 @@
 
 .navbar .active {
   /* background-color: #0ed60e; */
-  color: var(--navbar-active-text-color); 
+  color: var(--navbar-active-text-color);
   filter: drop-shadow(0 0 2em var(--navbar-active-text-color));
 }

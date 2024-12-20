@@ -11,7 +11,7 @@ import redwoodTechLogo from "../assets/RedwoodTechLogo.png";
 import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
-import "./Timeline.css"; // Import the new CSS file
+import "./timeline.css";
 
 export default function CustomizedTimeline() {
   return (

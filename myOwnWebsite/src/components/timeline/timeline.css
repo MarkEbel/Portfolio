@@ -1,40 +1,40 @@
+.companyLogo {
+  height: 1rem;
+  padding: 0.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
 
 .companyLogo {
-    height: 1rem;
-    padding: 0.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  
-  .companyLogo {
-    max-width: 20px; /* Adjust as needed */
-    max-height: 20px; /* Adjust as needed */
-    width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  .connectorSecondary {
-    background-color: var(--secondary-main);
-  }
-  
-.timelineOppositeContentRight, .timelineOppositeContentLeft,
+  max-width: 20px;
+  max-height: 20px;
+  width: auto;
+  height: auto;
+}
+
+.connectorSecondary {
+  background-color: var(--secondary-main);
+}
+
+.timelineOppositeContentRight,
+.timelineOppositeContentLeft,
 .timelineContent {
   display: flex;
-  align-items: center; /* Vertically centers the content */
+  align-items: center;
 }
 
 .timelineOppositeContentRight {
   margin: auto 0;
-  color: var(--text-secondary-color); /* Assuming this is a variable you have */
-  justify-content: flex-start; /* Aligns the text to the left in the content */
+  color: var(--text-secondary-color);
+  justify-content: flex-start;
 }
 .timelineOppositeContentLeft {
   margin: auto 0;
-  color: var(--text-secondary-color); /* Assuming this is a variable you have */
-  justify-content: flex-end; /* Aligns the text to the right in the opposite content */
+  color: var(--text-secondary-color);
+  justify-content: flex-end;
 }
 
 .timelineContent {
   padding: 12px 2px;
-  justify-content: flex-end; /* Aligns the text to the right in the opposite content */
+  justify-content: flex-end;
 }

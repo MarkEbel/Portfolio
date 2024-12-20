@@ -1,7 +1,7 @@
 import "./itemsGrid.css";
 
 // Helper function to chunk the project data into rows of 3
-const chunkArray = (array: any[], size: number) => {
+const chunkArray = (array: unknown[], size: number) => {
   const result = [];
   for (let i = 0; i < array.length; i += size) {
     result.push(array.slice(i, i + size));

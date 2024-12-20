@@ -4,15 +4,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom"
-import './css/index.css'
-import Root from "./routes/root";
-import ErrorPage from "./routes/error-page";
-import AboutMe from './routes/AboutMe';
-import ContactMe from './routes/ContactMe';
-import Blog from './routes/Blog';
-import Home from './routes/Home';
-import ProjectsHistory from './routes/Projects';
-import { ThemeProvider } from './ThemeContext';
+import './index.css'
+import Root from "./root";
+import ErrorPage from "./features/Error/error-page";
+import AboutMe from './features/AboutMe/AboutMe';
+import ContactMe from './features/ContactMe/ContactMe';
+import Blog from './features/Blog/Blog';
+import Home from './features/Home/Home';
+import ProjectsHistory from './features/Projects/Projects';
+import { ThemeProvider } from './components/Theming/ThemeContext';
 
 const router = createBrowserRouter(
   [{

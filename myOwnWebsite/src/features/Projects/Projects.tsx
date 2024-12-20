@@ -1,6 +1,6 @@
 import React from 'react';
-import ProjectsHistory from '../components/ItemsGrid';
-import exeterLogo from '../assets/ExeterLogo.png';
+import ProjectsHistory from '../../components/GridOfItems/ItemsGrid';
+import exeterLogo from '../../../public/assets/Logos/ExeterLogo.png';
 
 interface Project {
   title: string;

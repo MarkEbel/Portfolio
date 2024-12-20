@@ -1,7 +1,7 @@
-import astonLogo from '../assets/AstonLogo.png';
-import exeterLogo from '../assets/ExeterLogo.png';
-import redwoodTechLogo from '../assets/RedwoodTechLogo.png';
-import '/src/css/AboutMe.css'
+import astonLogo from '../../../public/assets/Logos/AstonLogo.png';
+import exeterLogo from '../../../public/assets/Logos/ExeterLogo.png';
+import redwoodTechLogo from '../../../public/assets/Logos/RedwoodTechLogo.png';
+import './AboutMe.css'
 
 const AboutMe = () => {
   return (

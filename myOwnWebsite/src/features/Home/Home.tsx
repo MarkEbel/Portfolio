@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import myFace from '/Face.jpg'
-import '/src/css/home.css'
+import myFace from '/public/assets/Face.jpg'
+import './home.css'
 
 const Home = () => {
     return (

@@ -1,0 +1,33 @@
+.logo {
+  height: 13em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+
+.welcomeMessage {
+  padding: 2em;
+  width: 50%;
+  text-align: left;
+}
+
+.myName {
+  color: #646cffda;
+}
+
+.logoContainer {
+  width: 20%;
+  text-align: right;
+}
+
+.home {
+  width: 80%;
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  
+}

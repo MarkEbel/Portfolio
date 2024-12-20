@@ -1,4 +1,4 @@
-import './itemsGrid.css';
+import "./itemsGrid.css";
 
 // Helper function to chunk the project data into rows of 3
 const chunkArray = (array: any[], size: number) => {
@@ -11,7 +11,7 @@ const chunkArray = (array: any[], size: number) => {
 
 interface ProjectsHistoryProps<T> {
   data: T[];
-  renderItem: (item: T) => JSX.Element;  // Render function for custom components
+  renderItem: (item: T) => JSX.Element; // Render function for custom components
 }
 
 const ProjectsHistory = <T,>({ data, renderItem }: ProjectsHistoryProps<T>) => {

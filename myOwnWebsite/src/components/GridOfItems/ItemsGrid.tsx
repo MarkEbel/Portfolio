@@ -1,4 +1,4 @@
-import './ItemsGrid.css';
+import './itemsGrid.css';
 
 // Helper function to chunk the project data into rows of 3
 const chunkArray = (array: any[], size: number) => {

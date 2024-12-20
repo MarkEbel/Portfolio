@@ -7,12 +7,12 @@ import {
 import './index.css'
 import Root from "./root";
 import ErrorPage from "./features/error/error-page";
-import AboutMe from './features/aboutMe/AboutMe';
-import ContactMe from './features/contactMe/ContactMe';
-import Blog from './features/blog/Blog';
-import Home from './features/home/Home';
-import ProjectsHistory from './features/projects/Projects';
-import { ThemeProvider } from './components/theming/ThemeContext';
+import AboutMe from './features/aboutMe/aboutMe';
+import ContactMe from './features/contactMe/contactMe';
+import Blog from './features/blog/blog';
+import Home from './features/home/home';
+import ProjectsHistory from './features/projects/projects';
+import { ThemeProvider } from './components/theming/themeContext';
 
 const router = createBrowserRouter(
   [{

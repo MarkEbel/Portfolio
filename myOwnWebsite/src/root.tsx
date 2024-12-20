@@ -1,9 +1,9 @@
 import './App.css'
-import Navbar from './components/navbar/Navbar';
-import Footer from './components/footer/Footer';
+import Navbar from './components/navbar/navbar';
+import Footer from './components/footer/footer';
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useTheme } from './components/theming/ThemeContext';
+import { useTheme } from './components/theming/themeContext';
 
 
 const Root = () => {

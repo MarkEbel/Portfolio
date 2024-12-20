@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import './Navbar.css';
-import ThemeToggle from '../theming/themeToggle/ThemeToggle';
+import './navbar.css';
+import ThemeToggle from '../theming/themeToggle/themeToggle';
 
 const Navbar = () => {
   return (

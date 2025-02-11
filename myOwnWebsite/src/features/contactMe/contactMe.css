@@ -1,10 +1,10 @@
 .contactSection {
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
   margin: 5em auto;
   width: 20%;
   display: flex;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 input[name="message"] {

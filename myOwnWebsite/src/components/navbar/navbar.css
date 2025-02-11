@@ -3,18 +3,20 @@
   --navbar-active-text-color: #646cffda;
 }
 
+/* Navbar Container */
 .navbar {
   background-color: var(--navbar-bg-color);
   color: var(--navbar-text-color);
-  overflow: hidden;
-  width: auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 1rem 1.5rem;
+  position: relative;
   z-index: 1000;
-  margin-bottom: 7em;
 }
+
+/* Navbar Left (Logo + Theme Toggle) */
 .navbar-left {
   display: flex;
   align-items: center;
@@ -22,22 +24,28 @@
 
 .navbar-name {
   font-size: 1.5rem;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   color: var(--navbar-text-color);
   font-weight: bold;
 }
 
+/* Navbar Links */
 .navbar-links {
   display: flex;
-  list-style-type: none;
+  list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.navbar-links li {
+  margin: 0;
 }
 
 .navbar-links li a {
   color: var(--navbar-text-color);
   text-decoration: none;
-  padding: 14px 16px;
+  padding: 0.875rem 1rem;
+  display: block;
 }
 
 .navbar-links li a:hover {
@@ -45,8 +53,55 @@
   filter: drop-shadow(0 0 2em var(--navbar-hover-text-color));
 }
 
+/* Active Link */
 .navbar .active {
-  /* background-color: #0ed60e; */
   color: var(--navbar-active-text-color);
   filter: drop-shadow(0 0 2em var(--navbar-active-text-color));
+}
+
+/* Mobile Menu Button */
+.navbar-toggle {
+  display: none;
+  font-size: 1.75rem;
+  background: none;
+  border: none;
+  color: var(--navbar-text-color);
+  cursor: pointer;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar-toggle {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar-links.show {
+    display: flex;
+  }
+
+  .navbar-links li {
+    width: 100%;
+  }
+
+  .navbar-links li a {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: block;
+  }
 }

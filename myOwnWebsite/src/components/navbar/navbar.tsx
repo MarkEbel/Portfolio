@@ -1,31 +1,49 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
 import ThemeToggle from "../theming/themeToggle/themeToggle";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
         <div className="navbar-name">Mark Ebel</div>
         <ThemeToggle />
       </div>
-      <ul className="navbar-links">
+
+      {/* Hamburger Menu Button */}
+      <button className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
+        ☰
+      </button>
+
+      {/* Navbar Links */}
+      <ul className={`navbar-links ${isOpen ? "show" : ""}`}>
         <li>
-          <NavLink to="./" end>
+          <NavLink to="./" end onClick={() => setIsOpen(false)}>
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="AboutMe">About</NavLink>
+          <NavLink to="AboutMe" onClick={() => setIsOpen(false)}>
+            About
+          </NavLink>
         </li>
         <li>
-          <NavLink to="Skills">Skills</NavLink>
+          <NavLink to="Skills" onClick={() => setIsOpen(false)}>
+            Skills
+          </NavLink>
         </li>
         <li>
-          <NavLink to="Projects">Projects</NavLink>
+          <NavLink to="Projects" onClick={() => setIsOpen(false)}>
+            Projects
+          </NavLink>
         </li>
         <li>
-          <NavLink to="Contact">Contact</NavLink>
+          <NavLink to="Contact" onClick={() => setIsOpen(false)}>
+            Contact
+          </NavLink>
         </li>
       </ul>
     </nav>

@@ -13,8 +13,8 @@
   align-items: center;
   margin: 5em auto;
   padding: 0.08em;
-  border: 2px solid #595eb3;
-  border-radius: 8px;
+  border: 0.125rem solid #595eb3;
+  border-radius: 0.5rem;
 }
 .projects-history tr {
   align-items: left;

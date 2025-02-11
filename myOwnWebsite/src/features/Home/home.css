@@ -4,7 +4,9 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
+
+.logo:hover,
+.logo:focus {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
@@ -18,14 +20,56 @@
   color: #646cffda;
 }
 
+/* Ensure text has good contrast */
+.welcomeMessage h1 {
+  color: var(--text-color);
+}
+
 .logoContainer {
   width: 20%;
   text-align: right;
 }
 
 .home {
-  width: 80%;
-  align-items: center;
   display: flex;
-  margin: 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Make sure button is accessible */
+button {
+  background-color: var(--navbar-hover-text-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--navbar-active-text-color);
+}
+
+/* Ensure proper spacing on small screens */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .welcomeMessage {
+    width: 100%;
+    font-size: 50%;
+  }
+
+  .logoContainer {
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo {
+    height: 10em;
+  }
 }

@@ -14,10 +14,12 @@ body {
 .root-layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh;  
 }
 
 main {
-  flex: 1;
-  padding-bottom: 60px; /* Height of the footer */
+  width: 80%;
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
 }

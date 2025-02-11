@@ -4,21 +4,25 @@ import "./home.css";
 
 const Home = () => {
   return (
-    <div className="home">
-      <div className="welcomeMessage">
+    <main className="home">
+      <section className="welcomeMessage">
         <h1>Hi,</h1>
         <h1>
           I'm <span className="myName">Mark</span>
         </h1>
         <h1>A Software Developer!</h1>
         <NavLink to="Contact">
-          <button>Contact</button>
+          <button aria-label="Contact me">Contact</button>
         </NavLink>
-      </div>
-      <div className="logoContainer">
-        <img src={myFace} className="logo" alt="Vite logo" />
-      </div>
-    </div>
+      </section>
+      <aside className="logoContainer">
+        <img 
+          src={myFace} 
+          className="logo" 
+          alt="Portrait of Mark Ebel, a software developer"
+        />
+      </aside>
+    </main>
   );
 };
 

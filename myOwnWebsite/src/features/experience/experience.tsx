@@ -1,7 +1,7 @@
 import SubSection from "../../components/subsection/subsection";
 import TimelineItem from "../../components/timelineItem/timelineItem";
 
-const AboutMe = () => {
+const Experience = () => {
   return (
     <div>
         <SubSection id="contentGuru">
@@ -40,4 +40,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default Experience;

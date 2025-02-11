@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
           <nav className="navbar">  
       <ThemeToggle />
-            {["About", "Skills", "Projects", "Contact"].map((section) => (
+            {["About", "Experience", "Projects"].map((section) => (
               <Link
                 key={section}
                 to={section.toLowerCase()}
@@ -20,5 +20,6 @@ const Navbar = () => {
           </nav>
   );
 };
+
 
 export default Navbar;

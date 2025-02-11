@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:focus {
+  outline: none; /* Remove the default outline */
+  border: 2px solid #e4fb1b; /* Add a custom border */
+  box-shadow: 0 0 5px rgba(248, 248, 28, 0.1); /* Optional: Add a glow effect */
+}
+
+::selection {
+  background-color: rgb(19, 255, 90); /* Background color when text is selected */
+  color: rgb(90, 87, 87); /* Text color when selected */
+}
 
 .light-mode {
   --background-color: #ffffff;
@@ -16,7 +26,10 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   place-items: center;
-  font-family: Arial, sans-serif;
+  font-family: Garamond, sans-serif;
+}
+p {
+  letter-spacing: .05rem;
 }
 
 a {

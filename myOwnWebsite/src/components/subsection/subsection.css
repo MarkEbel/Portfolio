@@ -1,8 +1,9 @@
 .SubSection {
   align-items: center;
   display: flex;
-  margin: 1rem auto;
   gap: 2rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
 }
 
 .SubSection:hover { /* NEED TO DO STUFF FOR LIGHT THEME*/

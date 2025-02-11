@@ -1,7 +1,8 @@
 import Section from "./components/section/section";
 import Sidebar from "./components/sidebar/sidebar";
-import Projects from "./features/projects/projects";
-import Experience from "./features/experience/experience";
+import Projects from "./features/sections/projects";
+import Experience from "./features/sections/experience";
+import About from "./features/sections/about";
 import "./app.css";
 
 const App = () => {
@@ -9,10 +10,13 @@ const App = () => {
     <div className="app">
       <Sidebar />
       <main className="main-content">
-        <Section id="experience" navName="Experience">
+        <Section id="about">
+          <About />
+        </Section>
+        <Section id="experience">
           <Experience />
         </Section>
-        <Section id="projects" navName="Projects">
+        <Section id="projects">
           <Projects />
         </Section>
       </main>

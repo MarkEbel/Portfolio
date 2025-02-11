@@ -17,6 +17,9 @@
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
+  .torch-effect {
+    display: none;
+  }
   .app {
     flex-direction: column;
     display: flex;

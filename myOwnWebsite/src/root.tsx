@@ -1,28 +1,23 @@
-import "./app.css";
-import Navbar from "./components/navbar/navbar";
-import Footer from "./components/footer/footer";
-import { Outlet } from "react-router-dom";
-import { useEffect } from "react";
-import { useTheme } from "./components/theming/themeContext";
+import Section from "./components/section/section";
+import Sidebar from "./components/sidebar/sidebar";
+import AboutMe from "./features/aboutMe/aboutMe";
+import ProjectsHistory from "./features/projects/projects";
+import "./app.css"; // Import the CSS file
 
-const Root = () => {
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    document.body.className = theme === "dark" ? "dark-mode" : "light-mode";
-  }, [theme]);
-
+const App = () => {
   return (
-    <>
-      <div className="root-layout">
-        <Navbar />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
-    </>
+    <div className="app">
+      <Sidebar />
+      <main className="main-content">
+        <Section id="about">
+          <AboutMe />
+        </Section>
+        <Section id="projects">
+          <ProjectsHistory />
+        </Section>
+      </main>
+    </div>
   );
 };
 
-export default Root;
+export default App;

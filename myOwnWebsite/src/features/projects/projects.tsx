@@ -1,51 +1,22 @@
-import React from "react";
-import ProjectsHistory from "../../components/gridOfItems/itemsGrid";
-import exeterLogo from "/public/assets/logos/exeterLogo.png";
+import SubSection from "../../components/subsection/subsection";
+import ProjectItem from "../../components/projectItem/projectItem";
 
-interface Project {
-  title: string;
-  description: string;
-  gitUrl: string;
-  image: string;
-}
-
-const projectData = [
-  {
-    title: "My Personal Website",
-    description: "This website",
-    gitUrl: "https://github.com/MarkEbel/resume",
-    image: exeterLogo,
-  },
-  {
-    title: "Project 2",
-    description: "Description 2",
-    gitUrl: "#",
-    image: exeterLogo,
-  },
-  {
-    title: "Project 3",
-    description: "Description 3",
-    gitUrl: "#",
-    image: exeterLogo,
-  },
-  {
-    title: "Project 4",
-    description: "Description 4",
-    gitUrl: "#",
-    image: exeterLogo,
-  },
-];
-
-const renderProjectItem = (item: Project) => (
-  <a href={item.gitUrl} target="_blank" rel="noopener noreferrer">
-    <img src={item.image} className="projectImage" alt={item.title} />
-    <h3>{item.title}</h3>
-    <p>{item.description}</p>
-  </a>
-);
-
-const App: React.FC = () => {
-  return <ProjectsHistory data={projectData} renderItem={renderProjectItem} />;
+const Projects = () => {
+  return (
+    <div>
+        <SubSection id="personalWebsite">
+          <ProjectItem
+           id="personalWebsite"
+           title="Personal Website"
+           image="/public/assets/projectThumbnails/exeterLogo.png"
+           description="This website"
+           gitUrl="https://github.com/MarkEbel/resume"
+           skills="list of skills"/>
+        </SubSection>
+    </div>
+  );
 };
 
-export default App;
+export default Projects;
+
+

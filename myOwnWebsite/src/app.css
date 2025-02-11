@@ -1,25 +1,33 @@
-#root {
-  padding: 2rem;
-  text-align: center;
-  width: 70%;
-}
-
-body {
+/* Root layout */
+body, html {
   margin: 0;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  flex-direction: column;
-  min-height: 100vh;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
 }
 
-.root-layout {
+/* Main container */
+.app {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;  
+  height: 100vh; /* Full viewport height */
 }
 
-main {
+/* Main Content */
+.main-content {
+  margin-left: 20%; /* Push right, same as sidebar width */
   width: 80%;
-  align-items: center;
-  display: flex;
-  margin: 0 auto;
+  padding: 2rem;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
 }

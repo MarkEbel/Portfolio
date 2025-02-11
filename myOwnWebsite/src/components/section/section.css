@@ -1,15 +1,9 @@
-.companyLogo {
-  height: 5rem;
-  width: auto;
-}
-
-.AboutSection {
+.Section {
   width: 80%;
   align-items: center;
   display: flex;
   justify-content: space-evenly;
   margin: 5em auto;
   padding: 1em;
-  border: 0.125rem solid #595eb3;
   border-radius: 0.5rem;
 }

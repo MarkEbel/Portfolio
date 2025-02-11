@@ -13,8 +13,9 @@ interface TimelineItemProps {
   const TimelineItem = ({ id, date, description, title, company, hyperlinkTitle, skills }: TimelineItemProps) => {
     return (
       <section id={id} className="TimelineItem">
-          <h2>{title} <a href={hyperlinkTitle} target="_blank" rel="noopener noreferrer">{company}</a></h2>
-          <h3>{date}</h3>
+          <p>{date}</p>
+          <h2>{title}</h2>
+          <h3><a href={hyperlinkTitle} target="_blank" rel="noopener noreferrer">{company}</a></h3>
           <p>{description}</p>
           <p>{skills}</p>
       </section>

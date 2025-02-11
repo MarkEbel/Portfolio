@@ -34,7 +34,7 @@ const App = () => {
       {/* Main Content */}
       <Sidebar />
       <main className="main-content">
-        <Section id="about">
+        <Section id="about" >
           <About />
         </Section>
         <Section id="experience">

@@ -4,12 +4,12 @@
 
 .light-mode {
   --background-color: #ffffff;
-  --text-color: #213547;
+  --text-color: #11172A;
 }
 
 .dark-mode {
   --background-color: #11172A;
-  --text-color: rgba(255, 255, 255, 0.87);
+  --text-color: rgba(240, 237, 237, 0.836);
 }
 
 body {

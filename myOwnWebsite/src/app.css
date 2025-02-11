@@ -5,12 +5,21 @@
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+  }
   .sidebar {
-    width: 100%;
+    width: 90%;
     position: relative;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .sidebarFooter {
+    margin-top: 2rem;
   }
   .main-content {
-    margin-left: 0;
-    width: 100%;
+    width: 30%;
   }
 }

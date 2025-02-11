@@ -1,6 +1,9 @@
 .main-content {
-  margin-left: 60%; /* Push right, same as sidebar width */
-  width: 80%;
+  margin-left: 30rem;
+  width: 40rem;
+}
+.app { 
+  margin: 15%;
 }
 
 /* Responsive Design */
@@ -9,20 +12,18 @@
     flex-direction: column;
     display: flex;
     justify-content: space-evenly;
-    /* width: 80%; */
+    width: 100%;
   }
   .sidebar {
-    width: 90%;
+    width: 80%;
     position: relative;
-    display: flex;
-    justify-content: space-evenly;
   }
   .sidebarFooter {
     margin-top: 2rem;
   }
   .main-content {
-    width: 80%;
-    margin-left: 10%; 
+    width: 90%;
+    margin-left: 0; 
     justify-content: space-evenly;
   }
 }

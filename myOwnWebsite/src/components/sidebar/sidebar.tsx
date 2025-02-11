@@ -5,9 +5,8 @@ import ThemeToggle from "../theming/themeToggle/themeToggle.tsx";
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <aside className="fixed left-0 top-0 h-full w-1/5 bg-gray-900 text-white flex flex-col items-center py-10">
-        <h1 className="text-2xl font-bold">Mark Ebel</h1>
-        <p className="text-sm text-gray-400">Full Stack Engineer</p>
+        <h1 >Mark Ebel</h1>
+        <h3>Full Stack Engineer</h3>
 
         <Navbar />
 
@@ -32,7 +31,6 @@ const Sidebar = () => {
           </a>
           <ThemeToggle/>
         </div>
-      </aside>
     </div>
   );
 };

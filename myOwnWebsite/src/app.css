@@ -9,6 +9,7 @@
     flex-direction: column;
     display: flex;
     justify-content: space-evenly;
+    /* width: 80%; */
   }
   .sidebar {
     width: 90%;
@@ -20,6 +21,8 @@
     margin-top: 2rem;
   }
   .main-content {
-    width: 30%;
+    width: 80%;
+    margin-left: 10%; 
+    justify-content: space-evenly;
   }
 }

@@ -1,6 +1,7 @@
 import "./sidebar.css";
 import Navbar from "../navbar/navbar.tsx";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import ThemeToggle from "../theming/themeToggle/themeToggle.tsx";
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -11,13 +12,13 @@ const Sidebar = () => {
         <Navbar />
 
         {/* Social Icons */}
-        <div className="mt-auto flex space-x-4 pb-5">
+        <div className="sidebarFooter">
           <a
             href="https://www.linkedin.com/in/mark-ebel"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedin />
+            <FaLinkedin/>
           </a>
           <a
             href="https://github.com/MarkEbel"
@@ -29,6 +30,7 @@ const Sidebar = () => {
           <a href="mailto:markbenebel@gmail.com">
             <FaEnvelope className="text-2xl hover:text-green-400" />
           </a>
+          <ThemeToggle/>
         </div>
       </aside>
     </div>

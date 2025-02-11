@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Root from "./root";
+import App from "./app";
 import ErrorPage from "./features/error/error-page";;
 import { ThemeProvider } from "./components/theming/themeContext";
 
 const router = createBrowserRouter([
   {
     path: "/resume",
-    element: <Root />,
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
     ],

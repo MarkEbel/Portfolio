@@ -8,7 +8,7 @@ const Projects = () => {
           <ProjectItem
            id="personalWebsite"
            title="Personal Website"
-           image="/public/assets/projectThumbnails/exeterLogo.png"
+           image="./assets/projectThumbnails/exeterLogo.png"
            description="This website"
            gitUrl="https://github.com/MarkEbel/resume"
            skills="list of skills"/>

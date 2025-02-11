@@ -1,24 +1,7 @@
-/* Root layout */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
-
-/* Main container */
-.app {
-  display: flex;
-  height: 100vh; /* Full viewport height */
-}
-
-/* Main Content */
 .main-content {
-  margin-left: 20%; /* Push right, same as sidebar width */
+  margin-left: 60%; /* Push right, same as sidebar width */
   width: 80%;
-  padding: 2rem;
 }
-
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {

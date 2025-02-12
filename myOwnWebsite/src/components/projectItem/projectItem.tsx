@@ -12,9 +12,12 @@ interface ProjectItemProps {
   const ProjectItem = ({ id, gitUrl, description, title, image, skills }: ProjectItemProps) => {
     return (
       <section id={id} className="ProjectItem">
-          <h2>{title} <a href={gitUrl} target="_blank" rel="noopener noreferrer"><img src={image}/></a></h2>
-          <p>{description}</p>
-          <p>{skills}</p>
+          <a href={gitUrl} target="_blank" rel="noopener noreferrer"><img src={image}/></a>
+          <section className="ProjectItemContent">
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <p>{skills}</p>
+          </section>
       </section>
     );
   };

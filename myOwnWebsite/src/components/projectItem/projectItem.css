@@ -16,6 +16,11 @@
     flex-direction: column;
 }
 
+.ProjectItemContent h2 {
+    
+    margin-bottom: 0;
+}
+
 
 @media screen and (max-width: 768px) {
     .ProjectItem {

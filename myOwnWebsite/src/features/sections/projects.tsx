@@ -7,11 +7,10 @@ const Projects = () => {
         <SubSection id="personalWebsite">
           <ProjectItem
            id="personalWebsite"
-           title="Personal Website"
+           title="Interactive Developer Portfolio"
            image="./assets/projectThumbnails/personalWebsite.png"
-           description="This website"
-           gitUrl="https://github.com/MarkEbel/resume"
-           skills="list of skills"/>
+           description="A sleek and responsive personal website showcasing my skills, projects, and experience. Built with modern web technologies (React JS), this site serves as both a portfolio and a resume, highlighting my expertise in frontend and backend development."
+           gitUrl="https://github.com/MarkEbel/resume"/>
         </SubSection>
     </div>
   );

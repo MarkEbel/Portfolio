@@ -8,7 +8,7 @@ import { ThemeProvider } from "./components/theming/themeContext";
 
 const router = createBrowserRouter([
   {
-    path: "/portfolio",
+    path: "/Portfolio",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [

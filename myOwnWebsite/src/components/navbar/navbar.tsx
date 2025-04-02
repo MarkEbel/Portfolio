@@ -4,7 +4,7 @@ import "./navbar.css";
 const Navbar = () => {
   return (
           <nav className="navbar">  
-            {["About", "Experience", "Projects"].map((section) => (
+            {["About", "Experience", "Projects", "Blogs"].map((section) => (
               <Link
                 key={section}
                 to={section.toLowerCase()}

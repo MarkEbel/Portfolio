@@ -15,11 +15,13 @@
 .light-mode {
   --background-color: #ffffff;
   --text-color: #11172A;
+  --unhover-color: rgba(0, 0, 0, 0.5);
 }
 
 .dark-mode {
   --background-color: #11172A;
   --text-color: rgba(240, 237, 237, 0.836);
+  --unhover-color: #ffffff;
 }
 
 body {

@@ -5,10 +5,18 @@
     gap: 1rem;
 }
 
+.ProjectItemLink {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
 .ProjectItem img {
-    width: 10rem;
-    height: 10rem;
-    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+    width: 11rem;
+    height: 11rem;
+    object-fit: cover;
 }
 
 .ProjectItemContent {
@@ -17,17 +25,20 @@
 }
 
 .ProjectItemContent h2 {
-    
     margin-bottom: 0;
 }
-
 
 @media screen and (max-width: 768px) {
     .ProjectItem {
         flex-direction: column;
     }
+
+    .ProjectItem a {
+        flex-direction: column;
+    }
+
     .ProjectItem img {
         width: 16rem;
         height: 10rem;
     }
-  }
+}

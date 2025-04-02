@@ -1,28 +1,32 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom"; // Import useLocation
 import Section from "./components/section/section";
 import Sidebar from "./components/sidebar/sidebar";
 import Projects from "./features/sections/projects";
 import Experience from "./features/sections/experience";
 import About from "./features/sections/about";
+import Blogs from "./features/sections/blog";
 import "./app.css";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
-  // State to track mouse position
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const location = useLocation(); // Get the current route path
+
+  // Check if the current route is a blog post page
+  const isBlogPage = location.pathname.startsWith("/Portfolio/blogs/");
 
   useEffect(() => {
-    // Update mouse position on move
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
 
     document.addEventListener("mousemove", handleMouseMove);
-    
     return () => document.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <div className="app">
+    <div className={`app ${isBlogPage ? "blog-mode" : ""}`}> 
       {/* Torch Effect */}
       <div
         className="torch-effect"
@@ -31,19 +35,28 @@ const App = () => {
         }}
       ></div>
 
-      {/* Main Content */}
-      <Sidebar />
-      <main className="main-content">
-        <Section id="about" >
-          <About />
-        </Section>
-        <Section id="experience">
-          <Experience />
-        </Section>
-        <Section id="projects">
-          <Projects />
-        </Section>
-      </main>
+      <Outlet />
+
+      {/* Hide everything else if a blog page is open */}
+      {!isBlogPage && (
+        <>
+          <Sidebar />
+          <main className="main-content">
+            <Section id="about">
+              <About />
+            </Section>
+            <Section id="experience">
+              <Experience />
+            </Section>
+            <Section id="projects">
+              <Projects />
+            </Section>
+            <Section id="blogs">
+              <Blogs />
+            </Section>
+          </main>
+        </>
+      )}
     </div>
   );
 };

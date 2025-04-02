@@ -1,0 +1,16 @@
+.back-button {
+  background: transparent;
+  border: none;
+  font-size: 2rem; /* Adjust size as needed */
+  color: var(--unhover-color); /* Semi-transparent black */
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.back-button:hover {
+  color: var(--text-color); /* Less transparency on hover */
+}
+
+.back-button:focus {
+  outline: none;
+}

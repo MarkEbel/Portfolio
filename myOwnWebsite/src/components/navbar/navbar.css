@@ -1,3 +1,46 @@
-.navbar-links {
-    cursor:pointer
-}
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  
+  .navbar-links {
+    position: relative;
+    cursor: pointer;
+    padding: 0.05rem 0.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-size: 1.1rem;
+  }
+  
+  .navbar-links::before {
+    content: "-  ";
+    position: absolute;
+    left: -0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-10px);
+  }
+  
+  .navbar-links:hover {
+    transform: translateX(10px);
+    color: var(--hover-color);
+  }
+  
+  .navbar-links:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar-links:hover {
+      transform: none;
+      color: inherit; /* or whatever your default color is */
+    }
+  
+    .navbar-links:hover::before {
+      opacity: 0;
+      transform: translateX(-10px); /* Keep it hidden */
+    }
+  }
+  

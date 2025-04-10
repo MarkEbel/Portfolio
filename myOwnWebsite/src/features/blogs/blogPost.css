@@ -14,3 +14,25 @@
 .back-button:focus {
   outline: none;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+pre, code {
+  overflow-x: auto;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+
+@media screen and (max-width: 768px) {
+  .blogPost {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 0; 
+  }
+}
+

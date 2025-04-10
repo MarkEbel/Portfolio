@@ -7,6 +7,7 @@
 
 .ProjectItemLink {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 1rem;
     text-decoration: none;
@@ -38,7 +39,8 @@
     }
 
     .ProjectItem img {
-        width: 16rem;
-        height: 10rem;
+    }
+    .ProjectItemLink {
+        flex-direction: column;
     }
 }

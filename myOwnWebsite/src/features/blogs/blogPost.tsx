@@ -13,11 +13,11 @@ const BlogPost = () => {
   }
 
   return (
-    <div>
+    <div className="blogPost">
       <button className="back-button" onClick={() => navigate("/Portfolio/")}>
         ←
       </button>
-      <PostComponent />
+      <PostComponent/>
     </div>
   );
 };

@@ -20,7 +20,7 @@ const TimelineItem = ({ id, date, description, title, company, hyperlinkTitle, s
           {company}
         </a>
       </h3>
-      <p>{description}</p>
+      <p className="timeline-item-description">{description}</p>
       <div className="skills-container">
         {skills.map((skill, index) => (
           <span key={index} className="skill-bubble">

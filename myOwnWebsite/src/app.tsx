@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom"; // Import useLocation
 import Section from "./components/section/section";
 import Sidebar from "./components/sidebar/sidebar";
 import Projects from "./features/sections/projects";
-import Experience from "./features/sections/experience";
+import Experience from "./features/experience/experience";
 import About from "./features/sections/about";
 import Blogs from "./features/sections/blog";
 import "./app.css";

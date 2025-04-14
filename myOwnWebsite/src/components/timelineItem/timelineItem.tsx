@@ -1,4 +1,6 @@
 import "./timelineItem.css";
+import SkillModal from "../skillModal/skillModal";
+import { useState } from "react";
 
 interface TimelineItemProps {
   id: string;
@@ -8,9 +10,21 @@ interface TimelineItemProps {
   date: string;
   description: string;
   skills: string[];
+  skillDescriptions: Record<string, string>;
 }
 
-const TimelineItem = ({ id, date, description, title, company, hyperlinkTitle, skills }: TimelineItemProps) => {
+const TimelineItem = ({
+  id,
+  date,
+  description,
+  title,
+  company,
+  hyperlinkTitle,
+  skills,
+  skillDescriptions,
+}: TimelineItemProps) => {
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+
   return (
     <section id={id} className="TimelineItem">
       <p>{date}</p>
@@ -23,11 +37,23 @@ const TimelineItem = ({ id, date, description, title, company, hyperlinkTitle, s
       <p className="timeline-item-description">{description}</p>
       <div className="skills-container">
         {skills.map((skill, index) => (
-          <span key={index} className="skill-bubble">
+          <span
+            key={index}
+            className="skill-bubble"
+            onClick={() => setSelectedSkill(skill)}
+          >
             {skill}
           </span>
         ))}
       </div>
+
+      {selectedSkill && (
+        <SkillModal
+          skill={selectedSkill}
+          description={skillDescriptions[selectedSkill] || "No description available."}
+          onClose={() => setSelectedSkill(null)}
+        />
+      )}
     </section>
   );
 };

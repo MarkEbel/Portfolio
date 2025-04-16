@@ -10,7 +10,14 @@ interface ProjectItemProps {
   internal?: boolean; // Indicates internal navigation
 }
 
-const ProjectItem = ({ id, gitUrl, description, title, image, internal = false }: ProjectItemProps) => {
+const ProjectItem = ({
+  id,
+  gitUrl,
+  description,
+  title,
+  image,
+  internal = false,
+}: ProjectItemProps) => {
   const navigate = useNavigate();
 
   const handleClick = (e: React.MouseEvent) => {
@@ -37,9 +44,10 @@ const ProjectItem = ({ id, gitUrl, description, title, image, internal = false }
           {content}
         </div>
       ) : (
-        <a className="ProjectItemLink" 
-          href={gitUrl} 
-          target={"_blank"} 
+        <a
+          className="ProjectItemLink"
+          href={gitUrl}
+          target={"_blank"}
           rel={"noopener noreferrer"}
         >
           {content}

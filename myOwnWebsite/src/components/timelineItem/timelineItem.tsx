@@ -50,7 +50,9 @@ const TimelineItem = ({
       {selectedSkill && (
         <SkillModal
           skill={selectedSkill}
-          description={skillDescriptions[selectedSkill] || "No description available."}
+          description={
+            skillDescriptions[selectedSkill] || "No description available."
+          }
           onClose={() => setSelectedSkill(null)}
         />
       )}

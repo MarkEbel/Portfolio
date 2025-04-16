@@ -6,7 +6,8 @@
   border-radius: 0.4rem;
 }
 
-.SubSection:hover { /* NEED TO DO STUFF FOR LIGHT THEME*/
-    background:rgba(255, 255, 255, 0.04);
-    border: 0.225rem rgba(255, 255, 255, 0.4);
-} 
+.SubSection:hover {
+  /* NEED TO DO STUFF FOR LIGHT THEME*/
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.225rem rgba(255, 255, 255, 0.4);
+}

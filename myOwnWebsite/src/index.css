@@ -5,19 +5,23 @@
 }
 
 ::selection {
-  background-color: rgb(19, 255, 90); /* Background color when text is selected */
+  background-color: rgb(
+    19,
+    255,
+    90
+  ); /* Background color when text is selected */
   color: rgb(90, 87, 87); /* Text color when selected */
 }
 
 .light-mode {
   --background-color: #ffffff;
-  --text-color: #11172A;
+  --text-color: #11172a;
   --unhover-color: rgba(0, 0, 0, 0.5);
   --hover-color: #865506;
 }
 
 .dark-mode {
-  --background-color: #11172A;
+  --background-color: #11172a;
   --text-color: rgba(240, 237, 237, 0.836);
   --unhover-color: #ffffff;
   --hover-color: #f39c12;
@@ -27,8 +31,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   place-items: center;
-  font-family: 'Roboto', sans-serif;
-
+  font-family: "Roboto", sans-serif;
 }
 p {
   font-size: 1rem;
@@ -37,7 +40,7 @@ p {
 
 a {
   color: var(--text-color);
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 h1 {

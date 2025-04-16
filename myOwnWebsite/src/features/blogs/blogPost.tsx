@@ -17,7 +17,7 @@ const BlogPost = () => {
       <button className="back-button" onClick={() => navigate("/Portfolio/")}>
         ←
       </button>
-      <PostComponent/>
+      <PostComponent />
     </div>
   );
 };

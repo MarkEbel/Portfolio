@@ -12,7 +12,7 @@
   margin-left: 30rem;
   width: 40rem;
 }
-.app { 
+.app {
   margin: 10%;
 }
 
@@ -25,7 +25,7 @@
     flex-direction: column;
     width: 100%;
     max-width: 100%;
-    margin-left : 0;
+    margin-left: 0;
     align-items: center;
     display: flex;
   }
@@ -38,6 +38,6 @@
   .main-content {
     width: 90%;
     padding-left: 10%;
-    margin-left: 0; 
+    margin-left: 0;
   }
 }

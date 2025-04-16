@@ -1,46 +1,46 @@
 .ProjectItem {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 
 .ProjectItemLink {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-    color: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .ProjectItem img {
-    width: 11rem;
-    height: 11rem;
-    object-fit: cover;
+  width: 11rem;
+  height: 11rem;
+  object-fit: cover;
 }
 
 .ProjectItemContent {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .ProjectItemContent h2 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 768px) {
-    .ProjectItem {
-        flex-direction: column;
-    }
+  .ProjectItem {
+    flex-direction: column;
+  }
 
-    .ProjectItem a {
-        flex-direction: column;
-    }
+  .ProjectItem a {
+    flex-direction: column;
+  }
 
-    .ProjectItem img {
-    }
-    .ProjectItemLink {
-        flex-direction: column;
-    }
+  .ProjectItem img {
+  }
+  .ProjectItemLink {
+    flex-direction: column;
+  }
 }

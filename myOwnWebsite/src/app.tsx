@@ -26,12 +26,12 @@ const App = () => {
   }, []);
 
   return (
-    <div className={`app ${isBlogPage ? "blog-mode" : ""}`}> 
+    <div className={`app ${isBlogPage ? "blog-mode" : ""}`}>
       {/* Torch Effect */}
       <div
         className="torch-effect"
         style={{
-          background: `radial-gradient(circle 410px at ${mousePos.x}px ${mousePos.y}px, rgba(28, 15, 216, 0.14),rgba(17, 23, 42, 0.25))`
+          background: `radial-gradient(circle 410px at ${mousePos.x}px ${mousePos.y}px, rgba(28, 15, 216, 0.14),rgba(17, 23, 42, 0.25))`,
         }}
       ></div>
 

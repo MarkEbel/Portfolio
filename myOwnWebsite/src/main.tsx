@@ -6,6 +6,7 @@ import App from "./app";
 import ErrorPage from "./features/error/error-page";
 import { ThemeProvider } from "./components/theming/themeContext";
 import BlogPost from "./features/blogs/blogPost"; // New component for individual blog pages
+import CommuteHeatmap from "./features/commuterHeatmap/commuterHeatmap";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "blogs/:blogId",
-        element: <BlogPost />, // Dynamic blog post page
+        element: <BlogPost />,
+      },
+      {
+        path: "commuterHeatmap",
+        element: <CommuteHeatmap />,
       },
     ],
   },

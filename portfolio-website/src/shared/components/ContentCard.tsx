@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./ContentCard.css";
 
 interface ContentCardProps {
-  id: string;
   title: string;
   href: string;
   image: string;
@@ -11,7 +10,6 @@ interface ContentCardProps {
 }
 
 const ContentCard = ({
-  id,
   href,
   description,
   title,
@@ -29,7 +27,7 @@ const ContentCard = ({
   );
 
   return (
-    <section id={id} className="content-card">
+    <section className="content-card">
       {internal ? (
         <Link className="content-card__link" to={href}>
           {content}

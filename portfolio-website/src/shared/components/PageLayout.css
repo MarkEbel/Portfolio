@@ -1,0 +1,17 @@
+.page-header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--surface-hover);
+}
+
+.page-header__eyebrow {
+  margin-bottom: 0.4rem;
+  color: var(--accent-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}

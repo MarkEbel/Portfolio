@@ -22,15 +22,10 @@ test.describe("home page", () => {
     ).toBeVisible();
   });
 
-  test("shows section navigation on desktop", async ({ page }) => {
-    test.skip(
-      (page.viewportSize()?.width ?? 0) <= 900,
-      "the section nav is hidden once the shell stacks",
-    );
-
+  test("shows route navigation", async ({ page }) => {
     await goToHome(page);
 
-    const nav = page.getByRole("navigation");
+    const nav = page.getByRole("navigation", { name: "Primary navigation" });
     await expect(nav).toBeVisible();
 
     for (const label of ["About", "Experience", "Projects", "Blogs"]) {
@@ -38,15 +33,37 @@ test.describe("home page", () => {
     }
   });
 
-  test("hides section navigation on phones", async ({ page }) => {
-    test.skip((page.viewportSize()?.width ?? 0) > 900, "phone viewports only");
-
+  test("links previews to full collections", async ({ page }) => {
     await goToHome(page);
 
     await expect(
-      page.getByRole("heading", { name: "Full Stack Engineer" }),
+      page.getByRole("heading", { name: "Latest experience" }),
     ).toBeVisible();
-    await expect(page.getByRole("navigation")).toBeHidden();
+    await expect(
+      page.getByRole("link", { name: "See full experience" }),
+    ).toHaveAttribute("href", "/Portfolio/experience");
+    await expect(
+      page.getByRole("link", { name: "See all projects" }),
+    ).toHaveAttribute("href", "/Portfolio/projects");
+    await expect(
+      page.getByRole("link", { name: "See all blogs" }),
+    ).toHaveAttribute("href", "/Portfolio/blogs");
+  });
+
+  test("opens full collections from navigation", async ({ page }) => {
+    await goToHome(page);
+
+    await page
+      .getByRole("navigation", { name: "Primary navigation" })
+      .getByRole("link", { name: "Experience" })
+      .click();
+
+    await expect(
+      page.getByRole("heading", { name: "Experience", exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "BSc Computer Science" }),
+    ).toBeVisible();
   });
 
   test("theme toggle switches light and dark body classes", async ({

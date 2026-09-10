@@ -14,8 +14,12 @@ const BlogPostPage = () => {
 
   return (
     <div className="blogPost">
-      <button className="back-button" onClick={() => navigate("/Portfolio/")}>
-        ←
+      <button
+        className="back-button"
+        aria-label="Back to blogs"
+        onClick={() => navigate("/Portfolio/blogs")}
+      >
+        <span aria-hidden="true">←</span>
       </button>
       <PostComponent />
     </div>

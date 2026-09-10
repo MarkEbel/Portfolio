@@ -3,7 +3,6 @@ import SkillModal from "./SkillModal";
 import "./TimelineItem.css";
 
 interface TimelineItemProps {
-  id: string;
   title: string;
   company: string;
   hyperlinkTitle: string;
@@ -14,7 +13,6 @@ interface TimelineItemProps {
 }
 
 const TimelineItem = ({
-  id,
   date,
   description,
   title,
@@ -26,7 +24,7 @@ const TimelineItem = ({
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
   return (
-    <section id={id} className="TimelineItem">
+    <section className="TimelineItem">
       <div className="timeline-item-header">
         <h2>{title}</h2>
         <p className="timeline-item-date">{date}</p>

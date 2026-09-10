@@ -17,7 +17,6 @@
   line-height: 1;
   color: var(--unhover-color);
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
 }
 
 .back-button:hover {

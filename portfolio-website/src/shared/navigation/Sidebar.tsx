@@ -1,12 +1,23 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import ThemeToggle from "../theme/ThemeToggle";
 import Navbar from "./Navbar";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+interface SidebarProps {
+  isHome?: boolean;
+}
+
+const Sidebar = ({ isHome = false }: SidebarProps) => {
   return (
-    <div className="sidebar">
-      <h1>Mark Ebel</h1>
+    <header className="sidebar">
+      {isHome ? (
+        <h1>Mark Ebel</h1>
+      ) : (
+        <Link className="sidebar__name" to="/Portfolio/">
+          Mark Ebel
+        </Link>
+      )}
       <h3>Full Stack Engineer</h3>
 
       <Navbar />
@@ -33,7 +44,7 @@ const Sidebar = () => {
         </a>
         <ThemeToggle />
       </div>
-    </div>
+    </header>
   );
 };
 

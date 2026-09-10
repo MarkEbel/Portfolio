@@ -3,6 +3,9 @@ import { expect, test, type Page } from "@playwright/test";
 
 const pages = [
   { name: "home", path: "/Portfolio/" },
+  { name: "experience", path: "/Portfolio/experience" },
+  { name: "projects", path: "/Portfolio/projects" },
+  { name: "blogs", path: "/Portfolio/blogs" },
   {
     name: "blog post",
     path: "/Portfolio/blogs/leading-retrospective",

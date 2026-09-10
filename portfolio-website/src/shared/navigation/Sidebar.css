@@ -8,6 +8,15 @@
   margin-right: clamp(1.5rem, 3vw, 4rem);
 }
 
+.sidebar__name {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
 .sidebar h3 {
   color: var(--muted-color);
   margin: 0 0 2rem;
@@ -25,7 +34,6 @@
 .sidebarFooter .theme-toggle {
   color: var(--text-color);
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
 }
 
 .sidebarFooter .theme-toggle {
@@ -55,6 +63,6 @@
   }
 
   .sidebarFooter {
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
   }
 }

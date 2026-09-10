@@ -5,6 +5,13 @@ import { goToHome } from "./helpers/navigation";
 const pages = [
   { name: "home", path: "/Portfolio/", heading: "Mark Ebel" },
   {
+    name: "experience",
+    path: "/Portfolio/experience",
+    heading: "Experience",
+  },
+  { name: "projects", path: "/Portfolio/projects", heading: "Projects" },
+  { name: "blogs", path: "/Portfolio/blogs", heading: "Blogs" },
+  {
     name: "blog post",
     path: "/Portfolio/blogs/leading-retrospective",
     heading: "Leading My First Retrospective",
@@ -64,5 +71,21 @@ test.describe("responsive layout", () => {
     const mainBox = await boxOf(page.getByRole("main"));
     const columnCenter = mainBox.x + mainBox.width / 2;
     expect(Math.abs(columnCenter - width / 2)).toBeLessThan(16);
+  });
+
+  test("content thumbnails become widescreen banners on phones", async ({
+    page,
+  }) => {
+    const width = page.viewportSize()?.width ?? 0;
+    test.skip(width > 900, "phone viewports only");
+
+    await goToHome(page);
+    const image = page.getByRole("img", {
+      name: "Interactive Developer Portfolio",
+    });
+    await expect(image).toBeVisible();
+
+    const imageBox = await boxOf(image);
+    expect(imageBox.width / imageBox.height).toBeCloseTo(16 / 9, 1);
   });
 });

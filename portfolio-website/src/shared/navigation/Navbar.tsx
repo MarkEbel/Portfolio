@@ -1,19 +1,27 @@
-import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+
+const links = [
+  { label: "About", to: "/Portfolio/", end: true },
+  { label: "Experience", to: "/Portfolio/experience" },
+  { label: "Projects", to: "/Portfolio/projects" },
+  { label: "Blogs", to: "/Portfolio/blogs" },
+];
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      {["About", "Experience", "Projects", "Blogs"].map((section) => (
-        <Link
-          key={section}
-          to={section.toLowerCase()}
-          smooth={true}
-          duration={500}
-          className="navbar-links"
+    <nav className="navbar" aria-label="Primary navigation">
+      {links.map(({ label, to, end }) => (
+        <NavLink
+          key={label}
+          to={to}
+          end={end}
+          className={({ isActive }) =>
+            `navbar-links${isActive ? " navbar-links--active" : ""}`
+          }
         >
-          {section}
-        </Link>
+          {label}
+        </NavLink>
       ))}
     </nav>
   );

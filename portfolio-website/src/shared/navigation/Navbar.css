@@ -8,9 +8,7 @@
 .navbar-links {
   position: relative;
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
+  transition: transform 0.3s ease;
   font-size: 1.1rem;
 }
 
@@ -30,15 +28,34 @@
   color: var(--hover-color);
 }
 
+.navbar-links--active {
+  color: var(--accent-color);
+}
+
 .navbar-links:hover::before {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Same breakpoint as the shell. Once stacked, the page is a single scrolling
-   column, so jump links read as a second header instead of navigation. */
+/* Route links remain useful once the homepage only previews each collection.
+   On the stacked shell they become a compact horizontal bar instead of a
+   second vertical header. */
 @media screen and (max-width: 900px) {
   .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+
+  .navbar-links {
+    font-size: 0.95rem;
+  }
+
+  .navbar-links:hover {
+    transform: none;
+  }
+
+  .navbar-links::before {
     display: none;
   }
 }

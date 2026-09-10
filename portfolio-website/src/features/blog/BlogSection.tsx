@@ -3,7 +3,7 @@ import Subsection from "../../shared/components/Subsection";
 
 const BlogSection = () => {
   return (
-    <div>
+    <>
       <Subsection id="retro">
         <ContentCard
           id="retro"
@@ -14,7 +14,7 @@ const BlogSection = () => {
           internal={true}
         />
       </Subsection>
-    </div>
+    </>
   );
 };
 

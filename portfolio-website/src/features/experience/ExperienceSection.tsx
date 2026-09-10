@@ -4,7 +4,7 @@ import skillDescriptions from "./skillDescriptions";
 
 const ExperienceSection = () => {
   return (
-    <div>
+    <>
       <Subsection id="contentGuru">
         <TimelineItem
           id="contentGuru"
@@ -60,7 +60,7 @@ const ExperienceSection = () => {
           skillDescriptions={skillDescriptions}
         />
       </Subsection>
-    </div>
+    </>
   );
 };
 

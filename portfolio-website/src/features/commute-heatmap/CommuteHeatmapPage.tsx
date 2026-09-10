@@ -109,9 +109,12 @@ export default function CommuteHeatmapPage() {
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
           placeholder="Workplace (e.g. Bank)"
+          id="commute-destination"
+          aria-label="Workplace"
           className="commute-heatmap__input"
         />
         <button
+          type="button"
           onClick={fetchCommuteTimes}
           disabled={loading}
           className="commute-heatmap__button"

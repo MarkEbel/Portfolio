@@ -10,7 +10,12 @@ alwaysApply: false
 - Theme tokens live in `src/styles/global.css` on `.light-mode` and `.dark-mode`, with `:root` fallbacks for the first paint: `--background-color`, `--text-color`, `--muted-color`, `--hover-color`, `--accent-color`, `--accent-contrast`, `--accent-soft`, `--surface-hover`.
 - Use one accent. New highlights reuse `--accent-color` / `--accent-soft` rather than introducing another colour.
 - A stylesheet only styles its own component's classes. Do not override another component's class from a parent stylesheet: CSS import order follows component import order, so a child's stylesheet loads last and silently wins, media query or not.
-- The shell stacks at `max-width: 900px`. Both `app/App.css` and `shared/navigation/Sidebar.css` use that value; change them together.
+- The global `h1` is the home-page hero size. Routed pages (blog posts, heatmap) scope their own title down in that page's stylesheet. Do not shrink the global `h1` to fit a sub-page.
+- The shell stacks at `max-width: 900px`. Both `app/App.css` and `shared/navigation/Sidebar.css` use that value; change them together, along with the sidebar's sticky `top`, which must match the `.app` top margin.
+- On desktop, `.app` is a three-column grid (`1fr | 42rem | 1fr`) so the reading column is centred in the viewport. The sidebar sits in the left track. Pages without a sidebar (`blogPost`) still occupy the centre track. The commute heatmap spans the full grid because it is a map, not a document. Do not go back to a flex row that parks the document to the right of the sidebar.
+- Keep vertical spacing in `rem`. A percentage margin or padding resolves against the container's **width**, so it grows with screen width.
+- Vertical rhythm comes from the container's flex `gap`, not from stacked margins and padding. `.main-content` spaces sections, `.Section` spaces subsections. Text elements (`p`, `h2`, `h3`) carry bottom margin only, and `p:last-child` drops it, so a leading heading or trailing paragraph never adds to the gap around its container.
+- `.SubSection` pads for its hover background and cancels that padding with an equal negative margin. That keeps card text on the same left edge as sections without a card, and keeps every gap equal to the parent's `gap`. Change the padding and margin together.
 - Prefer flex or grid with `min-width: 0` over fixed offsets like `margin-left: 30rem`, so intermediate widths degrade instead of overlapping.
 - Use `:focus-visible` with `outline` and `outline-offset`. Never use `border` for focus, which shifts layout.
 - Responsive changes need coverage in `e2e/layout.spec.ts`, which runs on desktop and both phone viewports.

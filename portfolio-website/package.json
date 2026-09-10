@@ -7,10 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "npm run lint:eslint && npm run lint:format && npm run lint:types",
+    "lint": "npm run lint:eslint && npm run lint:format && npm run lint:types && npm run lint:spelling",
     "lint:eslint": "eslint . --max-warnings 0",
     "lint:format": "prettier --check . ../README.md ../AGENTS.md ../.github ../.cursor",
     "lint:types": "tsc -b",
+    "lint:spelling": "cspell --no-progress",
     "lint:staged": "lint-staged --relative",
     "prepare": "cd .. && husky portfolio-website/.husky",
     "preview": "vite preview",
@@ -31,6 +32,8 @@
     "react-scroll": "^1.9.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@cspell/dict-en-gb": "^5.0.31",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
     "@types/leaflet": "^1.9.22",
@@ -39,6 +42,7 @@
     "@types/react-dom": "^19.3.0",
     "@types/react-scroll": "^1.8.10",
     "@vitejs/plugin-react": "^6.1.1",
+    "cspell": "^10.3.0",
     "eslint": "^10.10.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.6",

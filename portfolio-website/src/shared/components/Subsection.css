@@ -1,8 +1,12 @@
+/* Padding gives the hover background room to bleed past the text. The matching
+   negative margin cancels it, so card text lines up with sections that have no
+   card (About) and every gap is exactly the parent's flex gap. */
 .SubSection {
   align-items: center;
   display: flex;
   gap: 2rem;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
+  margin: -0.75rem -1rem;
   border-radius: 0.4rem;
   transition: background-color 0.3s ease;
 }

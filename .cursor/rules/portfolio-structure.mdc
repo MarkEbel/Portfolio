@@ -33,9 +33,9 @@ Portfolio/
 - Keep `package.json` dependencies limited to packages imported by the app or required as peers. Do not keep unused UI libraries “for later”.
 - New packages should be sibling folders with their own README, then linked from the root README.
 - GitHub Actions should use Node 24-compatible action majors (for example `actions/upload-artifact@v7`, not `v4`).
-- CI quality checks belong in `.github/workflows/ci.yml`: ESLint, Prettier, TypeScript, Chromium Playwright, then dependency review (`actions/dependency-review-action@v5`). Fail only on newly introduced GitHub advisories (`fail-on-severity: low`, runtime and development scopes). Deploy to GitHub Pages from that same workflow only after `quality`, `e2e`, and `dependency-review` pass on `main`.
+- CI quality checks belong in `.github/workflows/ci.yml`: ESLint, Prettier, TypeScript, cspell (British English on blog copy), Chromium Playwright (including axe WCAG 2.2 AA), then dependency review (`actions/dependency-review-action@v5`). Fail only on newly introduced GitHub advisories (`fail-on-severity: low`, runtime and development scopes). Deploy to GitHub Pages from that same workflow only after `quality`, `e2e`, and `dependency-review` pass on `main`.
 - Skip dependency review only with `[skip dependency-review]` in the commit message or PR title/body. Do not use `[skip ci]`.
 - When `main` is protected, required checks are `CI / quality`, `CI / e2e`, and `CI / dependency-review`. Do not require `CI / deploy`.
 - Dependabot PRs (including majors) use `.github/workflows/dependabot-auto-merge.yml` with `gh pr merge --auto --squash`. GitHub merges after required checks on `main`. Do not require human reviews for this to work.
-- Pre-commit uses Husky + lint-staged to auto-fix; CI must keep using check-only scripts (`lint:eslint`, `lint:format`, `lint:types`).
+- Pre-commit uses Husky + lint-staged to auto-fix; CI must keep using check-only scripts (`lint:eslint`, `lint:format`, `lint:types`, `lint:spelling`).
 - Prettier and ESLint cover the whole repo: `portfolio-website` plus root `README.md`, `AGENTS.md`, `.github/`, and `.cursor/`. Do not limit format scripts to `src/` only.

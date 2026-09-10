@@ -3,7 +3,7 @@ import ContentCard from "../../shared/components/ContentCard";
 
 const ProjectsSection = () => {
   return (
-    <div>
+    <>
       <Subsection id="personalWebsite">
         <ContentCard
           id="personalWebsite"
@@ -13,7 +13,7 @@ const ProjectsSection = () => {
           href="https://github.com/MarkEbel/resume"
         />
       </Subsection>
-    </div>
+    </>
   );
 };
 

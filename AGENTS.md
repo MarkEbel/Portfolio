@@ -22,6 +22,7 @@ CI (`npm run lint` in `portfolio-website`) matches Contact's GUI quality gates a
 - `lint:eslint` — ESLint
 - `lint:format` — Prettier `--check` on the whole repo (use `npm run format` to fix)
 - `lint:types` — `tsc -b`
+- `lint:spelling` — cspell British English on blog copy (`src/features/blog`)
 
 Pre-commit (Husky in `portfolio-website/.husky`) runs `lint:staged`, which **fixes** staged files with ESLint `--fix` and Prettier `--write`. GitHub Actions still **checks** only. Skip the hook with a `noprecommit` file at the repo root or in `portfolio-website/`.
 

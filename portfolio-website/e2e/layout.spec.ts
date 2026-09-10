@@ -55,4 +55,14 @@ test.describe("responsive layout", () => {
     await expect(toggle).toBeVisible();
     expect(overlaps(await boxOf(toggle), mainBox)).toBe(false);
   });
+
+  test("reading column is centred on desktop", async ({ page }) => {
+    const width = page.viewportSize()?.width ?? 0;
+    test.skip(width <= 900, "the document column is a desktop layout");
+
+    await goToHome(page);
+    const mainBox = await boxOf(page.getByRole("main"));
+    const columnCenter = mainBox.x + mainBox.width / 2;
+    expect(Math.abs(columnCenter - width / 2)).toBeLessThan(16);
+  });
 });

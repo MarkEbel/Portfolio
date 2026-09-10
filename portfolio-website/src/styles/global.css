@@ -4,15 +4,15 @@
     sans-serif;
 
   /* Fallbacks for the first paint, before ThemeProvider sets the body class. */
-  --background-color: #11172a;
+  --background-color: #161d33;
   --text-color: rgba(240, 237, 237, 0.836);
   --muted-color: rgba(240, 237, 237, 0.6);
   --unhover-color: #ffffff;
   --hover-color: #f39c12;
   --accent-color: #f39c12;
-  --accent-contrast: #11172a;
+  --accent-contrast: #161d33;
   --accent-soft: rgba(243, 156, 18, 0.18);
-  --surface-hover: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.05);
 }
 
 .light-mode {
@@ -28,18 +28,19 @@
 }
 
 .dark-mode {
-  --background-color: #11172a;
+  --background-color: #161d33;
   --text-color: rgba(240, 237, 237, 0.836);
   --muted-color: rgba(240, 237, 237, 0.6);
   --unhover-color: #ffffff;
   --hover-color: #f39c12;
   --accent-color: #f39c12;
-  --accent-contrast: #11172a;
+  --accent-contrast: #161d33;
   --accent-soft: rgba(243, 156, 18, 0.18);
-  --surface-hover: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.05);
 }
 
 body {
+  margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-sans);
@@ -66,21 +67,32 @@ h1 {
   font-size: clamp(2.25rem, 5vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.25rem;
 }
 
+/* Headings carry bottom spacing only, so a heading at the top of a card does
+   not add to the gap above it. */
 h2 {
   font-size: 1.35rem;
   line-height: 1.3;
+  margin-block: 0 0.5rem;
 }
 
 h3 {
   font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.4;
+  margin-block: 0 0.5rem;
 }
 
+/* Paragraphs only space each other. Containers own their outer spacing, so a
+   trailing paragraph never adds to the gap below its section. */
 p {
   font-size: 1rem;
   line-height: 1.65;
+  margin-block: 0 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }

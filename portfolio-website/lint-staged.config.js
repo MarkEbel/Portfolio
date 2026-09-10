@@ -19,4 +19,6 @@ export default {
       : [];
   },
   "*.{js,jsx,mjs,cjs,ts,tsx,md,mdc,html,json,css,yml,yaml}": "prettier --write",
+  "src/features/blog/**/*.{ts,tsx}":
+    "cspell --no-progress --no-must-find-files",
 };

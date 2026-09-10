@@ -1,27 +1,36 @@
+/* Three columns so the 42rem reading pane sits in the viewport middle.
+   The sidebar occupies the leftover left track; equal tracks keep the
+   document centred. Vertical margin stays in rem: a percentage margin
+   resolves against width and grew with the screen. */
 .app {
-  display: flex;
-  align-items: flex-start;
-  gap: 4rem;
-  margin: 6% 8%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 42rem) minmax(0, 1fr);
+  align-items: start;
+  margin-block: 3rem;
+  padding-inline: 1.25rem;
+}
+
+.app > .sidebar {
+  grid-column: 1;
+  justify-self: end;
+}
+
+.app > :not(.sidebar) {
+  grid-column: 2;
+  min-width: 0;
+}
+
+/* The map is a tool, not a document column — let it use the full shell. */
+.app > .commute-heatmap {
+  grid-column: 1 / -1;
 }
 
 .main-content {
-  flex: 1 1 auto;
-  min-width: 0;
+  width: 100%;
   max-width: 42rem;
-}
-
-/* Sits behind content so it can never intercept clicks or tint text. */
-.torch-effect {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(
-    circle 410px at var(--torch-x, 50%) var(--torch-y, 50%),
-    rgba(28, 15, 216, 0.14),
-    rgba(17, 23, 42, 0.25)
-  );
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 /* Stacking breakpoint. Sidebar.css must use the same width, and owns its own
@@ -29,17 +38,15 @@
    silently lose. */
 @media screen and (max-width: 900px) {
   .app {
+    display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     margin: 2rem 1.25rem;
+    padding-inline: 0;
   }
 
   .main-content {
     max-width: 100%;
     width: 100%;
-  }
-
-  .torch-effect {
-    display: none;
   }
 }

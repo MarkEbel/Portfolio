@@ -15,9 +15,10 @@
     "prepare": "cd .. && husky portfolio-website/.husky",
     "preview": "vite preview",
     "format": "prettier --write . ../README.md ../AGENTS.md ../.github ../.cursor",
-    "test": "playwright test --project=chromium",
+    "test": "playwright test",
     "test:chrome": "playwright test --project=chromium",
-    "test:ui": "playwright test --ui --project=chromium"
+    "test:mobile": "playwright test --project=mobile-chromium --project=small-mobile-chromium",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

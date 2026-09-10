@@ -1,5 +1,12 @@
 .sidebar {
-  position: fixed;
+  position: sticky;
+  top: 4rem;
+  flex: 0 0 20rem;
+}
+
+.sidebar h3 {
+  color: var(--muted-color);
+  margin-top: 0;
 }
 
 .sidebar nav {
@@ -15,5 +22,29 @@
   align-items: center;
   font-size: 2rem;
   gap: 1rem;
+}
+
+.sidebarFooter a,
+.sidebarFooter .theme-toggle {
+  color: var(--text-color);
+  cursor: pointer;
   transition: color 0.3s ease-in-out;
+}
+
+.sidebarFooter a:hover,
+.sidebarFooter .theme-toggle:hover {
+  color: var(--hover-color);
+}
+
+/* Same breakpoint as App.css, where the shell stacks. */
+@media screen and (max-width: 900px) {
+  .sidebar {
+    position: static;
+    flex: none;
+    width: 100%;
+  }
+
+  .sidebarFooter {
+    margin-top: 2rem;
+  }
 }

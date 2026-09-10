@@ -6,10 +6,16 @@
 }
 
 .skill-bubble {
-  background-color: #595eb3;
-  color: white;
+  background-color: var(--accent-soft);
+  color: var(--accent-color);
   padding: 0.3rem 0.6rem;
   border-radius: 1rem;
   font-size: 0.9rem;
   white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.skill-bubble:hover {
+  background-color: var(--surface-hover);
 }

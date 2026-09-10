@@ -1,41 +1,60 @@
-:focus {
-  outline: none; /* Remove the default outline */
-  border: 2px solid #e4fb1b; /* Add a custom border */
-  box-shadow: 0 0 5px rgba(248, 248, 28, 0.1); /* Optional: Add a glow effect */
-}
+:root {
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
 
-::selection {
-  background-color: rgb(
-    19,
-    255,
-    90
-  ); /* Background color when text is selected */
-  color: rgb(90, 87, 87); /* Text color when selected */
+  /* Fallbacks for the first paint, before ThemeProvider sets the body class. */
+  --background-color: #11172a;
+  --text-color: rgba(240, 237, 237, 0.836);
+  --muted-color: rgba(240, 237, 237, 0.6);
+  --unhover-color: #ffffff;
+  --hover-color: #f39c12;
+  --accent-color: #f39c12;
+  --accent-contrast: #11172a;
+  --accent-soft: rgba(243, 156, 18, 0.18);
+  --surface-hover: rgba(255, 255, 255, 0.04);
 }
 
 .light-mode {
   --background-color: #ffffff;
   --text-color: #11172a;
+  --muted-color: rgba(17, 23, 42, 0.65);
   --unhover-color: rgba(0, 0, 0, 0.5);
   --hover-color: #865506;
+  --accent-color: #865506;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(134, 85, 6, 0.14);
+  --surface-hover: rgba(17, 23, 42, 0.05);
 }
 
 .dark-mode {
   --background-color: #11172a;
   --text-color: rgba(240, 237, 237, 0.836);
+  --muted-color: rgba(240, 237, 237, 0.6);
   --unhover-color: #ffffff;
   --hover-color: #f39c12;
+  --accent-color: #f39c12;
+  --accent-contrast: #11172a;
+  --accent-soft: rgba(243, 156, 18, 0.18);
+  --surface-hover: rgba(255, 255, 255, 0.04);
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  place-items: center;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-sans);
 }
-p {
-  font-size: 1rem;
-  line-height: 1.4rem;
+
+/* Outline rather than border, so focusing an element does not shift layout. */
+:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+  border-radius: 0.15rem;
+}
+
+::selection {
+  background-color: var(--accent-soft);
+  color: var(--text-color);
 }
 
 a {
@@ -44,5 +63,24 @@ a {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.65;
 }

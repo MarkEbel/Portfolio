@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet.heat";
 import "leaflet/dist/leaflet.css";
+import "./CommuteHeatmapPage.css";
 
 type Location = {
   name: string;
@@ -100,31 +101,30 @@ export default function CommuteHeatmapPage() {
   };
 
   return (
-    <div className="p-6 space-y-4">
-      <h1 className="text-2xl font-bold">London Commute Heatmap</h1>
-      <div className="flex gap-2">
+    <div className="commute-heatmap">
+      <h1>London Commute Heatmap</h1>
+      <div className="commute-heatmap__controls">
         <input
           type="text"
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
           placeholder="Workplace (e.g. Bank)"
-          className="border px-3 py-2 rounded w-full md:w-auto"
+          className="commute-heatmap__input"
         />
         <button
           onClick={fetchCommuteTimes}
           disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+          className="commute-heatmap__button"
         >
           {loading ? "Loading..." : "Calculate Commutes"}
         </button>
       </div>
 
       <MapContainer
-        className="h-[600px] rounded-xl z-0"
+        className="commute-heatmap__map"
         center={[51.5074, -0.1278]}
         zoom={11}
         scrollWheelZoom={true}
-        style={{ height: "600px", width: "100%" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

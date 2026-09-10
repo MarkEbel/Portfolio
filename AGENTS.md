@@ -6,12 +6,14 @@ GitHub remote: `https://github.com/MarkEbel/Portfolio.git`
 
 ## End-to-end tests
 
-Browser tests are Playwright, Chromium only, in `portfolio-website/e2e`.
+Browser tests are Playwright, Chromium only, in `portfolio-website/e2e`. Three viewports: Desktop Chrome, Pixel 7, and Galaxy S8.
 
 ```sh
 cd portfolio-website
 npx playwright install chromium   # once per machine
-npm test                          # local + CI command
+npm test                          # local + CI command, all three viewports
+npm run test:chrome               # desktop only
+npm run test:mobile               # phones only
 npm run test:ui
 ```
 

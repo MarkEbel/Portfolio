@@ -16,6 +16,7 @@ const Sidebar = () => {
           href="https://www.linkedin.com/in/mark-ebel"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn"
         >
           <FaLinkedin />
         </a>
@@ -23,11 +24,12 @@ const Sidebar = () => {
           href="https://github.com/MarkEbel"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub"
         >
           <FaGithub />
         </a>
-        <a href="mailto:markbenebel@gmail.com">
-          <FaEnvelope className="text-2xl hover:text-green-400" />
+        <a href="mailto:markbenebel@gmail.com" aria-label="Email">
+          <FaEnvelope />
         </a>
         <ThemeToggle />
       </div>

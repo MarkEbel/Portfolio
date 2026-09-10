@@ -34,6 +34,14 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
+    {
+      name: "mobile-chromium",
+      use: { ...devices["Pixel 7"] },
+    },
+    {
+      name: "small-mobile-chromium",
+      use: { ...devices["Galaxy S8"] },
+    },
   ],
   webServer: {
     command: "npm run build && npx vite preview --host 127.0.0.1 --port 4173",

@@ -1,27 +1,35 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
+import { useTheme } from "../shared/theme/useTheme";
 import "./App.css";
 
 const App = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { theme } = useTheme();
+  const torchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (theme !== "dark") {
+      return;
+    }
+
+    // Write straight to CSS custom properties: React state here would re-render
+    // the whole routed page on every mouse move.
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      const torch = torchRef.current;
+      if (!torch) {
+        return;
+      }
+      torch.style.setProperty("--torch-x", `${e.clientX}px`);
+      torch.style.setProperty("--torch-y", `${e.clientY}px`);
     };
 
     document.addEventListener("mousemove", handleMouseMove);
     return () => document.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [theme]);
 
   return (
     <div className="app">
-      <div
-        className="torch-effect"
-        style={{
-          background: `radial-gradient(circle 410px at ${mousePos.x}px ${mousePos.y}px, rgba(28, 15, 216, 0.14),rgba(17, 23, 42, 0.25))`,
-        }}
-      />
+      {theme === "dark" && <div ref={torchRef} className="torch-effect" />}
       <Outlet />
     </div>
   );

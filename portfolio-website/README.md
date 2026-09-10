@@ -4,20 +4,24 @@ Personal portfolio and résumé site: About, Experience, Projects, Blogs, plus a
 
 ## Scripts
 
-| Command                            | Purpose                                                                             |
-| ---------------------------------- | ----------------------------------------------------------------------------------- |
-| `npm run dev`                      | Vite dev server (`base` is `/Portfolio/`)                                           |
-| `npm run build`                    | Typecheck and production build into `dist/`                                         |
-| `npm run preview`                  | Serve the production build locally                                                  |
-| `npm test` / `npm run test:chrome` | Playwright Chromium e2e (builds then previews)                                      |
-| `npm run test:ui`                  | Playwright UI runner, Chromium only                                                 |
-| `npm run lint`                     | ESLint, Prettier check, and TypeScript (`lint:eslint`, `lint:format`, `lint:types`) |
-| `npm run lint:staged`              | ESLint `--fix` and Prettier `--write` on staged files (used by the pre-commit hook) |
-| `npm run format`                   | Prettier write on the whole repo (app, e2e, configs, docs, GitHub, Cursor rules)    |
+| Command               | Purpose                                                                             |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| `npm run dev`         | Vite dev server (`base` is `/Portfolio/`)                                           |
+| `npm run build`       | Typecheck and production build into `dist/`                                         |
+| `npm run preview`     | Serve the production build locally                                                  |
+| `npm test`            | Playwright e2e on desktop and both phone viewports (builds then previews)           |
+| `npm run test:chrome` | Desktop Chrome project only                                                         |
+| `npm run test:mobile` | Phone projects only (Pixel 7 and Galaxy S8)                                         |
+| `npm run test:ui`     | Playwright UI runner                                                                |
+| `npm run lint`        | ESLint, Prettier check, and TypeScript (`lint:eslint`, `lint:format`, `lint:types`) |
+| `npm run lint:staged` | ESLint `--fix` and Prettier `--write` on staged files (used by the pre-commit hook) |
+| `npm run format`      | Prettier write on the whole repo (app, e2e, configs, docs, GitHub, Cursor rules)    |
 
 ## End-to-end tests
 
-Tests are in [`e2e/`](e2e/), configured by [`playwright.config.ts`](playwright.config.ts). They only use **Desktop Chrome**. Playwright starts a production preview (`vite preview` on port 4173) unless a server is already running locally.
+Tests are in [`e2e/`](e2e/), configured by [`playwright.config.ts`](playwright.config.ts). They are **Chromium only**, across three viewports: Desktop Chrome, Pixel 7, and Galaxy S8. `layout.spec.ts` guards the responsive shell — no horizontal overflow, and the sidebar must never overlap `<main>`.
+
+Playwright starts a production preview (`vite preview` on port 4173) unless a server is already running locally. If a stale preview is still up, Playwright reuses it and you will be testing an old build, so kill it first.
 
 First-time setup:
 

@@ -1,0 +1,16 @@
+---
+description: CSS conventions for the portfolio site
+globs: portfolio-website/src/**/*.css
+alwaysApply: false
+---
+
+# Styling
+
+- Plain CSS files next to the component they style. No CSS frameworks. Do not add Tailwind-style utility classes (`p-6`, `bg-blue-600`) — nothing processes them.
+- Theme tokens live in `src/styles/global.css` on `.light-mode` and `.dark-mode`, with `:root` fallbacks for the first paint: `--background-color`, `--text-color`, `--muted-color`, `--hover-color`, `--accent-color`, `--accent-contrast`, `--accent-soft`, `--surface-hover`.
+- Use one accent. New highlights reuse `--accent-color` / `--accent-soft` rather than introducing another colour.
+- A stylesheet only styles its own component's classes. Do not override another component's class from a parent stylesheet: CSS import order follows component import order, so a child's stylesheet loads last and silently wins, media query or not.
+- The shell stacks at `max-width: 900px`. Both `app/App.css` and `shared/navigation/Sidebar.css` use that value; change them together.
+- Prefer flex or grid with `min-width: 0` over fixed offsets like `margin-left: 30rem`, so intermediate widths degrade instead of overlapping.
+- Use `:focus-visible` with `outline` and `outline-offset`. Never use `border` for focus, which shifts layout.
+- Responsive changes need coverage in `e2e/layout.spec.ts`, which runs on desktop and both phone viewports.

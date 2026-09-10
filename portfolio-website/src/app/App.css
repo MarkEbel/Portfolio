@@ -1,33 +1,45 @@
-.main-content {
-  margin-left: 30rem;
-  width: 40rem;
-}
 .app {
-  margin: 10%;
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  margin: 6% 8%;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .torch-effect {
-    display: none;
-  }
+.main-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 42rem;
+}
+
+/* Sits behind content so it can never intercept clicks or tint text. */
+.torch-effect {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 410px at var(--torch-x, 50%) var(--torch-y, 50%),
+    rgba(28, 15, 216, 0.14),
+    rgba(17, 23, 42, 0.25)
+  );
+}
+
+/* Stacking breakpoint. Sidebar.css must use the same width, and owns its own
+   rules there: it loads after this file, so overriding .sidebar from here would
+   silently lose. */
+@media screen and (max-width: 900px) {
   .app {
     flex-direction: column;
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    align-items: center;
-    display: flex;
+    gap: 2rem;
+    margin: 2rem 1.25rem;
   }
-  .sidebar {
-    position: relative;
-  }
-  .sidebarFooter {
-    margin-top: 2rem;
-  }
+
   .main-content {
-    width: 90%;
-    padding-left: 10%;
-    margin-left: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .torch-effect {
+    display: none;
   }
 }

@@ -7,9 +7,13 @@ alwaysApply: false
 # End-to-end testing
 
 - Use Playwright in `portfolio-website/e2e`. Spec files end with `.spec.ts`.
-- Chromium / Desktop Chrome only. Do not add Firefox or WebKit projects unless asked.
-- Prefer role, label, and accessible name locators over CSS or test ids.
+- Chromium only. Do not add Firefox or WebKit projects unless asked.
+- Three projects, all Chromium: `chromium` (Desktop Chrome), `mobile-chromium` (Pixel 7), and `small-mobile-chromium` (Galaxy S8). Specs must pass on all three.
+- `npm test` runs every project. Use `test:chrome` or `test:mobile` to narrow while debugging.
+- Prefer role, label, and accessible name locators over CSS or test ids. Layout assertions may use class selectors when geometry is the thing under test.
 - Put a positive assertion (element is visible) before a negative one.
-- Reuse helpers in `e2e/helpers/` (for example `goToHome`) instead of duplicating navigation.
+- Reuse helpers in `e2e/helpers/` (for example `goToHome`, and `boxOf` / `overlaps` / `horizontalOverflow` for layout) instead of duplicating navigation or geometry maths.
+- Keep responsive regressions covered in `layout.spec.ts`: no horizontal overflow, and the fixed sidebar must never overlap `<main>`.
 - If a test fails, fix the test first. Do not change product behaviour to make a test pass unless the owner agrees there is a product bug.
 - `npm test` in `portfolio-website` is the command for local and CI. Playwright builds and previews the site via `webServer`.
+- `webServer` reuses an existing server locally. Kill a stale `vite preview` on port 4173 before trusting a run, or it will test an old build.

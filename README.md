@@ -18,7 +18,7 @@ Add new apps or libraries as sibling folders and link them from this table.
 - **Vite 8** — dev server and production build
 - **React 19 + TypeScript** — UI
 - **React Router** — `/Portfolio`, blog posts, commuter heatmap
-- **Playwright** — Chromium-only end-to-end tests (`npm test` in `portfolio-website`)
+- **Playwright** — Chromium-only end-to-end tests across desktop and two phone viewports (`npm test` in `portfolio-website`)
 - **GitHub Actions** — `.github/workflows/ci.yml` runs ESLint, Prettier, TypeScript, Chromium Playwright, and dependency review (fails only on **new** GitHub advisories vs the PR base or previous `main` commit). On `main`, after those jobs succeed, it deploys `portfolio-website/dist` to GitHub Pages. Put `[skip dependency-review]` in the commit message (or PR title/body) to skip that job only. When you lock `main`, require `CI / quality`, `CI / e2e`, and `CI / dependency-review` — not `CI / deploy`.
 - **Husky + lint-staged** — pre-commit auto-fixes staged files with ESLint and Prettier (CI still only checks)
 - **Dependabot** — weekly grouped npm updates for `portfolio-website`. PRs (including majors) get GitHub auto-merge enabled; they squash-merge after required checks on `main` pass.

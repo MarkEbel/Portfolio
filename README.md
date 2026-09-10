@@ -22,7 +22,7 @@ Add new apps or libraries as sibling folders and link them from this table.
 - **GitHub Actions** — `.github/workflows/ci.yml` runs ESLint, Prettier, TypeScript, and Chromium Playwright. On `main`, after those jobs succeed, it deploys `portfolio-website/dist` to GitHub Pages
 - **Husky + lint-staged** — pre-commit auto-fixes staged files with ESLint and Prettier (CI still only checks)
 - **Dependabot** — weekly grouped npm updates for `portfolio-website`. PRs (including majors) get GitHub auto-merge enabled; they squash-merge after required checks on `main` pass.
-- **GitHub Pages** — live site is published from the CI `deploy` job. In the repo **Settings → Pages**, set the source to **GitHub Actions** (not the `gh-pages` branch). Do not require reviewers on the `github-pages` environment, or deploys will wait for a click.
+- **GitHub Pages** — live site is published from the CI `deploy` job. In the repo **Settings → Pages**, set the source to **GitHub Actions** (not the `gh-pages` branch). Do not require reviewers on the `github-pages` environment, or deploys will wait for a click. The deployed commit is in `<meta name="app-version">` (View Source).
 
 ## Local commands
 

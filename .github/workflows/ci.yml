@@ -85,6 +85,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
+        env:
+          VITE_GIT_SHA: ${{ github.sha }}
         run: npm run build
       - name: Add SPA fallback
         run: cp dist/index.html dist/404.html

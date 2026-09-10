@@ -27,7 +27,7 @@ npx playwright install chromium
 npm test
 ```
 
-CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, TypeScript, then Playwright). A successful push to `main` then builds `dist/` and deploys it to GitHub Pages. Set Pages source to **GitHub Actions**. Reports are written to `playwright-report/` and `test-results/` (gitignored).
+CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, TypeScript, then Playwright). A successful push to `main` then builds `dist/` and deploys it to GitHub Pages. Set Pages source to **GitHub Actions**. The live commit SHA is in `<meta name="app-version">` in the document head. Reports are written to `playwright-report/` and `test-results/` (gitignored).
 
 ## Layout
 

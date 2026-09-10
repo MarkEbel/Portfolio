@@ -23,7 +23,7 @@ Portfolio/
 
 - Do not put app source or Playwright specs at the repo root.
 - GitHub Pages `base` is `/Portfolio/` (`vite.config.ts` and React Router paths).
-- MUI packages are present for Dependabot/versioning; the UI does not currently import them.
+- Keep `package.json` dependencies limited to packages imported by the app or required as peers. Do not keep unused UI libraries “for later”.
 - New packages should be sibling folders with their own README, then linked from the root README.
 - GitHub Actions should use Node 24-compatible action majors (for example `actions/upload-artifact@v7`, not `v4`).
 - CI quality checks belong in `.github/workflows/ci.yml`: ESLint, Prettier, TypeScript, then Chromium Playwright.

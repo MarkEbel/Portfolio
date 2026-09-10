@@ -30,6 +30,12 @@
   margin-bottom: 0;
 }
 
+.content-card__date {
+  margin: 0.25rem 0 0.5rem;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+}
+
 @media screen and (max-width: 768px) {
   .content-card,
   .content-card__link {

@@ -17,7 +17,7 @@ Add new apps or libraries as sibling folders and link them from this table.
 
 - **Vite 8** — dev server and production build
 - **React 19 + TypeScript** — UI
-- **React Router** — `/Portfolio`, blog posts, commuter heatmap
+- **React Router** — concise homepage previews, full Experience/Projects/Blogs collections, individual blog posts, and the commuter heatmap
 - **Playwright** — Chromium-only end-to-end tests across desktop and two phone viewports (`npm test` in `portfolio-website`), including axe-core WCAG 2.2 AA scans (not a full audit)
 - **cspell** — British English on blog copy, part of `npm run lint` and the CI quality job
 - **GitHub Actions** — `.github/workflows/ci.yml` runs ESLint, Prettier, TypeScript, Chromium Playwright, and dependency review (fails only on **new** GitHub advisories vs the PR base or previous `main` commit). On `main`, after those jobs succeed, it deploys `portfolio-website/dist` to GitHub Pages. Put `[skip dependency-review]` in the commit message (or PR title/body) to skip that job only. When you lock `main`, require `CI / quality`, `CI / e2e`, and `CI / dependency-review` — not `CI / deploy`.
@@ -32,7 +32,7 @@ cd portfolio-website
 npm install          # also installs the Husky pre-commit hook
 npx playwright install chromium
 npm run dev          # site at /Portfolio/
-npm run lint         # eslint, prettier check, tsc
+npm run lint         # eslint, prettier check, tsc, British English spelling
 npm test             # build, preview, Chromium e2e
 npm run test:ui      # Playwright UI mode
 ```

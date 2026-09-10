@@ -14,6 +14,7 @@ test.describe("blog post", () => {
     await expect(
       page.getByRole("heading", { name: "Leading My First Retrospective" }),
     ).toBeVisible();
+    await expect(page.getByText("2 April 2025", { exact: true })).toBeVisible();
     await expect(
       page.getByRole("img", { name: "Retrospective meeting" }),
     ).toBeVisible();
@@ -25,5 +26,18 @@ test.describe("blog post", () => {
     await expect(
       page.getByRole("heading", { name: "Leading my first retrospective" }),
     ).toBeVisible();
+    await expect(page.getByText("2 April 2025", { exact: true })).toBeVisible();
+  });
+
+  test("shows the published date on the blogs listing", async ({ page }) => {
+    await page.goto("/Portfolio/blogs");
+
+    await expect(
+      page.getByRole("heading", { name: "Blogs", exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Leading my first retrospective" }),
+    ).toBeVisible();
+    await expect(page.getByText("2 April 2025", { exact: true })).toBeVisible();
   });
 });

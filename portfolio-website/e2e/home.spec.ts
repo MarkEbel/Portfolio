@@ -20,6 +20,7 @@ test.describe("home page", () => {
     await expect(
       page.getByRole("heading", { name: "Leading my first retrospective" }),
     ).toBeVisible();
+    await expect(page.getByText("2 April 2025", { exact: true })).toBeVisible();
   });
 
   test("shows route navigation", async ({ page }) => {

@@ -6,6 +6,8 @@ interface ContentCardProps {
   href: string;
   image: string;
   description: string;
+  date?: string;
+  dateTime?: string;
   internal?: boolean;
 }
 
@@ -14,6 +16,8 @@ const ContentCard = ({
   description,
   title,
   image,
+  date,
+  dateTime,
   internal = false,
 }: ContentCardProps) => {
   const content = (
@@ -21,6 +25,11 @@ const ContentCard = ({
       <img src={image} alt={title} />
       <div className="content-card__body">
         <h2>{title}</h2>
+        {date && (
+          <p className="content-card__date">
+            <time dateTime={dateTime}>{date}</time>
+          </p>
+        )}
         <p>{description}</p>
       </div>
     </>

@@ -1,6 +1,5 @@
 const LeadingRetrospective = () => (
   <>
-    <h1>Leading My First Retrospective</h1>
     <p>
       Leading my first sprint retro was definitely a bit nerve-wracking, but I
       managed to run it solo and got some great feedback! The team found it

@@ -6,11 +6,11 @@ const BlogPostPage = () => {
   const { blogId } = useParams();
   const navigate = useNavigate();
 
-  const PostComponent = blogPosts[blogId as keyof typeof blogPosts];
-
-  if (!PostComponent) {
+  if (!blogId || !Object.prototype.hasOwnProperty.call(blogPosts, blogId)) {
     return <p>Blog post not found!</p>;
   }
+
+  const PostComponent = blogPosts[blogId];
 
   return (
     <div className="blogPost">

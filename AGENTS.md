@@ -25,6 +25,8 @@ Pre-commit (Husky in `myOwnWebsite/.husky`) runs `lint:staged`, which **fixes** 
 
 GitHub Actions (`.github/workflows/ci.yml`) runs those jobs plus Chromium Playwright. Do not add Firefox, Checkmarx, Crowdin, or Docker jobs unless asked.
 
+Dependabot pull requests (including major updates) enable GitHub auto-merge via `.github/workflows/dependabot-auto-merge.yml` (`gh pr merge --auto --squash`). GitHub merges only after required status checks on `main` pass. This matches [Automating Dependabot with GitHub Actions](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/automate-dependabot-with-actions). Do not require pull request reviews on `main` unless you also auto-approve, or Dependabot will wait forever.
+
 ## Cursor rules
 
 When a chat agrees a convention for this repository, add or update a focused `.mdc` file under `.cursor/rules/` instead of only mentioning it in the conversation.

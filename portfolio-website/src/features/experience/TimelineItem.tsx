@@ -27,8 +27,10 @@ const TimelineItem = ({
 
   return (
     <section id={id} className="TimelineItem">
-      <p>{date}</p>
-      <h2>{title}</h2>
+      <div className="timeline-item-header">
+        <h2>{title}</h2>
+        <p className="timeline-item-date">{date}</p>
+      </div>
       <h3>
         <a href={hyperlinkTitle} target="_blank" rel="noopener noreferrer">
           {company}

@@ -22,13 +22,31 @@ test.describe("home page", () => {
     ).toBeVisible();
   });
 
-  test("shows section navigation", async ({ page }) => {
+  test("shows section navigation on desktop", async ({ page }) => {
+    test.skip(
+      (page.viewportSize()?.width ?? 0) <= 900,
+      "the section nav is hidden once the shell stacks",
+    );
+
     await goToHome(page);
 
-    await expect(page.getByText("About", { exact: true })).toBeVisible();
-    await expect(page.getByText("Experience", { exact: true })).toBeVisible();
-    await expect(page.getByText("Projects", { exact: true })).toBeVisible();
-    await expect(page.getByText("Blogs", { exact: true })).toBeVisible();
+    const nav = page.getByRole("navigation");
+    await expect(nav).toBeVisible();
+
+    for (const label of ["About", "Experience", "Projects", "Blogs"]) {
+      await expect(nav.getByText(label, { exact: true })).toBeVisible();
+    }
+  });
+
+  test("hides section navigation on phones", async ({ page }) => {
+    test.skip((page.viewportSize()?.width ?? 0) > 900, "phone viewports only");
+
+    await goToHome(page);
+
+    await expect(
+      page.getByRole("heading", { name: "Full Stack Engineer" }),
+    ).toBeVisible();
+    await expect(page.getByRole("navigation")).toBeHidden();
   });
 
   test("theme toggle switches light and dark body classes", async ({

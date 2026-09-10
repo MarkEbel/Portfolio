@@ -1,3 +1,35 @@
+/* The date is metadata, so it sits opposite the title rather than leading the
+   entry as body copy. The header owns the gap below, so the title's own bottom
+   margin is dropped. */
+.timeline-item-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item-header h2 {
+  margin-bottom: 0;
+}
+
+.timeline-item-date {
+  margin: 0;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Same breakpoint as the shell: too narrow for two columns of text, so the
+   date drops under the title. */
+@media screen and (max-width: 900px) {
+  .timeline-item-header {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
 .skills-container {
   display: flex;
   flex-wrap: wrap;

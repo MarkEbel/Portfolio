@@ -35,14 +35,10 @@
   transform: translateX(0);
 }
 
+/* Same breakpoint as the shell. Once stacked, the page is a single scrolling
+   column, so jump links read as a second header instead of navigation. */
 @media screen and (max-width: 900px) {
-  .navbar-links:hover {
-    transform: none;
-    color: inherit; /* or whatever your default color is */
-  }
-
-  .navbar-links:hover::before {
-    opacity: 0;
-    transform: translateX(-10px); /* Keep it hidden */
+  .navbar {
+    display: none;
   }
 }

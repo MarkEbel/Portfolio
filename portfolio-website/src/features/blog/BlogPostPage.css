@@ -7,21 +7,28 @@
 }
 
 .blogPost__header {
-  margin: 1rem 0 0;
+  width: 100%;
+  margin: 1rem 0 1.25rem;
 }
 
 /* The global h1 is sized for the home page hero. A post title leads body copy
-   in a 42rem column, so it steps down, and its bottom margin matches the gap
-   between paragraphs instead of the hero's 0.25rem. */
+   in a 42rem column, so it steps down. It goes inline so the date reads as a
+   continuation of the title and wraps with it. */
 .blogPost h1 {
+  display: inline;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0;
 }
 
 .blogPost__date {
-  margin: 0 0 1rem;
+  margin-left: 0.5rem;
   color: var(--muted-color);
   font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.blogPost__date::before {
+  content: "- ";
 }
 
 .blogPost__all {

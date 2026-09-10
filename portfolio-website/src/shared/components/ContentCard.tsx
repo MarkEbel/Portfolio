@@ -25,12 +25,14 @@ const ContentCard = ({
     <>
       <img src={image} alt={title} />
       <div className="content-card__body">
-        <h2>{title}</h2>
-        {date && (
-          <p className="content-card__date">
-            <time dateTime={dateTime}>{date}</time>
-          </p>
-        )}
+        <div className="content-card__header">
+          <h2>{title}</h2>
+          {date && (
+            <time className="content-card__date" dateTime={dateTime}>
+              {date}
+            </time>
+          )}
+        </div>
         <p>{description}</p>
       </div>
     </>

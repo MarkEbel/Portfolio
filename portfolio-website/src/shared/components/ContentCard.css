@@ -24,16 +24,26 @@
 .content-card__body {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
-.content-card__body h2 {
+/* The date reads as a continuation of the title, so the heading goes inline and
+   the two wrap together as one phrase rather than sitting in separate columns.
+   nowrap keeps the separator attached to the date it introduces. */
+.content-card__header h2 {
+  display: inline;
   margin-bottom: 0;
 }
 
 .content-card__date {
-  margin: 0.25rem 0 0.5rem;
+  margin-left: 0.5rem;
   color: var(--muted-color);
   font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.content-card__date::before {
+  content: "- ";
 }
 
 @media screen and (max-width: 768px) {

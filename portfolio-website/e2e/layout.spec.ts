@@ -88,4 +88,35 @@ test.describe("responsive layout", () => {
     const imageBox = await boxOf(image);
     expect(imageBox.width / imageBox.height).toBeCloseTo(16 / 9, 1);
   });
+
+  for (const { name, path, title } of [
+    {
+      name: "card",
+      path: "/Portfolio/blogs",
+      title: "Leading my first retrospective",
+    },
+    {
+      name: "post header",
+      path: "/Portfolio/blogs/leading-retrospective",
+      title: "Leading My First Retrospective",
+    },
+  ]) {
+    test(`blog date reads inline after the ${name} title`, async ({ page }) => {
+      test.skip(
+        (page.viewportSize()?.width ?? 0) <= 900,
+        "a wrapped title spans several lines, so its box no longer bounds one line",
+      );
+
+      await page.goto(path);
+
+      const titleBox = await boxOf(page.getByRole("heading", { name: title }));
+      const dateBox = await boxOf(
+        page.getByText("2 April 2025", { exact: true }),
+      );
+
+      expect(dateBox.x).toBeGreaterThan(titleBox.x + titleBox.width);
+      expect(dateBox.y).toBeLessThan(titleBox.y + titleBox.height);
+      expect(dateBox.y + dateBox.height).toBeGreaterThan(titleBox.y);
+    });
+  }
 });

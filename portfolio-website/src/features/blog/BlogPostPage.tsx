@@ -23,11 +23,9 @@ const BlogPostPage = () => {
       <BackLink fallback={blogsRoute} />
       <header className="blogPost__header">
         <h1>{post.title}</h1>
-        <p className="blogPost__date">
-          <time dateTime={post.publishedAt}>
-            {formatBlogDate(post.publishedAt)}
-          </time>
-        </p>
+        <time className="blogPost__date" dateTime={post.publishedAt}>
+          {formatBlogDate(post.publishedAt)}
+        </time>
       </header>
       <PostComponent />
       {/* Reaching a post from the home preview skips the list, so keep the

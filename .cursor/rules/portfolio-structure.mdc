@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Portfolio structure
 
-This GitHub repo is a monorepo. The live site is the Vite app in `myOwnWebsite/`.
+This GitHub repo is a monorepo. The live site is the Vite app in `portfolio-website/`.
 
 ```
 Portfolio/
@@ -13,15 +13,22 @@ Portfolio/
 ├── .cursor/rules/            # Cursor rules (keep these current)
 ├── .github/workflows/ci.yml                      # ESLint, Prettier, TypeScript, Chromium Playwright
 ├── .github/workflows/dependabot-auto-merge.yml   # gh pr merge --auto --squash for Dependabot
-├── .github/dependabot.yml                        # npm updates for myOwnWebsite
-└── myOwnWebsite/             # React + TypeScript site + e2e tests
+├── .github/dependabot.yml                        # npm updates for portfolio-website
+└── portfolio-website/        # React + TypeScript site + e2e tests
     ├── src/
+    │   ├── app/              # App shell, home page, and router
+    │   ├── features/         # Feature-owned components and styles
+    │   ├── shared/           # Reusable UI, navigation, theme, and pages
+    │   └── styles/           # Global styles
     ├── e2e/
     ├── .husky/pre-commit     # lint-staged: eslint --fix + prettier --write
     └── playwright.config.ts
 ```
 
 - Do not put app source or Playwright specs at the repo root.
+- Use feature-first organization in `src/features/`; keep feature-specific components with their feature.
+- Put only genuinely reusable code in `src/shared/`, and app composition/routing in `src/app/`.
+- Use kebab-case directories and PascalCase React component filenames.
 - GitHub Pages `base` is `/Portfolio/` (`vite.config.ts` and React Router paths).
 - Keep `package.json` dependencies limited to packages imported by the app or required as peers. Do not keep unused UI libraries “for later”.
 - New packages should be sibling folders with their own README, then linked from the root README.
@@ -29,4 +36,4 @@ Portfolio/
 - CI quality checks belong in `.github/workflows/ci.yml`: ESLint, Prettier, TypeScript, then Chromium Playwright.
 - Dependabot PRs (including majors) use `.github/workflows/dependabot-auto-merge.yml` with `gh pr merge --auto --squash`. GitHub merges after required checks on `main`. Do not require human reviews for this to work.
 - Pre-commit uses Husky + lint-staged to auto-fix; CI must keep using check-only scripts (`lint:eslint`, `lint:format`, `lint:types`).
-- Prettier and ESLint cover the whole repo: `myOwnWebsite` plus root `README.md`, `AGENTS.md`, `.github/`, and `.cursor/`. Do not limit format scripts to `src/` only.
+- Prettier and ESLint cover the whole repo: `portfolio-website` plus root `README.md`, `AGENTS.md`, `.github/`, and `.cursor/`. Do not limit format scripts to `src/` only.

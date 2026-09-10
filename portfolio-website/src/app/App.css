@@ -1,0 +1,33 @@
+.main-content {
+  margin-left: 30rem;
+  width: 40rem;
+}
+.app {
+  margin: 10%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .torch-effect {
+    display: none;
+  }
+  .app {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    align-items: center;
+    display: flex;
+  }
+  .sidebar {
+    position: relative;
+  }
+  .sidebarFooter {
+    margin-top: 2rem;
+  }
+  .main-content {
+    width: 90%;
+    padding-left: 10%;
+    margin-left: 0;
+  }
+}

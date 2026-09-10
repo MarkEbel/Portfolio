@@ -1,6 +1,6 @@
 ---
 description: Pre-commit Husky and lint-staged vs CI quality checks
-globs: myOwnWebsite/.husky/**,myOwnWebsite/lint-staged.config.js
+globs: portfolio-website/.husky/**,portfolio-website/lint-staged.config.js
 alwaysApply: false
 ---
 
@@ -8,5 +8,5 @@ alwaysApply: false
 
 - Husky + lint-staged **fix** staged files (`eslint --fix`, `prettier --write`).
 - GitHub Actions **checks** only (`lint:eslint`, `lint:format`, `lint:types`). Do not switch CI to `--write`/`--fix`.
-- Keep `prepare` as `cd .. && husky myOwnWebsite/.husky` because `package.json` is not at the git root.
-- Skip hooks with a `noprecommit` file at the repo root or in `myOwnWebsite/`.
+- Keep `prepare` as `cd .. && husky portfolio-website/.husky` because `package.json` is not at the git root.
+- Skip hooks with a `noprecommit` file at the repo root or in `portfolio-website/`.

@@ -1,15 +1,15 @@
 ---
 description: Playwright Chromium e2e tests for the portfolio site
-globs: myOwnWebsite/e2e/**/*.spec.ts,myOwnWebsite/e2e/**/*.ts,myOwnWebsite/playwright.config.ts
+globs: portfolio-website/e2e/**/*.spec.ts,portfolio-website/e2e/**/*.ts,portfolio-website/playwright.config.ts
 alwaysApply: false
 ---
 
 # End-to-end testing
 
-- Use Playwright in `myOwnWebsite/e2e`. Spec files end with `.spec.ts`.
+- Use Playwright in `portfolio-website/e2e`. Spec files end with `.spec.ts`.
 - Chromium / Desktop Chrome only. Do not add Firefox or WebKit projects unless asked.
 - Prefer role, label, and accessible name locators over CSS or test ids.
 - Put a positive assertion (element is visible) before a negative one.
 - Reuse helpers in `e2e/helpers/` (for example `goToHome`) instead of duplicating navigation.
 - If a test fails, fix the test first. Do not change product behaviour to make a test pass unless the owner agrees there is a product bug.
-- `npm test` in `myOwnWebsite` is the command for local and CI. Playwright builds and previews the site via `webServer`.
+- `npm test` in `portfolio-website` is the command for local and CI. Playwright builds and previews the site via `webServer`.

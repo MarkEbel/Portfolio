@@ -31,7 +31,7 @@ npx playwright install chromium
 npm test
 ```
 
-CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, TypeScript, then Playwright) plus dependency review for **new** GitHub advisories. A successful push to `main` then builds `dist/` and deploys it to GitHub Pages. Set Pages source to **GitHub Actions**. The live commit SHA is in `<meta name="app-version">` in the document head. Skip the advisory gate with `[skip dependency-review]` in the commit message or PR title/body. Reports are written to `playwright-report/` and `test-results/` (gitignored).
+CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, TypeScript, then Playwright) plus dependency review for **new** GitHub advisories. A successful push to `main` then builds `dist/` and deploys it to GitHub Pages. Set Pages source to **GitHub Actions**. Deploy is a static Vite `dist/` upload (`actions/deploy-pages`), not Jekyll. Deep links work because CI copies `index.html` to `404.html`; the app then canonicalises the path (for example `/Portfolio/Blogs` → `/Portfolio/blogs`). GitHub still serves the project under `/Portfolio/` only, so a host-level 404 for `/portfolio/` (wrong repo casing before any HTML loads) cannot be redirected from this repo. The live commit SHA is in `<meta name="app-version">` in the document head. Skip the advisory gate with `[skip dependency-review]` in the commit message or PR title/body. Reports are written to `playwright-report/` and `test-results/` (gitignored).
 
 ## Layout
 

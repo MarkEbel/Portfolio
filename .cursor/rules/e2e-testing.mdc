@@ -18,3 +18,4 @@ alwaysApply: false
 - If a test fails, fix the test first. Do not change product behaviour to make a test pass unless the owner agrees there is a product bug.
 - `npm test` in `portfolio-website` is the command for local and CI. Playwright builds and previews the site via `webServer`.
 - `webServer` reuses an existing server locally. Kill a stale `vite preview` on port 4173 before trusting a run, or it will test an old build.
+- Mixed-case routes such as `/Portfolio/Blogs` are covered in `e2e/canonical-url.spec.ts`. Vite preview rewrites those to the SPA entry so the run matches GitHub Pages serving `404.html`.

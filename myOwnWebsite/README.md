@@ -12,8 +12,8 @@ Personal portfolio and résumé site: About, Experience, Projects, Blogs, plus a
 | `npm run deploy` | Build and publish `dist/` with gh-pages |
 | `npm test` / `npm run test:chrome` | Playwright Chromium e2e (builds then previews) |
 | `npm run test:ui` | Playwright UI runner, Chromium only |
-| `npm run lint` | ESLint |
-| `npm run format` | Prettier on `src/` |
+| `npm run lint` | ESLint, Prettier check, and TypeScript (`lint:eslint`, `lint:format`, `lint:types`) |
+| `npm run format` | Prettier write on `src/` and `e2e/` |
 
 ## End-to-end tests
 
@@ -27,7 +27,7 @@ npx playwright install chromium
 npm test
 ```
 
-CI runs the same commands from `.github/workflows/e2e.yml`. Reports are written to `playwright-report/` and `test-results/` (gitignored).
+CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, TypeScript, then Playwright). Reports are written to `playwright-report/` and `test-results/` (gitignored).
 
 ## Layout
 

@@ -19,7 +19,7 @@ Add new apps or libraries as sibling folders and link them from this table.
 - **React 19 + TypeScript** — UI
 - **React Router** — `/Portfolio`, blog posts, commuter heatmap
 - **Playwright** — Chromium-only end-to-end tests (`npm test` in `myOwnWebsite`)
-- **GitHub Actions** — `.github/workflows/e2e.yml` runs the same Chromium suite on push and pull request
+- **GitHub Actions** — `.github/workflows/ci.yml` runs ESLint, Prettier, TypeScript, and Chromium Playwright on push and pull request
 - **Dependabot** — weekly grouped npm updates for `myOwnWebsite`
 - **gh-pages** — `npm run deploy` from `myOwnWebsite` publishes `dist/`
 
@@ -30,6 +30,7 @@ cd myOwnWebsite
 npm install
 npx playwright install chromium
 npm run dev          # site at /Portfolio/
+npm run lint         # eslint, prettier check, tsc
 npm test             # build, preview, Chromium e2e
 npm run test:ui      # Playwright UI mode
 ```

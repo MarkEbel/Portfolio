@@ -15,7 +15,13 @@ npm test                          # local + CI command
 npm run test:ui
 ```
 
-Do not add Firefox or WebKit projects unless the owner asks.
+CI (`npm run lint` in `myOwnWebsite`) matches Contact's GUI quality gates as far as this repo has them:
+
+- `lint:eslint` — ESLint
+- `lint:format` — Prettier `--check` (use `npm run format` to fix)
+- `lint:types` — `tsc -b`
+
+GitHub Actions (`.github/workflows/ci.yml`) runs those jobs plus Chromium Playwright. Do not add Firefox, Checkmarx, Crowdin, or Docker jobs unless asked.
 
 ## Cursor rules
 

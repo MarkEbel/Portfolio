@@ -7,9 +7,13 @@ test.describe("home page", () => {
   }) => {
     await goToHome(page);
 
-    await expect(page.getByRole("heading", { name: "Full Stack Engineer" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Full Stack Engineer" }),
+    ).toBeVisible();
     await expect(page.getByLabel("about me")).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Software Engineer" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Software Engineer" }),
+    ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Interactive Developer Portfolio" }),
     ).toBeVisible();

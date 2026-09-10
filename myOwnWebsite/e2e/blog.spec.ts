@@ -14,9 +14,13 @@ test.describe("blog post", () => {
     await expect(
       page.getByRole("heading", { name: "Leading My First Retrospective" }),
     ).toBeVisible();
-    await expect(page.getByRole("img", { name: "Retrospective meeting" })).toBeVisible();
+    await expect(
+      page.getByRole("img", { name: "Retrospective meeting" }),
+    ).toBeVisible();
 
     await page.getByRole("button", { name: "←" }).click();
-    await expect(page.getByRole("heading", { name: "Mark Ebel" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Mark Ebel" }),
+    ).toBeVisible();
   });
 });

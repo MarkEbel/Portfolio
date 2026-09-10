@@ -24,3 +24,4 @@ Portfolio/
 - MUI packages are present for Dependabot/versioning; the UI does not currently import them.
 - New packages should be sibling folders with their own README, then linked from the root README.
 - GitHub Actions should use Node 24-compatible action majors (for example `actions/upload-artifact@v7`, not `v4`).
+- CI quality checks belong in `.github/workflows/ci.yml`: ESLint, Prettier, TypeScript, then Chromium Playwright.

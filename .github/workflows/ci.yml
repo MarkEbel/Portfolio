@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: CI
 
 on:
   push:
@@ -7,7 +7,29 @@ on:
     branches: [main, master]
 
 jobs:
-  test:
+  quality:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: myOwnWebsite
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: myOwnWebsite/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: ESLint
+        run: npm run lint:eslint
+      - name: Prettier
+        run: npm run lint:format
+      - name: Typecheck
+        run: npm run lint:types
+
+  e2e:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     defaults:

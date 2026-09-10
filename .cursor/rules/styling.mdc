@@ -7,7 +7,7 @@ alwaysApply: false
 # Styling
 
 - Plain CSS files next to the component they style. No CSS frameworks. Do not add Tailwind-style utility classes (`p-6`, `bg-blue-600`) — nothing processes them.
-- Theme tokens live in `src/styles/global.css` on `.light-mode` and `.dark-mode`, with `:root` fallbacks for the first paint: `--background-color`, `--text-color`, `--muted-color`, `--hover-color`, `--accent-color`, `--accent-contrast`, `--accent-soft`, `--surface-hover`.
+- Theme tokens live in `src/styles/global.css` on `.light-mode` and `.dark-mode`, with `:root` fallbacks for the first paint: `--background-color`, `--text-color`, `--muted-color`, `--hover-color`, `--accent-color`, `--accent-contrast`, `--accent-soft`, `--surface-hover`, `--border-color`. Use `--surface-hover` for hover fills and `--border-color` for visible dividers; `--surface-hover` is too faint to read as a border.
 - Use one accent. New highlights reuse `--accent-color` / `--accent-soft` rather than introducing another colour.
 - A stylesheet only styles its own component's classes. Do not override another component's class from a parent stylesheet: CSS import order follows component import order, so a child's stylesheet loads last and silently wins, media query or not.
 - The global `h1` is the home-page hero size. Routed pages (blog posts, heatmap) scope their own title down in that page's stylesheet. Do not shrink the global `h1` to fit a sub-page.
@@ -17,6 +17,7 @@ alwaysApply: false
 - Vertical rhythm comes from the container's flex `gap`, not from stacked margins and padding. `.main-content` spaces top-level content; `.home-preview` spaces a preview's label, card, and link. Text elements (`p`, `h2`, `h3`) carry bottom margin only, and `p:last-child` drops it, so a leading heading or trailing paragraph never adds to the gap around its container.
 - `.SubSection` pads for its hover background and cancels that padding with an equal negative margin. That keeps card text on the same left edge as content without a card. Change the padding and margin together.
 - Homepage collection labels are restrained eyebrow headings, not large section titles. Full collection routes use `PageLayout` and a visible page title.
+- Below 900px the primary navigation is a bordered strip of pills, with the active route filled with `--accent-soft`. It has to read as navigation rather than as another list of headings.
 - Prefer flex or grid with `min-width: 0` over fixed offsets like `margin-left: 30rem`, so intermediate widths degrade instead of overlapping.
 - Use `:focus-visible` with `outline` and `outline-offset`. Never use `border` for focus, which shifts layout.
 - Responsive changes need coverage in `e2e/layout.spec.ts`, which runs on desktop and both phone viewports.

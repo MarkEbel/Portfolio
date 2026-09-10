@@ -1,0 +1,25 @@
+---
+description: Portfolio monorepo layout and where to change things
+alwaysApply: true
+---
+
+# Portfolio structure
+
+This GitHub repo is a monorepo. The live site is the Vite app in `myOwnWebsite/`.
+
+```
+Portfolio/
+├── AGENTS.md                 # Agent workflows
+├── .cursor/rules/            # Cursor rules (keep these current)
+├── .github/workflows/e2e.yml # Chromium Playwright on GitHub Actions
+├── .github/dependabot.yml    # npm updates for myOwnWebsite
+└── myOwnWebsite/             # React + TypeScript site + e2e tests
+    ├── src/
+    ├── e2e/
+    └── playwright.config.ts
+```
+
+- Do not put app source or Playwright specs at the repo root.
+- GitHub Pages `base` is `/Portfolio/` (`vite.config.ts` and React Router paths).
+- MUI packages are present for Dependabot/versioning; the UI does not currently import them.
+- New packages should be sibling folders with their own README, then linked from the root README.

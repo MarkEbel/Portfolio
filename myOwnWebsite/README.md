@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# myOwnWebsite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio and résumé site: About, Experience, Projects, Blogs, plus a commuter heatmap page. Built with React, TypeScript, and Vite. Deployed to GitHub Pages at `/Portfolio/`.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Vite dev server (`base` is `/Portfolio/`) |
+| `npm run build` | Typecheck and production build into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run deploy` | Build and publish `dist/` with gh-pages |
+| `npm test` / `npm run test:chrome` | Playwright Chromium e2e (builds then previews) |
+| `npm run test:ui` | Playwright UI runner, Chromium only |
+| `npm run lint` | ESLint |
+| `npm run format` | Prettier on `src/` |
 
-## Expanding the ESLint configuration
+## End-to-end tests
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Tests are in [`e2e/`](e2e/), configured by [`playwright.config.ts`](playwright.config.ts). They only use **Desktop Chrome**. Playwright starts a production preview (`vite preview` on port 4173) unless a server is already running locally.
 
-- Configure the top-level `parserOptions` property like this:
+First-time setup:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```sh
+npm install
+npx playwright install chromium
+npm test
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+CI runs the same commands from `.github/workflows/e2e.yml`. Reports are written to `playwright-report/` and `test-results/` (gitignored).
+
+## Layout
+
+```
+src/               Application UI
+e2e/               Playwright specs and helpers
+public/assets/     Images used on the site
+```

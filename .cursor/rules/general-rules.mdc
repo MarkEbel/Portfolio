@@ -1,0 +1,15 @@
+---
+description: General rules for working in this repository
+alwaysApply: true
+---
+
+- Before implementing, outline the request and the steps you will take, then wait for approval.
+- If the request is unclear, ask before changing code.
+- Comment only when needed to explain why code is written the way it is.
+- Follow existing conventions in this repo.
+- Update READMEs and `.cursor/rules/` when a change affects how the project is built, tested, or worked on.
+- If an approach fails, revert the dysfunctional change rather than leaving it in place.
+- Remove throwaway debug files after you are done.
+- Search for current package versions before installing.
+- If several solutions are reasonable, ask which one to use.
+- Do not present guesses as fact. If unconfirmed, say so and label [Inference], [Speculation], or [Unverified].

@@ -1,26 +1,13 @@
 .blogPost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
   max-width: 42rem;
 }
 
-/* Block-level so the arrow does not sit on a text line, where the inline
-   baseline gap and the button's default padding decide the space above the
-   title instead of this file. */
-.back-button {
-  display: block;
-  width: fit-content;
-  padding: 0;
-  margin-bottom: 1rem;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  line-height: 1;
-  color: var(--unhover-color);
-  cursor: pointer;
-}
-
-.back-button:hover {
-  color: var(--text-color);
+.blogPost__header {
+  margin: 1rem 0 0;
 }
 
 /* The global h1 is sized for the home page hero. A post title leads body copy
@@ -35,6 +22,20 @@
   margin: 0 0 1rem;
   color: var(--muted-color);
   font-size: 0.9rem;
+}
+
+.blogPost__all {
+  margin: 1.5rem 0 0;
+}
+
+.blogPost__all a {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.blogPost__all a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .blogPost img {

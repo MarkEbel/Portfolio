@@ -67,6 +67,24 @@ test.describe("home page", () => {
     ).toBeVisible();
   });
 
+  test("every collection page offers a way back home", async ({ page }) => {
+    for (const path of [
+      "/Portfolio/experience",
+      "/Portfolio/projects",
+      "/Portfolio/blogs",
+    ]) {
+      await page.goto(path);
+
+      const back = page.getByRole("link", { name: "Back to home" });
+      await expect(back).toBeVisible();
+
+      await back.click();
+      await expect(
+        page.getByRole("heading", { name: "Mark Ebel" }),
+      ).toBeVisible();
+    }
+  });
+
   test("theme toggle switches light and dark body classes", async ({
     page,
   }) => {

@@ -13,6 +13,7 @@
   --accent-contrast: #161d33;
   --accent-soft: rgba(243, 156, 18, 0.18);
   --surface-hover: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.14);
 }
 
 .light-mode {
@@ -25,6 +26,7 @@
   --accent-contrast: #ffffff;
   --accent-soft: rgba(134, 85, 6, 0.14);
   --surface-hover: rgba(17, 23, 42, 0.05);
+  --border-color: rgba(17, 23, 42, 0.16);
 }
 
 .dark-mode {
@@ -37,6 +39,7 @@
   --accent-contrast: #161d33;
   --accent-soft: rgba(243, 156, 18, 0.18);
   --surface-hover: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.14);
 }
 
 body {

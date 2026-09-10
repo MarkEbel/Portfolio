@@ -1,0 +1,9 @@
+.back-link {
+  align-self: flex-start;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  color: var(--text-color);
+}

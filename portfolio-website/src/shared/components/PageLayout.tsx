@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import BackLink from "../navigation/BackLink";
 import Sidebar from "../navigation/Sidebar";
 import "./PageLayout.css";
 
@@ -13,7 +14,7 @@ const PageLayout = ({ children, title }: PageLayoutProps) => (
     <main className="main-content">
       {title && (
         <header className="page-header">
-          <p className="page-header__eyebrow">Portfolio</p>
+          <BackLink fallback="/Portfolio/" />
           <h1>{title}</h1>
         </header>
       )}

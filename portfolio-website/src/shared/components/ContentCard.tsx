@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./ContentCard.css";
 
 interface ContentCardProps {
@@ -20,6 +20,7 @@ const ContentCard = ({
   dateTime,
   internal = false,
 }: ContentCardProps) => {
+  const { pathname } = useLocation();
   const content = (
     <>
       <img src={image} alt={title} />
@@ -38,7 +39,12 @@ const ContentCard = ({
   return (
     <section className="content-card">
       {internal ? (
-        <Link className="content-card__link" to={href}>
+        // Record the origin so the destination's back link returns here.
+        <Link
+          className="content-card__link"
+          to={href}
+          state={{ from: pathname }}
+        >
           {content}
         </Link>
       ) : (

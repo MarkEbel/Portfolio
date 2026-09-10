@@ -38,17 +38,26 @@
 }
 
 /* Route links remain useful once the homepage only previews each collection.
-   On the stacked shell they become a compact horizontal bar instead of a
-   second vertical header. */
+   On the stacked shell they become a bordered strip of pills, so the row reads
+   as navigation rather than a second list of headings. */
 @media screen and (max-width: 900px) {
   .navbar {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0.5rem 1.25rem;
+    gap: 0.4rem;
+    padding: 0.4rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.6rem;
   }
 
   .navbar-links {
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
     font-size: 0.95rem;
+  }
+
+  .navbar-links--active {
+    background-color: var(--accent-soft);
   }
 
   .navbar-links:hover {

@@ -1,11 +1,15 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import BackLink from "../../shared/navigation/BackLink";
+import { useBackTarget } from "../../shared/navigation/useBackTarget";
 import { formatBlogDate } from "./formatBlogDate";
 import { blogsBySlug } from "./posts";
 import "./BlogPostPage.css";
 
+const blogsRoute = "/Portfolio/blogs";
+
 const BlogPostPage = () => {
   const { blogId } = useParams();
-  const navigate = useNavigate();
+  const backTo = useBackTarget(blogsRoute);
 
   if (!blogId || !Object.prototype.hasOwnProperty.call(blogsBySlug, blogId)) {
     return <p>Blog post not found!</p>;
@@ -15,14 +19,8 @@ const BlogPostPage = () => {
   const PostComponent = post.Component;
 
   return (
-    <div className="blogPost">
-      <button
-        className="back-button"
-        aria-label="Back to blogs"
-        onClick={() => navigate("/Portfolio/blogs")}
-      >
-        <span aria-hidden="true">←</span>
-      </button>
+    <article className="blogPost">
+      <BackLink fallback={blogsRoute} />
       <header className="blogPost__header">
         <h1>{post.title}</h1>
         <p className="blogPost__date">
@@ -32,7 +30,14 @@ const BlogPostPage = () => {
         </p>
       </header>
       <PostComponent />
-    </div>
+      {/* Reaching a post from the home preview skips the list, so keep the
+          full archive one click away. */}
+      {backTo !== blogsRoute && (
+        <p className="blogPost__all">
+          <Link to={blogsRoute}>See all blogs</Link>
+        </p>
+      )}
+    </article>
   );
 };
 

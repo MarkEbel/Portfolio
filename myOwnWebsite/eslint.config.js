@@ -11,15 +11,27 @@ export default tseslint.config(
       "playwright-report/**",
       "test-results/**",
       "node_modules/**",
+      ".husky/**",
     ],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs}"],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.node,
+    },
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
     },
+  },
+  {
+    files: ["**/*.{tsx,jsx}"],
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,

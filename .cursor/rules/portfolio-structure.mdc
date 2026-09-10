@@ -27,3 +27,4 @@ Portfolio/
 - GitHub Actions should use Node 24-compatible action majors (for example `actions/upload-artifact@v7`, not `v4`).
 - CI quality checks belong in `.github/workflows/ci.yml`: ESLint, Prettier, TypeScript, then Chromium Playwright.
 - Pre-commit uses Husky + lint-staged to auto-fix; CI must keep using check-only scripts (`lint:eslint`, `lint:format`, `lint:types`).
+- Prettier and ESLint cover the whole repo: `myOwnWebsite` plus root `README.md`, `AGENTS.md`, `.github/`, and `.cursor/`. Do not limit format scripts to `src/` only.

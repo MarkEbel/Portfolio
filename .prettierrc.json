@@ -1,0 +1,8 @@
+{
+  "overrides": [
+    {
+      "files": "*.mdc",
+      "options": { "parser": "markdown" }
+    }
+  ]
+}

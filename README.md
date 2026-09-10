@@ -7,8 +7,8 @@ Live site: [markebel.github.io/Portfolio](https://markebel.github.io/Portfolio)
 
 ## Packages
 
-| Path | What it is |
-| --- | --- |
+| Path                                      | What it is                                                                                                    |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | [`myOwnWebsite/`](myOwnWebsite/README.md) | Vite + React + TypeScript site, hosted on GitHub Pages. Playwright Chromium tests live in `myOwnWebsite/e2e`. |
 
 Add new apps or libraries as sibling folders and link them from this table.

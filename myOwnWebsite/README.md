@@ -14,7 +14,7 @@ Personal portfolio and résumé site: About, Experience, Projects, Blogs, plus a
 | `npm run test:ui`                  | Playwright UI runner, Chromium only                                                 |
 | `npm run lint`                     | ESLint, Prettier check, and TypeScript (`lint:eslint`, `lint:format`, `lint:types`) |
 | `npm run lint:staged`              | ESLint `--fix` and Prettier `--write` on staged files (used by the pre-commit hook) |
-| `npm run format`                   | Prettier write on `src/` and `e2e/`                                                 |
+| `npm run format`                   | Prettier write on the whole repo (app, e2e, configs, docs, GitHub, Cursor rules)    |
 
 ## End-to-end tests
 

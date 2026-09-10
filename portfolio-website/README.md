@@ -9,7 +9,6 @@ Personal portfolio and résumé site: About, Experience, Projects, Blogs, plus a
 | `npm run dev`                      | Vite dev server (`base` is `/Portfolio/`)                                           |
 | `npm run build`                    | Typecheck and production build into `dist/`                                         |
 | `npm run preview`                  | Serve the production build locally                                                  |
-| `npm run deploy`                   | Build and publish `dist/` with gh-pages                                             |
 | `npm test` / `npm run test:chrome` | Playwright Chromium e2e (builds then previews)                                      |
 | `npm run test:ui`                  | Playwright UI runner, Chromium only                                                 |
 | `npm run lint`                     | ESLint, Prettier check, and TypeScript (`lint:eslint`, `lint:format`, `lint:types`) |
@@ -28,7 +27,7 @@ npx playwright install chromium
 npm test
 ```
 
-CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, TypeScript, then Playwright). Reports are written to `playwright-report/` and `test-results/` (gitignored).
+CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, TypeScript, then Playwright). A successful push to `main` then builds `dist/` and deploys it to GitHub Pages. Set Pages source to **GitHub Actions**. Reports are written to `playwright-report/` and `test-results/` (gitignored).
 
 ## Layout
 

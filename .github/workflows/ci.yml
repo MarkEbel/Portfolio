@@ -56,3 +56,40 @@ jobs:
             portfolio-website/playwright-report/
             portfolio-website/test-results/
           retention-days: 14
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [quality, e2e]
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: portfolio-website
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: portfolio-website/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Add SPA fallback
+        run: cp dist/index.html dist/404.html
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: portfolio-website/dist
+      - id: deployment
+        uses: actions/deploy-pages@v5

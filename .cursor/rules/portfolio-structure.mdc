@@ -11,7 +11,7 @@ This GitHub repo is a monorepo. The live site is the Vite app in `portfolio-webs
 Portfolio/
 ├── AGENTS.md                 # Agent workflows
 ├── .cursor/rules/            # Cursor rules (keep these current)
-├── .github/workflows/ci.yml                      # ESLint, Prettier, TypeScript, Chromium Playwright
+├── .github/workflows/ci.yml                      # quality, Chromium Playwright, Pages deploy on main
 ├── .github/workflows/dependabot-auto-merge.yml   # gh pr merge --auto --squash for Dependabot
 ├── .github/dependabot.yml                        # npm updates for portfolio-website
 └── portfolio-website/        # React + TypeScript site + e2e tests
@@ -33,7 +33,7 @@ Portfolio/
 - Keep `package.json` dependencies limited to packages imported by the app or required as peers. Do not keep unused UI libraries “for later”.
 - New packages should be sibling folders with their own README, then linked from the root README.
 - GitHub Actions should use Node 24-compatible action majors (for example `actions/upload-artifact@v7`, not `v4`).
-- CI quality checks belong in `.github/workflows/ci.yml`: ESLint, Prettier, TypeScript, then Chromium Playwright.
+- CI quality checks belong in `.github/workflows/ci.yml`: ESLint, Prettier, TypeScript, then Chromium Playwright. Deploy to GitHub Pages from that same workflow only after those jobs pass on `main`.
 - Dependabot PRs (including majors) use `.github/workflows/dependabot-auto-merge.yml` with `gh pr merge --auto --squash`. GitHub merges after required checks on `main`. Do not require human reviews for this to work.
 - Pre-commit uses Husky + lint-staged to auto-fix; CI must keep using check-only scripts (`lint:eslint`, `lint:format`, `lint:types`).
 - Prettier and ESLint cover the whole repo: `portfolio-website` plus root `README.md`, `AGENTS.md`, `.github/`, and `.cursor/`. Do not limit format scripts to `src/` only.

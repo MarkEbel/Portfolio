@@ -1,6 +1,6 @@
 # Portfolio website
 
-Personal portfolio and résumé site: About, Experience, Projects, Blogs, plus a commuter heatmap page. Built with React, TypeScript, and Vite. Deployed to GitHub Pages at `/Portfolio/`.
+Personal portfolio and résumé site built with React, TypeScript, and Vite. The homepage presents About plus the latest Experience, Project, and Blog; route-based collection pages hold the full content. It also includes a commuter heatmap page. Deployed to GitHub Pages at `/Portfolio/`.
 
 ## Scripts
 
@@ -34,6 +34,16 @@ npm test
 CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, TypeScript, then Playwright) plus dependency review for **new** GitHub advisories. A successful push to `main` then builds `dist/` and deploys it to GitHub Pages. Set Pages source to **GitHub Actions**. The live commit SHA is in `<meta name="app-version">` in the document head. Skip the advisory gate with `[skip dependency-review]` in the commit message or PR title/body. Reports are written to `playwright-report/` and `test-results/` (gitignored).
 
 ## Layout
+
+Desktop keeps the reading column centred like a document, with route
+navigation in the left sidebar. On phones the same navigation becomes a compact
+horizontal row. Main routes are:
+
+- `/Portfolio/` — About and latest-content previews
+- `/Portfolio/experience` — complete experience and education timeline
+- `/Portfolio/projects` — all projects
+- `/Portfolio/blogs` — all blog entries
+- `/Portfolio/blogs/:blogId` — an individual post
 
 ```
 src/

@@ -14,7 +14,7 @@ alwaysApply: false
 - Put a positive assertion (element is visible) before a negative one.
 - Reuse helpers in `e2e/helpers/` (for example `goToHome`, and `boxOf` / `overlaps` / `horizontalOverflow` for layout) instead of duplicating navigation or geometry maths.
 - Keep responsive regressions covered in `layout.spec.ts`: no horizontal overflow, the sidebar must never overlap `<main>`, and on desktop the 42rem reading column is centred in the viewport.
-- Accessibility: `a11y.spec.ts` runs `@axe-core/playwright` with tags `wcag2a`, `wcag2aa`, and `wcag22aa` on home, a blog post, and the heatmap. Exclude only third-party chrome (Leaflet). Axe is not full WCAG compliance.
+- Accessibility: `a11y.spec.ts` runs `@axe-core/playwright` with tags `wcag2a`, `wcag2aa`, and `wcag22aa` on home, each collection route, a blog post, and the heatmap. Exclude only third-party chrome (Leaflet). Axe is not full WCAG compliance.
 - If a test fails, fix the test first. Do not change product behaviour to make a test pass unless the owner agrees there is a product bug.
 - `npm test` in `portfolio-website` is the command for local and CI. Playwright builds and previews the site via `webServer`.
 - `webServer` reuses an existing server locally. Kill a stale `vite preview` on port 4173 before trusting a run, or it will test an old build.

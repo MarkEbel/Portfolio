@@ -30,6 +30,7 @@ Portfolio/
 - Put only genuinely reusable code in `src/shared/`, and app composition/routing in `src/app/`.
 - Use kebab-case directories and PascalCase React component filenames.
 - GitHub Pages `base` is `/Portfolio/` (`vite.config.ts` and React Router paths).
+- The homepage contains About plus one-item previews for latest Experience, Project, and Blog content. Full collections live at `/Portfolio/experience`, `/Portfolio/projects`, and `/Portfolio/blogs`; individual posts remain under `/Portfolio/blogs/:blogId`. Navigation uses React Router links, not scroll anchors.
 - Keep `package.json` dependencies limited to packages imported by the app or required as peers. Do not keep unused UI libraries “for later”.
 - New packages should be sibling folders with their own README, then linked from the root README.
 - GitHub Actions should use Node 24-compatible action majors (for example `actions/upload-artifact@v7`, not `v4`).

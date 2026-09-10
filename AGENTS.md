@@ -23,7 +23,7 @@ CI (`npm run lint` in `portfolio-website`) matches Contact's GUI quality gates a
 
 Pre-commit (Husky in `portfolio-website/.husky`) runs `lint:staged`, which **fixes** staged files with ESLint `--fix` and Prettier `--write`. GitHub Actions still **checks** only. Skip the hook with a `noprecommit` file at the repo root or in `portfolio-website/`.
 
-GitHub Actions (`.github/workflows/ci.yml`) runs those jobs plus Chromium Playwright. A `deploy` job then publishes GitHub Pages **only** on `push` to `main`, and **only** if `quality` and `e2e` succeed. Do not add Firefox, Checkmarx, Crowdin, or Docker jobs unless asked.
+GitHub Actions (`.github/workflows/ci.yml`) runs those jobs plus Chromium Playwright and dependency review. A `deploy` job then publishes GitHub Pages **only** on `push` to `main`, and **only** if `quality`, `e2e`, and `dependency-review` succeed. Dependency review fails only on **new** GitHub advisories (existing ones on `main` are allowed). Skip it with `[skip dependency-review]` in the commit message or PR title/body — do not use `[skip ci]`. When branch protection is enabled, require `CI / quality`, `CI / e2e`, and `CI / dependency-review`; do not require `CI / deploy`. Do not add Firefox, Checkmarx, Crowdin, or Docker jobs unless asked.
 
 Dependabot pull requests (including major updates) enable GitHub auto-merge via `.github/workflows/dependabot-auto-merge.yml` (`gh pr merge --auto --squash`). GitHub merges only after required status checks on `main` pass. This matches [Automating Dependabot with GitHub Actions](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/automate-dependabot-with-actions). Do not require pull request reviews on `main` unless you also auto-approve, or Dependabot will wait forever.
 

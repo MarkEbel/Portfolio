@@ -57,9 +57,59 @@ jobs:
             portfolio-website/test-results/
           retention-days: 14
 
+  dependency-review:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - name: Detect skip
+        id: skip
+        env:
+          PUSH_MSG: ${{ github.event.head_commit.message }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          marker='[skip dependency-review]'
+          if printf '%s\n' "$PUSH_MSG" "$PR_TITLE" "$PR_BODY" | grep -Fq "$marker"; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Skipping dependency review: marker in push message, PR title, or PR body."
+            exit 0
+          fi
+          if git log -1 --format=%B | grep -Fq "$marker"; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Skipping dependency review: marker in HEAD commit message."
+            exit 0
+          fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+      - name: Dependency review (pull request)
+        if: steps.skip.outputs.skip != 'true' && github.event_name == 'pull_request'
+        uses: actions/dependency-review-action@v5
+        with:
+          fail-on-severity: low
+          fail-on-scopes: runtime, development
+      - name: Dependency review (push)
+        if: >-
+          steps.skip.outputs.skip != 'true' &&
+          github.event_name == 'push' &&
+          github.event.before != '0000000000000000000000000000000000000000'
+        uses: actions/dependency-review-action@v5
+        with:
+          fail-on-severity: low
+          fail-on-scopes: runtime, development
+          base-ref: ${{ github.event.before }}
+          head-ref: ${{ github.sha }}
+      - name: Nothing to compare
+        if: >-
+          steps.skip.outputs.skip != 'true' &&
+          github.event_name == 'push' &&
+          github.event.before == '0000000000000000000000000000000000000000'
+        run: echo "No previous commit on this ref; skipping dependency review."
+
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [quality, e2e]
+    needs: [quality, e2e, dependency-review]
     timeout-minutes: 10
     runs-on: ubuntu-latest
     permissions:

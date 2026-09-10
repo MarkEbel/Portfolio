@@ -20,6 +20,7 @@ Add new apps or libraries as sibling folders and link them from this table.
 - **React Router** — `/Portfolio`, blog posts, commuter heatmap
 - **Playwright** — Chromium-only end-to-end tests (`npm test` in `myOwnWebsite`)
 - **GitHub Actions** — `.github/workflows/ci.yml` runs ESLint, Prettier, TypeScript, and Chromium Playwright on push and pull request
+- **Husky + lint-staged** — pre-commit auto-fixes staged files with ESLint and Prettier (CI still only checks)
 - **Dependabot** — weekly grouped npm updates for `myOwnWebsite`
 - **gh-pages** — `npm run deploy` from `myOwnWebsite` publishes `dist/`
 
@@ -27,7 +28,7 @@ Add new apps or libraries as sibling folders and link them from this table.
 
 ```sh
 cd myOwnWebsite
-npm install
+npm install          # also installs the Husky pre-commit hook
 npx playwright install chromium
 npm run dev          # site at /Portfolio/
 npm run lint         # eslint, prettier check, tsc

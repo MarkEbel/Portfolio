@@ -13,6 +13,8 @@
     "lint:eslint": "eslint . --max-warnings 0",
     "lint:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,json,yml}\" \"e2e/**/*.{ts,tsx}\"",
     "lint:types": "tsc -b",
+    "lint:staged": "lint-staged --relative",
+    "prepare": "cd .. && husky myOwnWebsite/.husky",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,json,yml}\" \"e2e/**/*.{ts,tsx}\"",
     "test": "playwright test --project=chromium",
@@ -48,6 +50,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "gh-pages": "^6.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.5.0",
     "prettier": "^3.9.6",
     "typescript": "^5.9.3",
     "vite": "^6.4.3"

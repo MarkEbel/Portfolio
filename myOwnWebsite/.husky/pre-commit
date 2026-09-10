@@ -1,0 +1,9 @@
+cd myOwnWebsite || exit 1
+
+if [ -e noprecommit ] || [ -e ../noprecommit ]
+then
+    echo "skipping precommit hooks"
+    exit 0
+fi
+
+npm run lint:staged

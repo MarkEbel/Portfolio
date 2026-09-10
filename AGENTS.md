@@ -21,6 +21,8 @@ CI (`npm run lint` in `myOwnWebsite`) matches Contact's GUI quality gates as far
 - `lint:format` — Prettier `--check` (use `npm run format` to fix)
 - `lint:types` — `tsc -b`
 
+Pre-commit (Husky in `myOwnWebsite/.husky`) runs `lint:staged`, which **fixes** staged files with ESLint `--fix` and Prettier `--write`. GitHub Actions still **checks** only. Skip the hook with a `noprecommit` file at the repo root or in `myOwnWebsite/`.
+
 GitHub Actions (`.github/workflows/ci.yml`) runs those jobs plus Chromium Playwright. Do not add Firefox, Checkmarx, Crowdin, or Docker jobs unless asked.
 
 ## Cursor rules

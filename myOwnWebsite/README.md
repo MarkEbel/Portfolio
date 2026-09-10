@@ -4,16 +4,17 @@ Personal portfolio and résumé site: About, Experience, Projects, Blogs, plus a
 
 ## Scripts
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Vite dev server (`base` is `/Portfolio/`) |
-| `npm run build` | Typecheck and production build into `dist/` |
-| `npm run preview` | Serve the production build locally |
-| `npm run deploy` | Build and publish `dist/` with gh-pages |
-| `npm test` / `npm run test:chrome` | Playwright Chromium e2e (builds then previews) |
-| `npm run test:ui` | Playwright UI runner, Chromium only |
-| `npm run lint` | ESLint, Prettier check, and TypeScript (`lint:eslint`, `lint:format`, `lint:types`) |
-| `npm run format` | Prettier write on `src/` and `e2e/` |
+| Command                            | Purpose                                                                             |
+| ---------------------------------- | ----------------------------------------------------------------------------------- |
+| `npm run dev`                      | Vite dev server (`base` is `/Portfolio/`)                                           |
+| `npm run build`                    | Typecheck and production build into `dist/`                                         |
+| `npm run preview`                  | Serve the production build locally                                                  |
+| `npm run deploy`                   | Build and publish `dist/` with gh-pages                                             |
+| `npm test` / `npm run test:chrome` | Playwright Chromium e2e (builds then previews)                                      |
+| `npm run test:ui`                  | Playwright UI runner, Chromium only                                                 |
+| `npm run lint`                     | ESLint, Prettier check, and TypeScript (`lint:eslint`, `lint:format`, `lint:types`) |
+| `npm run lint:staged`              | ESLint `--fix` and Prettier `--write` on staged files (used by the pre-commit hook) |
+| `npm run format`                   | Prettier write on `src/` and `e2e/`                                                 |
 
 ## End-to-end tests
 

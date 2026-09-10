@@ -24,6 +24,11 @@ test.describe("home page", () => {
   });
 
   test("shows route navigation", async ({ page }) => {
+    test.skip(
+      (page.viewportSize()?.width ?? 0) <= 900,
+      "the sidebar navigation is desktop only",
+    );
+
     await goToHome(page);
 
     const nav = page.getByRole("navigation", { name: "Primary navigation" });
@@ -32,6 +37,23 @@ test.describe("home page", () => {
     for (const label of ["About", "Experience", "Projects", "Blogs"]) {
       await expect(nav.getByText(label, { exact: true })).toBeVisible();
     }
+  });
+
+  test("hides navigation on phones and relies on preview links", async ({
+    page,
+  }) => {
+    test.skip((page.viewportSize()?.width ?? 0) > 900, "phone viewports only");
+
+    await goToHome(page);
+
+    await expect(
+      page.getByRole("navigation", { name: "Primary navigation" }),
+    ).toBeHidden();
+
+    await page.getByRole("link", { name: "See all projects" }).click();
+    await expect(
+      page.getByRole("heading", { name: "Projects", exact: true }),
+    ).toBeVisible();
   });
 
   test("links previews to full collections", async ({ page }) => {
@@ -52,6 +74,11 @@ test.describe("home page", () => {
   });
 
   test("opens full collections from navigation", async ({ page }) => {
+    test.skip(
+      (page.viewportSize()?.width ?? 0) <= 900,
+      "the sidebar navigation is desktop only",
+    );
+
     await goToHome(page);
 
     await page

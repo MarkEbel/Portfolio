@@ -37,34 +37,11 @@
   transform: translateX(0);
 }
 
-/* Route links remain useful once the homepage only previews each collection.
-   On the stacked shell they become a bordered strip of pills, so the row reads
-   as navigation rather than a second list of headings. */
+/* On the stacked shell this row sat awkwardly between the name and the contact
+   icons. The homepage previews link to each collection and every page below it
+   has a labelled back link, so phones lose nothing by dropping it. */
 @media screen and (max-width: 900px) {
   .navbar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    padding: 0.4rem;
-    border: 1px solid var(--border-color);
-    border-radius: 0.6rem;
-  }
-
-  .navbar-links {
-    padding: 0.35rem 0.8rem;
-    border-radius: 999px;
-    font-size: 0.95rem;
-  }
-
-  .navbar-links--active {
-    background-color: var(--accent-soft);
-  }
-
-  .navbar-links:hover {
-    transform: none;
-  }
-
-  .navbar-links::before {
     display: none;
   }
 }

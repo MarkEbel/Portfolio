@@ -36,10 +36,11 @@ CI runs the same commands from `.github/workflows/ci.yml` (ESLint, Prettier, Typ
 ## Layout
 
 Desktop keeps the reading column centred like a document, with route
-navigation in the left sidebar. On phones the same navigation becomes a
-horizontal strip of pills. Every page below the home page also carries a
-labelled back link that names where it returns to: the page you arrived from
-when that is known, otherwise the page's own parent. Main routes are:
+navigation in the left sidebar. Phones hide that navigation and move between
+pages through the homepage preview links instead. Every page below the home page
+carries a labelled back link that names where it returns to: the page you
+arrived from when that is known, otherwise the page's own parent. Main routes
+are:
 
 - `/Portfolio/` — About and latest-content previews
 - `/Portfolio/experience` — complete experience and education timeline

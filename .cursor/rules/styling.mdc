@@ -17,7 +17,7 @@ alwaysApply: false
 - Vertical rhythm comes from the container's flex `gap`, not from stacked margins and padding. `.main-content` spaces top-level content; `.home-preview` spaces a preview's label, card, and link. Text elements (`p`, `h2`, `h3`) carry bottom margin only, and `p:last-child` drops it, so a leading heading or trailing paragraph never adds to the gap around its container.
 - `.SubSection` pads for its hover background and cancels that padding with an equal negative margin. That keeps card text on the same left edge as content without a card. Change the padding and margin together.
 - Homepage collection labels are restrained eyebrow headings, not large section titles. Full collection routes use `PageLayout` and a visible page title.
-- Below 900px the primary navigation is a bordered strip of pills, with the active route filled with `--accent-soft`. It has to read as navigation rather than as another list of headings.
+- Below 900px the primary navigation is hidden. Phones navigate through the homepage preview links and the labelled back links, so any new route must be reachable that way too, not only from the sidebar.
 - Prefer flex or grid with `min-width: 0` over fixed offsets like `margin-left: 30rem`, so intermediate widths degrade instead of overlapping.
 - Use `:focus-visible` with `outline` and `outline-offset`. Never use `border` for focus, which shifts layout.
 - Responsive changes need coverage in `e2e/layout.spec.ts`, which runs on desktop and both phone viewports.

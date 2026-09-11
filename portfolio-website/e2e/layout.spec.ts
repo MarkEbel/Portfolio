@@ -1,5 +1,10 @@
 import { expect, test } from "@playwright/test";
-import { boxOf, horizontalOverflow, overlaps } from "./helpers/layout";
+import {
+  boxOf,
+  horizontalOverflow,
+  lastLineOf,
+  overlaps,
+} from "./helpers/layout";
 import { goToHome } from "./helpers/navigation";
 
 const pages = [
@@ -102,21 +107,22 @@ test.describe("responsive layout", () => {
     },
   ]) {
     test(`blog date reads inline after the ${name} title`, async ({ page }) => {
-      test.skip(
-        (page.viewportSize()?.width ?? 0) <= 900,
-        "a wrapped title spans several lines, so its box no longer bounds one line",
-      );
-
       await page.goto(path);
 
-      const titleBox = await boxOf(page.getByRole("heading", { name: title }));
+      const heading = page.getByRole("heading", { name: title });
+      await expect(heading).toBeVisible();
+
+      // Font metrics decide how many lines the title takes, and an inline
+      // heading's box is the union of them all. Compare against the line the
+      // date joins instead, which is the last one.
+      const lastLine = await lastLineOf(heading);
       const dateBox = await boxOf(
         page.getByText("2 April 2025", { exact: true }),
       );
 
-      expect(dateBox.x).toBeGreaterThan(titleBox.x + titleBox.width);
-      expect(dateBox.y).toBeLessThan(titleBox.y + titleBox.height);
-      expect(dateBox.y + dateBox.height).toBeGreaterThan(titleBox.y);
+      expect(dateBox.x).toBeGreaterThanOrEqual(lastLine.x + lastLine.width - 1);
+      expect(dateBox.y).toBeLessThan(lastLine.y + lastLine.height);
+      expect(dateBox.y + dateBox.height).toBeGreaterThan(lastLine.y);
     });
   }
 });

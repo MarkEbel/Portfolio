@@ -17,6 +17,27 @@ export async function boxOf(locator: Locator): Promise<Box> {
   return box;
 }
 
+/**
+ * The last line box of an inline element. `boundingBox` returns the union of
+ * every line, which says nothing about one line once the text wraps.
+ */
+export async function lastLineOf(locator: Locator): Promise<Box> {
+  const line = await locator.evaluate((element) => {
+    const rects = Array.from(element.getClientRects());
+    const last = rects[rects.length - 1];
+
+    return last
+      ? { x: last.x, y: last.y, width: last.width, height: last.height }
+      : null;
+  });
+
+  if (!line) {
+    throw new Error("Element has no line boxes, so it is not rendered");
+  }
+
+  return line;
+}
+
 /** Sub-pixel rounding means touching edges can report a fraction of overlap. */
 export function overlaps(a: Box, b: Box, tolerance = 1): boolean {
   const horizontal =

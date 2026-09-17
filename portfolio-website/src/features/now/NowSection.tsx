@@ -4,7 +4,7 @@ import "./NowSection.css";
 const updated = { label: "September 2026", dateTime: "2026-09" };
 
 const nowItems = [
-  "Leading the backend side of our platform modernisation at Content Guru.",
+  "Tech lead on one project at Content Guru: replacing a twenty-year-old platform.",
   "Helping run my local scuba diving club as a committee member.",
   "Tinkering with this site, which has changed a lot in the last month.",
 ];

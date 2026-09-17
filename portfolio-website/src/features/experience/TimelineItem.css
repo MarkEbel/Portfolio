@@ -30,6 +30,29 @@
   }
 }
 
+/* A single level says nothing on its own, so the ladder is shown in full. Each
+   date is the promotion date, not a range. */
+.timeline-item-roles {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--muted-color);
+}
+
+.timeline-item-roles li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+}
+
+.timeline-item-roles__title {
+  color: var(--text-color);
+}
+
 /* Impact bullets read as a summary, so they sit tighter than body copy. The
    description paragraph above owns the gap. */
 .timeline-item-highlights {

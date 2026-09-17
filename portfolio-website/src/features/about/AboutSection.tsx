@@ -2,9 +2,9 @@ const AboutSection = () => {
   return (
     <section aria-label="about me">
       <p>
-        Hi, I'm Mark. I'm a software engineer at Content Guru, where I'm
-        currently leading the work to replace a twenty-year-old PHP system with
-        something we can grow into.
+        Hi, I'm Mark. I'm a software engineer at Content Guru. Right now I'm the
+        tech lead on one project there, replacing a twenty-year-old PHP system
+        with something we can grow into.
       </p>
       <p>
         I like the problems that don't have a tidy answer yet, and I like

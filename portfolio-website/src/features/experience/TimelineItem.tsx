@@ -2,12 +2,19 @@ import { useState } from "react";
 import SkillModal from "./SkillModal";
 import "./TimelineItem.css";
 
+interface Role {
+  title: string;
+  since: string;
+  dateTime: string;
+}
+
 interface TimelineItemProps {
   title: string;
   company: string;
   hyperlinkTitle: string;
   date: string;
   description: string;
+  roles?: Role[];
   highlights?: string[];
   skills: string[];
   skillDescriptions: Record<string, string>;
@@ -16,6 +23,7 @@ interface TimelineItemProps {
 const TimelineItem = ({
   date,
   description,
+  roles,
   highlights,
   title,
   company,
@@ -36,6 +44,16 @@ const TimelineItem = ({
           {company}
         </a>
       </h3>
+      {roles && (
+        <ul className="timeline-item-roles">
+          {roles.map((role) => (
+            <li key={role.title}>
+              <span className="timeline-item-roles__title">{role.title}</span>
+              <time dateTime={role.dateTime}>from {role.since}</time>
+            </li>
+          ))}
+        </ul>
+      )}
       <p className="timeline-item-description">{description}</p>
       {highlights && (
         <ul className="timeline-item-highlights">

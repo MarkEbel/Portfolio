@@ -23,6 +23,22 @@ test.describe("home page", () => {
     await expect(page.getByText("2 April 2025", { exact: true })).toBeVisible();
   });
 
+  test("shows the promotion progression", async ({ page }) => {
+    await goToHome(page);
+
+    await expect(
+      page.getByRole("heading", { name: "Software Engineer", exact: true }),
+    ).toBeVisible();
+
+    for (const role of [
+      "Software Engineer Level 3",
+      "Software Engineer Level 2",
+      "Graduate Software Developer",
+    ]) {
+      await expect(page.getByText(role, { exact: true })).toBeVisible();
+    }
+  });
+
   test("shows what I am up to now", async ({ page }) => {
     await goToHome(page);
 

@@ -5,14 +5,31 @@ import skillDescriptions from "./skillDescriptions";
 const experienceItems = [
   {
     id: "contentGuru",
-    title: "Software Engineer Level 3",
+    title: "Software Engineer",
     company: "Content Guru",
     hyperlinkTitle: "https://www.contentguru.com/en-gb/about-us/",
     date: "August 2022 - Present",
+    roles: [
+      {
+        title: "Software Engineer Level 3",
+        since: "May 2026",
+        dateTime: "2026-05",
+      },
+      {
+        title: "Software Engineer Level 2",
+        since: "August 2024",
+        dateTime: "2024-08",
+      },
+      {
+        title: "Graduate Software Developer",
+        since: "August 2022",
+        dateTime: "2022-08",
+      },
+    ],
     description:
       "I joined Redwood Technologies, better known as Content Guru, as a graduate and have been promoted three times since. Most of my work is on the parts of a globally deployed platform that have to stay fast, secure and available.",
     highlights: [
-      "I'm the technical lead on replacing a twenty-year-old platform. We swapped a PHP monolith for C# services, which opened the door to React and took us from a few hundred users per organisation to more than 10,000.",
+      "I'm the technical lead on a project to replace a twenty-year-old platform. We swapped a PHP monolith for C# services, which opened the door to React and took us from a few hundred users per organisation to more than 10,000.",
       "I build the services that keep state in sync, in real time, across clients spread around the world.",
       "We used to deploy by hand. I moved us onto Kubernetes and ArgoCD, and a platform upgrade now takes a sixth of the time it used to.",
       "I added OpenTelemetry tracing across our production services, so working out what has gone wrong takes about 20 minutes instead of about 50.",

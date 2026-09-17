@@ -89,34 +89,39 @@ test.describe("responsive layout", () => {
     expect(imageBox.width / imageBox.height).toBeCloseTo(16 / 9, 1);
   });
 
-  for (const { name, path, title } of [
+  for (const { name, path, title, column } of [
     {
       name: "card",
       path: "/Portfolio/blogs",
       title: "Running AI on our own servers",
+      column: ".content-card__body",
     },
     {
-      name: "post header",
+      name: "post",
       path: "/Portfolio/blogs/running-ai-locally",
       title: "Running AI on Our Own Servers",
+      column: ".blogPost",
     },
   ]) {
-    test(`blog date sits on the right of the ${name} title`, async ({
-      page,
-    }) => {
+    test(`blog date signs off the ${name} bottom right`, async ({ page }) => {
       await page.goto(path);
 
       const heading = page.getByRole("heading", { name: title });
       await expect(heading).toBeVisible();
 
-      const headerBox = await boxOf(heading.locator("xpath=.."));
+      const columnBox = await boxOf(page.locator(column).first());
+      const headingBox = await boxOf(heading);
       const dateBox = await boxOf(
         page.getByText("26 August 2026", { exact: true }),
       );
 
+      // Below the title and copy, flush to the reading column's right edge,
+      // while the text above it stays left aligned.
+      expect(dateBox.y).toBeGreaterThan(headingBox.y + headingBox.height);
       expect(
-        Math.abs(headerBox.x + headerBox.width - (dateBox.x + dateBox.width)),
-      ).toBeLessThan(8);
+        Math.abs(columnBox.x + columnBox.width - (dateBox.x + dateBox.width)),
+      ).toBeLessThan(2);
+      expect(dateBox.x).toBeGreaterThan(columnBox.x);
     });
   }
 });

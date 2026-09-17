@@ -23,11 +23,12 @@ const BlogPostPage = () => {
       <BackLink fallback={blogsRoute} />
       <header className="blogPost__header">
         <h1>{post.title}</h1>
-        <time className="blogPost__date" dateTime={post.publishedAt}>
-          {formatBlogDate(post.publishedAt)}
-        </time>
       </header>
       <PostComponent />
+      {/* Signs off the post the way a letter dates its closing. */}
+      <time className="blogPost__date" dateTime={post.publishedAt}>
+        {formatBlogDate(post.publishedAt)}
+      </time>
       {/* Reaching a post from the home preview skips the list, so keep the
           full archive one click away. */}
       {backTo !== blogsRoute && (

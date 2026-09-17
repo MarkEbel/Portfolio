@@ -7,27 +7,21 @@
 }
 
 .blogPost__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0 1rem;
   width: 100%;
   margin: 1rem 0 1.25rem;
 }
 
 /* The global h1 is sized for the home page hero. A post title leads body copy
-   in a 42rem column, so it steps down. min-width: 0 lets it wrap instead of
-   shoving the date off the right edge. */
+   in a 42rem column, so it steps down. */
 .blogPost h1 {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   margin-bottom: 0;
-  flex: 1 1 auto;
-  min-width: 0;
 }
 
+/* Signs off the post, so it sits at the end against the right edge. */
 .blogPost__date {
-  margin: 0 0 0 auto;
+  align-self: flex-end;
+  margin-top: 1.5rem;
   color: var(--muted-color);
   font-size: 0.9rem;
   white-space: nowrap;

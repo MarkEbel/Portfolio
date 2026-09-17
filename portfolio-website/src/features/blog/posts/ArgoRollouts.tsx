@@ -1,43 +1,72 @@
 const ArgoRollouts = () => (
   <>
     <p>
-      We used to deploy by hand. I do not miss it. Someone would copy a folder,
-      hold their breath, and hope the next hour was quiet.
+      Deployment risk is usually discussed as a tooling problem. In practice it
+      is mostly two questions: who is awake when it goes wrong, and how quickly
+      the change can be undone. Tools matter because of how they affect those
+      two answers, not in their own right.
     </p>
     <p>
-      The usual instinct was to make a large upgrade overnight. Fewer customers
-      were awake, but fewer engineers were at their best too. One tired person
-      had to separate a real fault from the noise of a large change while the
-      clock quietly made every decision worse.
+      The traditional instinct is to do large upgrades overnight, and the logic
+      is sound as far as it goes. Fewer customers are using the system, so fewer
+      people are affected if it breaks. The unstated cost is that the smallest
+      and most tired group of engineers is on hand, the people who know the
+      system best are asleep, and every decision is made against a clock that
+      makes rushing feel reasonable.
     </p>
     <p>
-      Working hours have the opposite trade-off. There are more people to help,
-      but also more opinions, messages and live customers who can feel a bad
-      release. Moving the same risky manual process into daylight does not make
-      it safe. It only changes who is watching.
+      Daylight releases invert that. There are more people available to help and
+      better odds that someone recognises the failure, but there are also more
+      customers exposed and considerably more noise. Simply moving a risky
+      manual process into working hours does not make it safe. It changes who is
+      watching, which is worth something, but it does not change what happens
+      when the change is bad.
     </p>
     <p>
-      Argo CD made the cluster reconcile towards the state described in Git.
-      That is a nicer argument than "please remember the extra step". A rollout
-      can then send a little traffic to the new version, watch its health and
-      stop or step back before everyone receives it.
+      Framed that way, the timing debate is a symptom. The variable that
+      actually matters is reversibility. If a release can be undone in a minute
+      by anyone on the team, the hour it happens becomes a minor detail. If it
+      cannot, no scheduling choice will save you, and the overnight window is
+      really just an attempt to limit the blast radius of a process nobody
+      trusts.
     </p>
     <p>
-      Automatic rollback changes the conversation. Instead of choosing between a
-      lonely overnight upgrade and exposing every customer during the day, the
-      team can make a smaller change while the right people are available. The
-      size of the failure is limited before anyone has to become a hero.
+      This is where declarative deployment earns its reputation. When the
+      cluster continuously reconciles towards a state described in version
+      control, the desired state is reviewable, repeatable and identical across
+      environments. That is a better argument than asking people to remember an
+      extra step, and it matters far more than which tool implements it.
+      Progressive rollouts build on that by sending a fraction of traffic to the
+      new version, watching it, and stopping before everyone is affected.
     </p>
     <p>
-      Automation is only as good as the signal it watches. A service can return
-      healthy responses while doing the wrong thing, so metrics, traces and a
-      clear rollback threshold have to describe what customers actually need. If
-      the health check is theatre, the safety is theatre too.
+      The critical caveat is that automated rollback is only as good as the
+      signal it watches. A health check that confirms the process is running
+      will happily report success while the service returns wrong answers to
+      every request. Unless the metrics describe what users actually need, the
+      automation is making confident decisions from evidence that does not
+      support them, which is worse than a human pausing to look.
     </p>
     <p>
-      The point is not the tool name. It is that a bad release should be
-      reversible without a hero. If the only rollback plan is "I am on Slack",
-      that is not a plan.
+      Rollback is also less complete than the word suggests. Stateless services
+      go back cleanly. Database migrations, message schemas and anything that
+      has already been written by the new version do not, and a team that says
+      it can always roll back usually means it can roll back the easy half.
+      Designing changes to be reversible, by separating schema changes from
+      behaviour changes, does more for safety than any deployment tool.
+    </p>
+    <p>
+      None of this machinery is free either. Progressive delivery adds
+      components, configuration and new failure modes, and it can fail in ways
+      that are harder to understand than the problem it replaced. For a small
+      system with a fast, boring redeploy, a canary you do not fully understand
+      is a downgrade dressed as maturity.
+    </p>
+    <p>
+      The useful test is not whether a team deploys at two in the morning. It is
+      whether a bad release requires one specific person to be online. If it
+      does, the schedule is doing the work that the architecture should be
+      doing.
     </p>
     <img
       src="../assets/thumbnails/blogs/argo-rollouts.png"

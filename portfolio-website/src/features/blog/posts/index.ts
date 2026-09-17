@@ -53,7 +53,7 @@ export const blogs: BlogPost[] = [
     publishedAt: "2025-09-11",
     image: "./assets/thumbnails/blogs/diagrams.png",
     description:
-      "I used to draw architecture boxes from memory. Asking a model for Mermaid is a better blank page, as long as the folder still wins the argument.",
+      "A generated diagram is a good blank page and a confident liar about the edges. Diagrams are arguments about what matters, not maps of what exists.",
     href: "/Portfolio/blogs/diagrams-from-code",
     Component: DiagramsFromCode,
   },
@@ -108,7 +108,7 @@ export const blogs: BlogPost[] = [
     publishedAt: "2024-02-27",
     image: "./assets/thumbnails/blogs/argo-rollouts.png",
     description:
-      "We used to deploy by hand. Argo CD and rollouts are really about making a bad release reversible without someone needing to be on Slack.",
+      "Arguing about overnight or daylight releases is a symptom. The variable that matters is whether a bad release can be undone without a specific person online.",
     href: "/Portfolio/blogs/argo-rollouts",
     Component: ArgoRollouts,
   },
@@ -130,7 +130,7 @@ export const blogs: BlogPost[] = [
     publishedAt: "2023-07-21",
     image: "./assets/thumbnails/blogs/replaceable.png",
     description:
-      "Automating the routine work is how you stay useful on the awkward problems. If the team cannot ship because I am on holiday, I have not finished.",
+      "Automating the routine work is how you stay useful on the awkward problems. The catch nobody mentions is that work which stops happening is invisible.",
     href: "/Portfolio/blogs/making-yourself-replaceable",
     Component: MakingYourselfReplaceable,
   },
@@ -152,7 +152,7 @@ export const blogs: BlogPost[] = [
     publishedAt: "2022-11-18",
     image: "./assets/thumbnails/blogs/conventional-commits.png",
     description:
-      "I used to write commit messages as notes to myself. Then I had to bisect a bug and found six commits called fixes.",
+      "A diff says what changed, so the message is the only place the reason survives. A format guarantees shape, though, not content.",
     href: "/Portfolio/blogs/conventional-commits",
     Component: ConventionalCommits,
   },

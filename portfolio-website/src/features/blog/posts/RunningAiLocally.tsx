@@ -1,27 +1,49 @@
 const RunningAiLocally = () => (
   <>
     <p>
-      I like running models on a machine I can unplug. It can be slower and a
-      bit fiddly, but the interesting parts of a problem do not have to leave
-      the room.
+      "Just run it locally" has become a slogan, and like most slogans it
+      bundles several different arguments together. Some of them are strong,
+      some are wishful, and they are worth separating before deciding whether to
+      build anything.
     </p>
     <p>
-      For a lot of product work, a hosted API is fine. For defence, government,
-      and anyone else who is not allowed to send their estate to someone else's
-      GPU, "just use the cloud" is not an answer. The model has to live where
-      the data already lives.
+      The strongest version is not a preference at all. Defence, government,
+      healthcare and anyone operating under a data residency obligation may
+      simply not be permitted to send their estate to someone else's hardware.
+      In that situation the hosted option is not expensive or distasteful, it is
+      unavailable, and the model has to live where the data already lives.
     </p>
     <p>
-      Local does not mean private by magic. Models still need to be obtained,
-      servers need sensible network boundaries, and prompts and logs need the
-      same care as the data that went into them. The useful question is not
-      merely where inference runs, but where every part of the request can go.
+      The weaker version is the assumption that local means private. It does
+      not, by itself. The weights came from somewhere and were chosen by
+      someone. The server needs network boundaries that somebody has actually
+      configured. Prompts, responses and logs deserve the same handling as the
+      data that produced them, and a local deployment that writes full prompts
+      to a shared log has moved the exposure rather than removed it.
     </p>
     <p>
-      Hardware is usually the first honest constraint. A model has to fit, and
-      the answer still has to arrive quickly enough to be useful. Starting with
-      a smaller model and a real task tells me more than choosing the largest
-      model on a leaderboard.
+      Hardware is the first honest constraint. A model has to fit, and then it
+      has to answer quickly enough to be useful, and then it has to keep doing
+      that for everyone using it at once. Those are three different problems,
+      and the last one surprises people, because a model that feels responsive
+      for one person can fall over at ten.
+    </p>
+    <p>
+      The cost argument is usually the weakest of the lot. Self-hosting is not
+      free after the hardware: accelerators sit idle most of the day, they draw
+      power while they do it, and somebody has to maintain the thing. At modest
+      volumes a hosted API is often cheaper, and pretending otherwise makes the
+      case look dishonest to whoever approves the budget. The real benefits are
+      control, predictability and the absence of a third party in the data path,
+      which are worth paying for when they are genuinely required.
+    </p>
+    <p>
+      Capability is the other trade nobody enjoys stating. The largest hosted
+      models are generally ahead of what fits comfortably on modest local
+      hardware, and the useful question is not which is better in the abstract
+      but whether a smaller model is good enough for one specific task. That is
+      answerable, and it is answered by trying the real task rather than by
+      reading a leaderboard.
     </p>
     <p>
       The{" "}
@@ -33,15 +55,25 @@ const RunningAiLocally = () => (
         vLLM Quickstart
       </a>{" "}
       is a practical way into both offline inference and an OpenAI-compatible
-      server. That compatibility matters because an application can talk to a
-      local endpoint without being rewritten around a new client. It does not
-      remove the need to authenticate the endpoint, control its network or
-      review the model being served.
+      server. That compatibility matters more than it first appears, because an
+      application can point at a local endpoint without being rebuilt around a
+      new client, which keeps the decision reversible. It does not remove the
+      need to authenticate that endpoint, control what can reach it, or think
+      about which model is being served.
     </p>
     <p>
-      That is the version of AI I care about: useful, a bit boring and inside a
-      boundary someone understands. Fancy demos are easy. Knowing where the
-      weights, prompts, responses and logs live is the actual job.
+      What tends to get underestimated is that you have adopted a production
+      service. It needs versioning, monitoring, capacity planning and a story
+      for upgrades, and the person who set it up is now on the hook when it is
+      slow. Teams that treat a local model as a piece of infrastructure do fine.
+      Teams that treat it as a clever afternoon end up with an unmaintained
+      dependency in the middle of a product.
+    </p>
+    <p>
+      That is the version of this I care about: useful, fairly boring, and
+      inside a boundary somebody understands. Demonstrations are easy. Knowing
+      where the weights, the prompts, the responses and the logs actually live
+      is the work.
     </p>
     <img
       src="../assets/thumbnails/blogs/local-ai.png"

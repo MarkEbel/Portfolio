@@ -98,12 +98,12 @@ test.describe("responsive layout", () => {
     {
       name: "card",
       path: "/Portfolio/blogs",
-      title: "Leading my first retrospective",
+      title: "Running AI on our own servers",
     },
     {
       name: "post header",
-      path: "/Portfolio/blogs/leading-retrospective",
-      title: "Leading My First Retrospective",
+      path: "/Portfolio/blogs/running-ai-locally",
+      title: "Running AI on Our Own Servers",
     },
   ]) {
     test(`blog date reads inline after the ${name} title`, async ({ page }) => {
@@ -117,7 +117,7 @@ test.describe("responsive layout", () => {
       // date joins instead, which is the last one.
       const lastLine = await lastLineOf(heading);
       const dateBox = await boxOf(
-        page.getByText("2 April 2025", { exact: true }),
+        page.getByText("26 August 2026", { exact: true }),
       );
 
       expect(dateBox.x).toBeGreaterThanOrEqual(lastLine.x + lastLine.width - 1);

@@ -6,15 +6,19 @@ test.describe("blog post", () => {
     await goToHome(page);
 
     await page
-      .getByRole("heading", { name: "Leading my first retrospective" })
+      .getByRole("heading", { name: "Running AI on our own servers" })
       .click();
 
     await expect(
-      page.getByRole("heading", { name: "Leading My First Retrospective" }),
+      page.getByRole("heading", { name: "Running AI on Our Own Servers" }),
     ).toBeVisible();
-    await expect(page.getByText("2 April 2025", { exact: true })).toBeVisible();
     await expect(
-      page.getByRole("img", { name: "Retrospective meeting" }),
+      page.getByText("26 August 2026", { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("img", {
+        name: "A closed server cabinet with a warm glow inside",
+      }),
     ).toBeVisible();
 
     // Arriving from the preview skips the list, so the archive stays reachable.

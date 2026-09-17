@@ -5,5 +5,26 @@
   "import": ["@cspell/dict-en-gb/cspell-ext.json"],
   "files": ["src/features/blog/**/*.{ts,tsx}"],
   "ignorePaths": ["node_modules", "dist"],
-  "words": ["Ebel", "href", "tsx", "SMART", "retros", "retro"]
+  "words": [
+    "Argo",
+    "bisect",
+    "CD",
+    "changelog",
+    "CI",
+    "CVE",
+    "Ebel",
+    "FedRAMP",
+    "GPU",
+    "grepped",
+    "href",
+    "Mermaid",
+    "onboarding",
+    "PCI",
+    "Renovate",
+    "retro",
+    "retros",
+    "SMART",
+    "tsx",
+    "WCAG"
+  ]
 }

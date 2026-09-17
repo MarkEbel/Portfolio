@@ -18,9 +18,11 @@ test.describe("home page", () => {
       page.getByRole("heading", { name: "Interactive Developer Portfolio" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Leading my first retrospective" }),
+      page.getByRole("heading", { name: "Running AI on our own servers" }),
     ).toBeVisible();
-    await expect(page.getByText("2 April 2025", { exact: true })).toBeVisible();
+    await expect(
+      page.getByText("26 August 2026", { exact: true }),
+    ).toBeVisible();
   });
 
   test("shows the promotion progression", async ({ page }) => {

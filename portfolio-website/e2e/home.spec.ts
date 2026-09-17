@@ -15,7 +15,7 @@ test.describe("home page", () => {
       page.getByRole("heading", { name: "Software Engineer" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Interactive Developer Portfolio" }),
+      page.getByRole("heading", { name: "This site" }),
     ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Running AI on our own servers" }),

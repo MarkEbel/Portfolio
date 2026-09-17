@@ -86,7 +86,7 @@ test.describe("responsive layout", () => {
 
     await goToHome(page);
     const image = page.getByRole("img", {
-      name: "Interactive Developer Portfolio",
+      name: "This site",
     });
     await expect(image).toBeVisible();
 

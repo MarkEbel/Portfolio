@@ -49,7 +49,7 @@ const TimelineItem = ({
           {roles.map((role) => (
             <li key={role.title}>
               <span className="timeline-item-roles__title">{role.title}</span>
-              <time dateTime={role.dateTime}>from {role.since}</time>
+              <time dateTime={role.dateTime}>{role.since}</time>
             </li>
           ))}
         </ul>

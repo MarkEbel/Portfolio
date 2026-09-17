@@ -27,9 +27,7 @@
   gap: 0.5rem;
 }
 
-/* The date reads as a continuation of the title, so the heading goes inline and
-   the two wrap together as one phrase rather than sitting in separate columns.
-   nowrap keeps the separator attached to the date it introduces. */
+/* The date sits on the same line as the title and wraps with it. */
 .content-card__header h2 {
   display: inline;
   margin-bottom: 0;
@@ -40,10 +38,6 @@
   color: var(--muted-color);
   font-size: 0.9rem;
   white-space: nowrap;
-}
-
-.content-card__date::before {
-  content: "- ";
 }
 
 @media screen and (max-width: 768px) {

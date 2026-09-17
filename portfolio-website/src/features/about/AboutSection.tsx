@@ -11,8 +11,8 @@ const AboutSection = () => {
         helping other people get unstuck even more.
       </p>
       <p>
-        I live in Chiswick, London. I run — I did the Bilbao Night Marathon and
-        raised £1,200 for Mind — and I'm on the committee of my local scuba
+        I live in Chiswick, London. I run, including the Bilbao Night Marathon,
+        where I raised £1,200 for Mind. I'm on the committee of my local scuba
         diving club, so I'm usually either well above or well below sea level.
       </p>
       <p>

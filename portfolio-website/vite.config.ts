@@ -62,27 +62,26 @@ function htmlHeadHardening(sha: string): Plugin {
  * Vite's preview server looks up files case-sensitively. GitHub Pages instead
  * serves 404.html (the SPA) for any missing path under /Portfolio/. Rewrite
  * those requests to the app entry so local e2e matches that.
+ *
+ * Preview only. The dev server has its own SPA fallback, and rewriting there
+ * swallows extensionless internals like /@vite/client and /@react-refresh.
  */
 function serveSpaForPortfolioPaths(): Plugin {
-  const rewrite = (req: { url?: string }, _res: unknown, next: () => void) => {
-    const url = req.url ?? "";
-    const [path, query] = url.split("?");
-    const isAsset = /\.[a-zA-Z0-9]+$/.test(path);
-
-    if (!isAsset && /^\/portfolio(?=\/|$)/i.test(path)) {
-      req.url = query === undefined ? "/Portfolio/" : `/Portfolio/?${query}`;
-    }
-
-    next();
-  };
-
   return {
     name: "serve-spa-for-portfolio-paths",
-    configureServer(server) {
-      server.middlewares.use(rewrite);
-    },
     configurePreviewServer(server) {
-      server.middlewares.use(rewrite);
+      server.middlewares.use((req, _res, next) => {
+        const url = req.url ?? "";
+        const [path, query] = url.split("?");
+        const isAsset = /\.[a-zA-Z0-9]+$/.test(path);
+
+        if (!isAsset && /^\/portfolio(?=\/|$)/i.test(path)) {
+          req.url =
+            query === undefined ? "/Portfolio/" : `/Portfolio/?${query}`;
+        }
+
+        next();
+      });
     },
   };
 }

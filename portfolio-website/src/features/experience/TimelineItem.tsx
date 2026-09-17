@@ -8,6 +8,7 @@ interface TimelineItemProps {
   hyperlinkTitle: string;
   date: string;
   description: string;
+  highlights?: string[];
   skills: string[];
   skillDescriptions: Record<string, string>;
 }
@@ -15,6 +16,7 @@ interface TimelineItemProps {
 const TimelineItem = ({
   date,
   description,
+  highlights,
   title,
   company,
   hyperlinkTitle,
@@ -35,6 +37,13 @@ const TimelineItem = ({
         </a>
       </h3>
       <p className="timeline-item-description">{description}</p>
+      {highlights && (
+        <ul className="timeline-item-highlights">
+          {highlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
+      )}
       <div className="skills-container">
         {skills.map((skill) => (
           <span

@@ -30,6 +30,17 @@
   }
 }
 
+/* Impact bullets read as a summary, so they sit tighter than body copy. The
+   description paragraph above owns the gap. */
+.timeline-item-highlights {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  line-height: 1.55;
+}
+
 .skills-container {
   display: flex;
   flex-wrap: wrap;

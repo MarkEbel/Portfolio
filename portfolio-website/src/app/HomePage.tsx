@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import AboutSection from "../features/about/AboutSection";
 import BlogSection from "../features/blog/BlogSection";
 import ExperienceSection from "../features/experience/ExperienceSection";
+import NowSection from "../features/now/NowSection";
 import ProjectsSection from "../features/projects/ProjectsSection";
 import PageLayout from "../shared/components/PageLayout";
 import "./HomePage.css";
@@ -9,6 +10,13 @@ import "./HomePage.css";
 const HomePage = () => (
   <PageLayout>
     <AboutSection />
+
+    <section className="home-preview" aria-labelledby="right-now">
+      <h2 id="right-now" className="home-preview__eyebrow">
+        Right now
+      </h2>
+      <NowSection />
+    </section>
 
     <section className="home-preview" aria-labelledby="latest-experience">
       <h2 id="latest-experience" className="home-preview__eyebrow">

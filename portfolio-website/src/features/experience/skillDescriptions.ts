@@ -14,6 +14,15 @@ const skillDescriptions: Record<string, string> = {
     "A modern, object-oriented programming language developed by Microsoft, often used for building enterprise-scale applications.",
   MSSQL:
     "Microsoft SQL Server, a relational database management system developed by Microsoft.",
+  GraphQL:
+    "A query language for APIs that lets a client ask for exactly the data it needs in a single request.",
+  REST: "An architectural style for web APIs built on HTTP verbs and resource URLs.",
+  "GitLab CI/CD":
+    "GitLab's built-in pipelines for building, testing, and deploying code on every change.",
+  NGINX:
+    "A high-performance web server, reverse proxy, and load balancer used in front of application services.",
+  OpenTelemetry:
+    "A vendor-neutral standard for traces, metrics, and logs, used to see how a request flows through distributed services.",
   PHP: "A popular general-purpose scripting language that is especially suited to web development.",
   JavaScript:
     "A lightweight, interpreted programming language used to make web pages interactive.",

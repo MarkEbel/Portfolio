@@ -1,6 +1,8 @@
 # Portfolio website
 
-Personal portfolio and résumé site built with React, TypeScript, and Vite. The homepage presents About plus the latest Experience, Project, and Blog; route-based collection pages hold the full content. It also includes a commuter heatmap page. Deployed to GitHub Pages at `/Portfolio/`.
+Personal portfolio and résumé site built with React, TypeScript, and Vite. The homepage presents About, a short "right now" list, and the latest Experience, Project, and Blog; route-based collection pages hold the full content. It also includes a commuter heatmap page. Deployed to GitHub Pages at `/Portfolio/`.
+
+Copy is written in the first person and kept informal. Keep the measurable detail in Experience; About should read like a person, not a CV.
 
 ## Scripts
 
@@ -42,7 +44,7 @@ carries a labelled back link that names where it returns to: the page you
 arrived from when that is known, otherwise the page's own parent. Main routes
 are:
 
-- `/Portfolio/` — About and latest-content previews
+- `/Portfolio/` — About, a "right now" section, and latest-content previews
 - `/Portfolio/experience` — complete experience and education timeline
 - `/Portfolio/projects` — all projects
 - `/Portfolio/blogs` — all blog entries
@@ -56,6 +58,7 @@ src/
 │   ├── blog/
 │   ├── commute-heatmap/
 │   ├── experience/
+│   ├── now/
 │   └── projects/
 ├── shared/              Reusable components, navigation, theme, and pages
 ├── styles/              Global styles

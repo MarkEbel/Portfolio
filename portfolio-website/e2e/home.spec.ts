@@ -23,6 +23,15 @@ test.describe("home page", () => {
     await expect(page.getByText("2 April 2025", { exact: true })).toBeVisible();
   });
 
+  test("shows what I am up to now", async ({ page }) => {
+    await goToHome(page);
+
+    await expect(
+      page.getByRole("heading", { name: "Right now" }),
+    ).toBeVisible();
+    await expect(page.getByText(/^Last updated/)).toBeVisible();
+  });
+
   test("shows route navigation", async ({ page }) => {
     test.skip(
       (page.viewportSize()?.width ?? 0) <= 900,

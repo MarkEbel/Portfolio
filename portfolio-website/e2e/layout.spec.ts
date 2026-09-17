@@ -1,10 +1,5 @@
 import { expect, test } from "@playwright/test";
-import {
-  boxOf,
-  horizontalOverflow,
-  lastLineOf,
-  overlaps,
-} from "./helpers/layout";
+import { boxOf, horizontalOverflow, overlaps } from "./helpers/layout";
 import { goToHome } from "./helpers/navigation";
 
 const pages = [
@@ -106,23 +101,22 @@ test.describe("responsive layout", () => {
       title: "Running AI on Our Own Servers",
     },
   ]) {
-    test(`blog date reads inline after the ${name} title`, async ({ page }) => {
+    test(`blog date sits on the right of the ${name} title`, async ({
+      page,
+    }) => {
       await page.goto(path);
 
       const heading = page.getByRole("heading", { name: title });
       await expect(heading).toBeVisible();
 
-      // Font metrics decide how many lines the title takes, and an inline
-      // heading's box is the union of them all. Compare against the line the
-      // date joins instead, which is the last one.
-      const lastLine = await lastLineOf(heading);
+      const headerBox = await boxOf(heading.locator("xpath=.."));
       const dateBox = await boxOf(
         page.getByText("26 August 2026", { exact: true }),
       );
 
-      expect(dateBox.x).toBeGreaterThanOrEqual(lastLine.x + lastLine.width - 1);
-      expect(dateBox.y).toBeLessThan(lastLine.y + lastLine.height);
-      expect(dateBox.y + dateBox.height).toBeGreaterThan(lastLine.y);
+      expect(
+        Math.abs(headerBox.x + headerBox.width - (dateBox.x + dateBox.width)),
+      ).toBeLessThan(8);
     });
   }
 });

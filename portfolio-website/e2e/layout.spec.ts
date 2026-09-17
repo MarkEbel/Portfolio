@@ -89,17 +89,38 @@ test.describe("responsive layout", () => {
     expect(imageBox.width / imageBox.height).toBeCloseTo(16 / 9, 1);
   });
 
+  test("promotion history forms a compact right-side block", async ({
+    page,
+  }) => {
+    await page.goto("/Portfolio/experience");
+
+    const itemBox = await boxOf(page.locator(".TimelineItem").first());
+    const rolesBox = await boxOf(page.locator(".timeline-item-roles").first());
+    const width = page.viewportSize()?.width ?? 0;
+
+    expect(
+      Math.abs(itemBox.x + itemBox.width - (rolesBox.x + rolesBox.width)),
+    ).toBeLessThan(2);
+
+    if (width > 900) {
+      expect(rolesBox.x).toBeGreaterThan(itemBox.x);
+      expect(rolesBox.width).toBeLessThan(itemBox.width);
+    } else {
+      expect(Math.abs(rolesBox.x - itemBox.x)).toBeLessThan(2);
+    }
+  });
+
   for (const { name, path, title, column } of [
     {
       name: "card",
       path: "/Portfolio/blogs",
-      title: "Running AI on our own servers",
+      title: "Using Cursor close to the code",
       column: ".content-card__body",
     },
     {
       name: "post",
-      path: "/Portfolio/blogs/running-ai-locally",
-      title: "Running AI on Our Own Servers",
+      path: "/Portfolio/blogs/using-cursor-locally",
+      title: "Using Cursor Close to the Code",
       column: ".blogPost",
     },
   ]) {
@@ -112,7 +133,7 @@ test.describe("responsive layout", () => {
       const columnBox = await boxOf(page.locator(column).first());
       const headingBox = await boxOf(heading);
       const dateBox = await boxOf(
-        page.getByText("26 August 2026", { exact: true }),
+        page.getByText("10 September 2026", { exact: true }),
       );
 
       // Below the title and copy, flush to the reading column's right edge,

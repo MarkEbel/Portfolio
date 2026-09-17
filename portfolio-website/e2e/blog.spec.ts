@@ -6,18 +6,18 @@ test.describe("blog post", () => {
     await goToHome(page);
 
     await page
-      .getByRole("heading", { name: "Running AI on our own servers" })
+      .getByRole("heading", { name: "Using Cursor close to the code" })
       .click();
 
     await expect(
-      page.getByRole("heading", { name: "Running AI on Our Own Servers" }),
+      page.getByRole("heading", { name: "Using Cursor Close to the Code" }),
     ).toBeVisible();
     await expect(
-      page.getByText("26 August 2026", { exact: true }),
+      page.getByText("10 September 2026", { exact: true }),
     ).toBeVisible();
     await expect(
       page.getByRole("img", {
-        name: "A closed server cabinet with a warm glow inside",
+        name: "A cursor-shaped lamp beside a laptop and a developer's hand",
       }),
     ).toBeVisible();
 
@@ -71,5 +71,28 @@ test.describe("blog post", () => {
     await expect(
       page.getByRole("heading", { name: "Blogs", exact: true }),
     ).toBeVisible();
+  });
+
+  test("links local AI articles to their official documentation", async ({
+    page,
+  }) => {
+    await page.goto("/Portfolio/blogs/running-ai-locally");
+    await expect(
+      page.getByRole("link", { name: "vLLM Quickstart" }),
+    ).toHaveAttribute(
+      "href",
+      "https://docs.vllm.ai/en/stable/getting_started/quickstart.html",
+    );
+
+    await page.goto("/Portfolio/blogs/using-cursor-locally");
+    await expect(
+      page.getByRole("link", { name: "Privacy Mode" }),
+    ).toHaveAttribute("href", "https://cursor.com/privacy-overview");
+    await expect(
+      page.getByRole("link", { name: "local agent run modes" }),
+    ).toHaveAttribute(
+      "href",
+      "https://cursor.com/docs/agent/security/run-modes",
+    );
   });
 });

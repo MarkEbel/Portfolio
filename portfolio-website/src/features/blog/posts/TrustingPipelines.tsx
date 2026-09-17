@@ -5,9 +5,33 @@ const TrustingPipelines = () => (
       once you have watched it go green while production fell over.
     </p>
     <p>
-      Trust is boring work. Pin your actions. Do not let a script curl something
-      unsigned. Keep secrets out of logs. Make the path to production the same
-      path every time, so "it worked on my machine" is not a release strategy.
+      A pipeline earns trust by checking the failures the team actually cares
+      about and explaining what broke. More checks are not automatically better.
+      A flaky suite that everyone retries teaches people to ignore red, which is
+      worse than having no check at all.
+    </p>
+    <p>
+      This portfolio is a small example. Every change is checked with ESLint,
+      Prettier, TypeScript and a British English spell checker. Playwright then
+      opens it in desktop and phone-sized Chromium, while axe checks the pages
+      against the WCAG 2.2 AA rules it can automate.
+    </p>
+    <p>
+      Dependencies get their own review because application tests cannot tell me
+      that a new package version has a known advisory. Deployment only runs from
+      the main branch after those quality, browser and dependency gates succeed.
+      The same commit that passed is the one GitHub Pages receives.
+    </p>
+    <p>
+      None of that proves the site is good. Automated accessibility checks do
+      not understand whether the writing is clear, and a browser test only knows
+      the journeys I thought to describe. The pipeline narrows the review; it
+      does not replace it.
+    </p>
+    <p>
+      Trust is boring work. Pin actions, keep secrets out of logs and make the
+      path to production the same path every time. When a check becomes noisy,
+      repair it rather than teaching the team to step around it.
     </p>
     <p>
       I would rather a pipeline that fails loudly than one that is fast and

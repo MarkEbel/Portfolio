@@ -34,7 +34,8 @@
 /* A single level says nothing on its own, so the ladder is shown in full. Each
    date is the promotion date, not a range. */
 .timeline-item-roles {
-  margin: 0 0 0.75rem;
+  width: min(100%, 28rem);
+  margin: 0 0 0.75rem auto;
   padding: 0;
   list-style: none;
   display: flex;
@@ -58,6 +59,12 @@
 
 .timeline-item-roles__title {
   color: var(--text-color);
+}
+
+@media screen and (max-width: 900px) {
+  .timeline-item-roles {
+    width: 100%;
+  }
 }
 
 /* Impact bullets read as a summary, so they sit tighter than body copy. The

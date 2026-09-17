@@ -10,6 +10,7 @@ import ProgrammingStyleAi from "./ProgrammingStyleAi";
 import Renovate from "./Renovate";
 import RunningAiLocally from "./RunningAiLocally";
 import TrustingPipelines from "./TrustingPipelines";
+import UsingCursorLocally from "./UsingCursorLocally";
 
 export interface BlogPost {
   slug: string;
@@ -23,6 +24,17 @@ export interface BlogPost {
 }
 
 export const blogs: BlogPost[] = [
+  {
+    slug: "using-cursor-locally",
+    cardTitle: "Using Cursor close to the code",
+    title: "Using Cursor Close to the Code",
+    publishedAt: "2026-09-10",
+    image: "./assets/thumbnails/blogs/cursor-local.png",
+    description:
+      "Local tools make an AI editor part of the same build, tests and version control as the rest of the work. The model is still hosted, and the final judgement is still mine.",
+    href: "/Portfolio/blogs/using-cursor-locally",
+    Component: UsingCursorLocally,
+  },
   {
     slug: "running-ai-locally",
     cardTitle: "Running AI on our own servers",

@@ -2,7 +2,7 @@
 
 Personal portfolio and résumé site built with React, TypeScript, and Vite. The homepage presents About, a short "right now" list, and the latest Experience, Project, and Blog; route-based collection pages hold the full content. It also includes a commuter heatmap page. Deployed to GitHub Pages at `/Portfolio/`.
 
-Copy is written in the first person and kept informal. Keep the measurable detail in Experience; About should read like a person, not a CV.
+Copy is written in the first person and kept informal. Keep the measurable detail in Experience; About should read like a person, not a CV. About and the "right now" list name no employer and no job title, and describe the work rather than claiming credit for it.
 
 ## Scripts
 

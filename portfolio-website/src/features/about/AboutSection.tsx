@@ -2,25 +2,34 @@ const AboutSection = () => {
   return (
     <section aria-label="about me">
       <p>
-        Hi, I'm Mark. I'm a software engineer at Content Guru. Right now I'm the
-        tech lead on one project there, replacing a twenty-year-old PHP system
-        with something we can grow into.
+        Hi, I'm Mark. I'm a software engineer, mostly on the backend, and mostly
+        on the parts of a system people rely on without ever having to think
+        about them.
       </p>
       <p>
-        I like the problems that don't have a tidy answer yet, and I like
-        helping other people get unstuck even more.
+        I like problems that don't have a tidy answer yet. I like helping
+        someone else get unstuck even more, which is probably the more useful of
+        the two.
       </p>
       <p>
-        I live in Chiswick, London. I run, including the Bilbao Night Marathon,
-        where I raised £1,200 for Mind. I'm on the committee of my local scuba
-        diving club, so I'm usually either well above or well below sea level.
+        At the moment I'm helping replace a twenty-year-old platform with
+        something we can keep growing into. It's slow, careful work, and most of
+        it is reading what's already there before changing any of it.
       </p>
       <p>
-        When I'm not doing either, I'm normally deep in a book, automating
-        something that probably didn't need automating, or making a hot
-        chocolate.
+        I live in Chiswick. I run, including a night marathon in Bilbao for Mind
+        that I'm still mildly surprised I finished, and I help run my local
+        scuba diving club, so I'm usually either a little above or a little
+        below sea level.
       </p>
-      <p>I use this site to write up the things I learn along the way.</p>
+      <p>
+        Otherwise you'll find me with a book, a hot chocolate, or halfway
+        through automating something that didn't really need automating.
+      </p>
+      <p>
+        I write things up here mostly so I remember them. If it saves you an
+        afternoon, even better.
+      </p>
     </section>
   );
 };

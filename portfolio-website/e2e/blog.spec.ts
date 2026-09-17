@@ -6,18 +6,18 @@ test.describe("blog post", () => {
     await goToHome(page);
 
     await page
-      .getByRole("heading", { name: "Using Cursor close to the code" })
+      .getByRole("heading", { name: "The danger is not the film" })
       .click();
 
     await expect(
-      page.getByRole("heading", { name: "Using Cursor Close to the Code" }),
+      page.getByRole("heading", { name: "The Danger Is Not the Film" }),
     ).toBeVisible();
     await expect(
-      page.getByText("10 September 2026", { exact: true }),
+      page.getByText("17 September 2026", { exact: true }),
     ).toBeVisible();
     await expect(
       page.getByRole("img", {
-        name: "A cursor-shaped lamp beside a laptop and a developer's hand",
+        name: "A desk lamp and a distant city joined by a thin amber line",
       }),
     ).toBeVisible();
 

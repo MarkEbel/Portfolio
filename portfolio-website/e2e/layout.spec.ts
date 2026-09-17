@@ -114,13 +114,13 @@ test.describe("responsive layout", () => {
     {
       name: "card",
       path: "/Portfolio/blogs",
-      title: "Using Cursor close to the code",
+      title: "The danger is not the film",
       column: ".content-card__body",
     },
     {
       name: "post",
-      path: "/Portfolio/blogs/using-cursor-locally",
-      title: "Using Cursor Close to the Code",
+      path: "/Portfolio/blogs/ai-dangers",
+      title: "The Danger Is Not the Film",
       column: ".blogPost",
     },
   ]) {
@@ -133,7 +133,7 @@ test.describe("responsive layout", () => {
       const columnBox = await boxOf(page.locator(column).first());
       const headingBox = await boxOf(heading);
       const dateBox = await boxOf(
-        page.getByText("10 September 2026", { exact: true }),
+        page.getByText("17 September 2026", { exact: true }),
       );
 
       // Below the title and copy, flush to the reading column's right edge,

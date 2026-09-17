@@ -55,6 +55,16 @@ const ProgrammingStyleAi = () => (
       because plausibility is no longer evidence of anything.
     </p>
     <p>
+      There is a limit, and we cross it often. Arguing about whether a helper
+      should be extracted, or whether the names are elegant enough, can turn
+      into grating cheese on the "correct" edge of the grater when it is all
+      going to be mixed together anyway. We talk as if we were artists. We are
+      not. We are engineers. The cheese still has to feed people, and the code
+      still has to ship, run and be changed by somebody else. Style that reduces
+      the cost of the next change is engineering. Style that only satisfies the
+      person writing it is garnish.
+    </p>
+    <p>
       Consistency is the quiet casualty. A codebase develops local habits for
       good reasons, and a model trained on everyone else's code will reach for
       the most common idiom instead of yours. Accept enough of those and the

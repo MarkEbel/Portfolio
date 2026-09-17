@@ -18,10 +18,10 @@ test.describe("home page", () => {
       page.getByRole("heading", { name: "This site" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Using Cursor close to the code" }),
+      page.getByRole("heading", { name: "The danger is not the film" }),
     ).toBeVisible();
     await expect(
-      page.getByText("10 September 2026", { exact: true }),
+      page.getByText("17 September 2026", { exact: true }),
     ).toBeVisible();
   });
 

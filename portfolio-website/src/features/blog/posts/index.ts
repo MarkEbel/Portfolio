@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import AiDangers from "./AiDangers";
 import ArgoRollouts from "./ArgoRollouts";
 import ConventionalCommits from "./ConventionalCommits";
 import DeveloperAudits from "./DeveloperAudits";
@@ -24,6 +25,17 @@ export interface BlogPost {
 }
 
 export const blogs: BlogPost[] = [
+  {
+    slug: "ai-dangers",
+    cardTitle: "The danger is not the film",
+    title: "The Danger Is Not the Film",
+    publishedAt: "2026-09-17",
+    image: "./assets/thumbnails/blogs/ai-dangers.png",
+    description:
+      "The industry risks are deskilling, vendor concentration and forgotten ownership. The world-facing ones are cheaper lies, a missing first rung, and treating fluent output as a decision.",
+    href: "/Portfolio/blogs/ai-dangers",
+    Component: AiDangers,
+  },
   {
     slug: "using-cursor-locally",
     cardTitle: "Using Cursor close to the code",
@@ -75,7 +87,7 @@ export const blogs: BlogPost[] = [
     publishedAt: "2025-01-16",
     image: "./assets/thumbnails/blogs/style-ai.png",
     description:
-      "I use AI to write code, then I delete a lot of it. The skill I care about now is whether I would sign the result without the chat history.",
+      "Taste still matters for the next change. Fussing over the exact edge of the grater, when it is all going to be mixed anyway, is us pretending to be artists.",
     href: "/Portfolio/blogs/programming-style-ai",
     Component: ProgrammingStyleAi,
   },

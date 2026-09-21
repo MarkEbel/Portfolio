@@ -10,3 +10,11 @@ updates:
       npm-dependencies:
         patterns:
           - "*"
+    ignore:
+      # TypeScript 7.0 ships no programmatic API, so typescript-eslint caps its
+      # peer range at <6.1.0 and npm ci cannot resolve the tree. Support is
+      # blocked until TypeScript 7.1 exposes the new API.
+      # https://github.com/typescript-eslint/typescript-eslint/issues/10940
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major

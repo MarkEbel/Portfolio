@@ -30,6 +30,10 @@ GitHub Actions (`.github/workflows/ci.yml`) runs those jobs plus Chromium Playwr
 
 Dependabot pull requests (including major updates) enable GitHub auto-merge via `.github/workflows/dependabot-auto-merge.yml` (`gh pr merge --auto --squash`). GitHub merges only after required status checks on `main` pass. This matches [Automating Dependabot with GitHub Actions](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/automate-dependabot-with-actions). Do not require pull request reviews on `main` unless you also auto-approve, or Dependabot will wait forever.
 
+## TypeScript version ceiling
+
+Keep `typescript` on 6.x. TypeScript 7.0 is the native port and ships no programmatic API, so `typescript-eslint` caps its peer range at `typescript@">=4.8.4 <6.1.0"` and `npm ci` fails to resolve the tree — which breaks `quality`, `e2e`, and `deploy` at the install step. `.github/dependabot.yml` therefore ignores TypeScript major updates. Lift the ceiling only once `typescript-eslint` declares support for TypeScript 7.1's new API ([tracking issue](https://github.com/typescript-eslint/typescript-eslint/issues/10940)). Do not work around this with `--legacy-peer-deps` or `overrides`; ESLint then crashes at runtime on missing compiler APIs.
+
 ## Cursor rules
 
 When a chat agrees a convention for this repository, add or update a focused `.mdc` file under `.cursor/rules/` instead of only mentioning it in the conversation.

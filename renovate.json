@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["npm"],
+  "schedule": ["before 6am on monday"],
+  "prConcurrentLimit": 5,
+  "automerge": true,
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
+  "platformAutomerge": false,
+  "packageRules": [
+    {
+      "description": "Group all npm updates into one PR",
+      "matchManagers": ["npm"],
+      "groupName": "npm dependencies"
+    },
+    {
+      "description": "TypeScript 7.0 ships no programmatic API, so typescript-eslint caps its peer range at <6.1.0 and npm ci cannot resolve the tree. Support is blocked until TypeScript 7.1 exposes the new API. https://github.com/typescript-eslint/typescript-eslint/issues/10940",
+      "matchPackageNames": ["typescript"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ]
+}

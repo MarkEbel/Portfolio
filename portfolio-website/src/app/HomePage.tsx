@@ -28,16 +28,6 @@ const HomePage = () => (
       </Link>
     </section>
 
-    <section className="home-preview" aria-labelledby="latest-project">
-      <h2 id="latest-project" className="home-preview__eyebrow">
-        Latest project
-      </h2>
-      <ProjectsSection limit={1} />
-      <Link className="home-preview__link" to="/Portfolio/projects">
-        See all projects
-      </Link>
-    </section>
-
     <section className="home-preview" aria-labelledby="latest-blog">
       <h2 id="latest-blog" className="home-preview__eyebrow">
         Latest blog
@@ -45,6 +35,16 @@ const HomePage = () => (
       <BlogSection limit={1} />
       <Link className="home-preview__link" to="/Portfolio/blogs">
         See all blogs
+      </Link>
+    </section>
+
+    <section className="home-preview" aria-labelledby="latest-project">
+      <h2 id="latest-project" className="home-preview__eyebrow">
+        Latest project
+      </h2>
+      <ProjectsSection limit={1} />
+      <Link className="home-preview__link" to="/Portfolio/projects">
+        See all projects
       </Link>
     </section>
   </PageLayout>

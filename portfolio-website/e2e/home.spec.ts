@@ -8,11 +8,15 @@ test.describe("home page", () => {
     await goToHome(page);
 
     await expect(
-      page.getByRole("heading", { name: "Full Stack Engineer" }),
+      page
+        .locator(".sidebar")
+        .getByRole("heading", { name: "Software Engineer", exact: true }),
     ).toBeVisible();
     await expect(page.getByLabel("about me")).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Software Engineer" }),
+      page
+        .locator(".TimelineItem")
+        .getByRole("heading", { name: "Software Engineer", exact: true }),
     ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "This site" }),
@@ -46,7 +50,10 @@ test.describe("home page", () => {
     await page.goto("/Portfolio/experience");
 
     await expect(
-      page.getByRole("heading", { name: "Software Engineer", exact: true }),
+      page
+        .locator(".TimelineItem")
+        .first()
+        .getByRole("heading", { name: "Software Engineer", exact: true }),
     ).toBeVisible();
 
     for (const role of [
@@ -56,6 +63,15 @@ test.describe("home page", () => {
     ]) {
       await expect(page.getByText(role, { exact: true })).toBeVisible();
     }
+  });
+
+  test("expands the university experience", async ({ page }) => {
+    await page.goto("/Portfolio/experience");
+
+    await expect(
+      page.getByText(/analyse and interpret complex datasets/),
+    ).toBeVisible();
+    await expect(page.getByText(/Java and web technologies/)).toBeVisible();
   });
 
   test("jobs open the organisation site", async ({ page }) => {
@@ -153,6 +169,14 @@ test.describe("home page", () => {
     await expect(
       page.getByRole("link", { name: "See all blogs" }),
     ).toHaveAttribute("href", "/Portfolio/blogs");
+
+    const blogY = await page
+      .getByRole("heading", { name: "Latest blog" })
+      .evaluate((heading) => heading.getBoundingClientRect().y);
+    const projectY = await page
+      .getByRole("heading", { name: "Latest project" })
+      .evaluate((heading) => heading.getBoundingClientRect().y);
+    expect(blogY).toBeLessThan(projectY);
   });
 
   test("opens full collections from navigation", async ({ page }) => {

@@ -63,7 +63,7 @@ const experienceItems = [
     hyperlinkTitle: "https://www.exeter.ac.uk/",
     date: "2021 - 2022",
     description:
-      "Machine learning, big data analytics and AI-driven decision-making, with research on predicting athletic performance.",
+      "My studies focused on machine learning, big data analytics and AI-driven decision-making, equipping me to analyse and interpret complex datasets. I conducted research into predicting athletic performance and applying AI in sport.",
     skills: [
       "AI",
       "Data Science",
@@ -79,7 +79,7 @@ const experienceItems = [
     hyperlinkTitle: "https://www.aston.ac.uk/",
     date: "2018 - 2021",
     description:
-      "Programming, algorithms and software engineering, where my interest in system design started.",
+      "I built a strong foundation in programming, algorithms and software engineering. I worked with technologies including Java and web technologies, and developed a keen interest in problem-solving and system design.",
     skills: ["Problem solving", "Software design", "Java"],
   },
 ];

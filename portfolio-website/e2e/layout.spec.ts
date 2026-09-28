@@ -93,7 +93,10 @@ test.describe("responsive layout", () => {
     await page.goto("/Portfolio/experience");
 
     const titleBox = await boxOf(
-      page.getByRole("heading", { name: "Software Engineer", exact: true }),
+      page
+        .locator(".TimelineItem")
+        .first()
+        .getByRole("heading", { name: "Software Engineer", exact: true }),
     );
     const roleBox = await boxOf(
       page.getByText("Software Engineer Level 3", { exact: true }),

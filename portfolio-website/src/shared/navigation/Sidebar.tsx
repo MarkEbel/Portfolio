@@ -18,7 +18,7 @@ const Sidebar = ({ isHome = false }: SidebarProps) => {
           Mark Ebel
         </Link>
       )}
-      <h3>Full Stack Engineer</h3>
+      <h3>Software Engineer</h3>
 
       <Navbar />
 

@@ -22,7 +22,7 @@ const HomePage = () => (
       <h2 id="latest-experience" className="home-preview__eyebrow">
         Latest experience
       </h2>
-      <ExperienceSection limit={1} />
+      <ExperienceSection limit={1} summary />
       <Link className="home-preview__link" to="/Portfolio/experience">
         See full experience
       </Link>

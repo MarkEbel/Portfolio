@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SkillModal from "./SkillModal";
 import "./TimelineItem.css";
 
@@ -18,6 +19,7 @@ interface TimelineItemProps {
   highlights?: string[];
   skills: string[];
   skillDescriptions: Record<string, string>;
+  summary?: boolean;
 }
 
 const TimelineItem = ({
@@ -30,21 +32,18 @@ const TimelineItem = ({
   hyperlinkTitle,
   skills,
   skillDescriptions,
+  summary = false,
 }: TimelineItemProps) => {
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
-  return (
-    <section className="TimelineItem">
+  const details = (
+    <>
       <div className="timeline-item-header">
         <h2>{title}</h2>
         <p className="timeline-item-date">{date}</p>
       </div>
-      <h3>
-        <a href={hyperlinkTitle} target="_blank" rel="noopener noreferrer">
-          {company}
-        </a>
-      </h3>
-      {roles && (
+      <h3>{company}</h3>
+      {!summary && roles && (
         <ul className="timeline-item-roles">
           {roles.map((role) => (
             <li key={role.title}>
@@ -55,24 +54,46 @@ const TimelineItem = ({
         </ul>
       )}
       <p className="timeline-item-description">{description}</p>
-      {highlights && (
+      {!summary && highlights && (
         <ul className="timeline-item-highlights">
           {highlights.map((highlight) => (
             <li key={highlight}>{highlight}</li>
           ))}
         </ul>
       )}
-      <div className="skills-container">
-        {skills.map((skill) => (
-          <span
-            key={skill}
-            className="skill-bubble"
-            onClick={() => setSelectedSkill(skill)}
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
+    </>
+  );
+
+  return (
+    <section className="TimelineItem">
+      {summary ? (
+        <Link className="timeline-item__link" to="/Portfolio/experience">
+          {details}
+        </Link>
+      ) : (
+        <a
+          className="timeline-item__link"
+          href={hyperlinkTitle}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {details}
+        </a>
+      )}
+      {/* Chips open a description, so they cannot sit inside the job link. */}
+      {!summary && (
+        <div className="skills-container">
+          {skills.map((skill) => (
+            <span
+              key={skill}
+              className="skill-bubble"
+              onClick={() => setSelectedSkill(skill)}
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      )}
 
       {selectedSkill && (
         <SkillModal

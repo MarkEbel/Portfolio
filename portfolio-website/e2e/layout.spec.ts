@@ -89,25 +89,24 @@ test.describe("responsive layout", () => {
     expect(imageBox.width / imageBox.height).toBeCloseTo(16 / 9, 1);
   });
 
-  test("promotion history forms a compact right-side block", async ({
-    page,
-  }) => {
+  test("promotion titles line up with the job title", async ({ page }) => {
     await page.goto("/Portfolio/experience");
 
+    const titleBox = await boxOf(
+      page.getByRole("heading", { name: "Software Engineer", exact: true }),
+    );
+    const roleBox = await boxOf(
+      page.getByText("Software Engineer Level 3", { exact: true }),
+    );
     const itemBox = await boxOf(page.locator(".TimelineItem").first());
-    const rolesBox = await boxOf(page.locator(".timeline-item-roles").first());
-    const width = page.viewportSize()?.width ?? 0;
+    const dateBox = await boxOf(
+      page.locator(".timeline-item-roles time").first(),
+    );
 
+    expect(Math.abs(roleBox.x - titleBox.x)).toBeLessThan(2);
     expect(
-      Math.abs(itemBox.x + itemBox.width - (rolesBox.x + rolesBox.width)),
+      Math.abs(itemBox.x + itemBox.width - (dateBox.x + dateBox.width)),
     ).toBeLessThan(2);
-
-    if (width > 900) {
-      expect(rolesBox.x).toBeGreaterThan(itemBox.x);
-      expect(rolesBox.width).toBeLessThan(itemBox.width);
-    } else {
-      expect(Math.abs(rolesBox.x - itemBox.x)).toBeLessThan(2);
-    }
   });
 
   for (const { name, path, title, column } of [

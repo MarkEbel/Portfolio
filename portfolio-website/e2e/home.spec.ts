@@ -25,8 +25,25 @@ test.describe("home page", () => {
     ).toBeVisible();
   });
 
-  test("shows the promotion progression", async ({ page }) => {
+  test("latest experience is a summary that opens the full page", async ({
+    page,
+  }) => {
     await goToHome(page);
+
+    const preview = page.getByRole("link", { name: /Software Engineer/ });
+    await expect(preview).toHaveAttribute("href", "/Portfolio/experience");
+    await expect(page.getByText("Software Engineer Level 3")).toHaveCount(0);
+    await expect(page.getByText("I'm the technical lead")).toHaveCount(0);
+
+    await preview.click();
+    await expect(
+      page.getByRole("heading", { name: "Experience", exact: true }),
+    ).toBeVisible();
+    await expect(page.getByText("Software Engineer Level 3")).toBeVisible();
+  });
+
+  test("shows the promotion progression", async ({ page }) => {
+    await page.goto("/Portfolio/experience");
 
     await expect(
       page.getByRole("heading", { name: "Software Engineer", exact: true }),
@@ -39,6 +56,44 @@ test.describe("home page", () => {
     ]) {
       await expect(page.getByText(role, { exact: true })).toBeVisible();
     }
+  });
+
+  test("jobs open the organisation site", async ({ page }) => {
+    await page.goto("/Portfolio/experience");
+
+    const jobs = [
+      [/Content Guru/, "https://www.contentguru.com/en-gb/about-us/"],
+      [/University of Exeter/, "https://www.exeter.ac.uk/"],
+      [/Aston University/, "https://www.aston.ac.uk/"],
+    ] as const;
+
+    for (const [name, href] of jobs) {
+      const link = page.getByRole("link", { name });
+      await expect(link).toHaveAttribute("href", href);
+      await expect(link).toHaveAttribute("target", "_blank");
+    }
+  });
+
+  test("linked pages open at the top", async ({ page }) => {
+    await goToHome(page);
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
+
+    await page.getByRole("link", { name: "See all blogs" }).click();
+    await expect(
+      page.getByRole("heading", { name: "Blogs", exact: true }),
+    ).toBeVisible();
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
+    await page
+      .getByRole("heading", { name: "The danger is not the film" })
+      .click();
+    await expect(
+      page.getByRole("heading", { name: "The Danger Is Not the Film" }),
+    ).toBeVisible();
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
   });
 
   test("shows what I am up to now", async ({ page }) => {

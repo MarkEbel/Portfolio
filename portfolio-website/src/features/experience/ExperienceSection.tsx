@@ -86,13 +86,21 @@ const experienceItems = [
 
 interface ExperienceSectionProps {
   limit?: number;
+  summary?: boolean;
 }
 
-const ExperienceSection = ({ limit }: ExperienceSectionProps) => (
+const ExperienceSection = ({
+  limit,
+  summary = false,
+}: ExperienceSectionProps) => (
   <>
     {experienceItems.slice(0, limit).map(({ id, ...item }) => (
       <Subsection id={id} key={id}>
-        <TimelineItem {...item} skillDescriptions={skillDescriptions} />
+        <TimelineItem
+          {...item}
+          summary={summary}
+          skillDescriptions={skillDescriptions}
+        />
       </Subsection>
     ))}
   </>
